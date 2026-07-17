@@ -5,6 +5,8 @@ import faiss
 import ollama
 from sentence_transformers import SentenceTransformer
 
+from evidence_aggregation import aggregate_evidence
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 INDEX_FILE = os.path.join(
@@ -42,20 +44,18 @@ def retrieve_context(query, embedding_model):
     ).astype("float32")
 
     distances, indices = index.search(query_embedding, TOP_K)
+    evidence_items = aggregate_evidence(chunks, distances, indices)
 
-    context = ""
-
-    for idx in indices[0]:
-
-        if idx == -1:
-            continue
-
-        chunk = chunks[idx]
-
-        context += (
-            f"\n[Source: {chunk['source_document']}]\n"
-            f"{chunk['text']}\n"
+    context = "".join(
+        (
+            f"\n[Source: {item['source_document']} | "
+            f"Category: {item['document_category']} | "
+            f"Authority: {item['authority_score']:.2f} | "
+            f"Similarity: {item['similarity_score']:.4f}]\n"
+            f"{item['text']}\n"
         )
+        for item in evidence_items
+    )
 
     return context
 

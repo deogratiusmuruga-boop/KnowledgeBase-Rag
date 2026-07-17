@@ -1,3 +1,4 @@
+import argparse
 import os
 import re
 
@@ -41,24 +42,32 @@ def clean_text(text):
     return text
 
 
-def main():
+def main(input_file=None):
 
     print("Searching for extracted text files...\n")
 
     if not os.path.isdir(INPUT_FOLDER):
         raise FileNotFoundError(f"Extracted text folder not found: {INPUT_FOLDER}")
 
+    if input_file:
+        input_file = os.path.abspath(input_file)
+        if not os.path.isfile(input_file) or not input_file.lower().endswith(".txt"):
+            raise ValueError(f"Input must be an existing text file: {input_file}")
+        input_paths = [input_file]
+    else:
+        input_paths = [
+            os.path.join(INPUT_FOLDER, file)
+            for file in sorted(os.listdir(INPUT_FOLDER))
+            if file.endswith(".txt")
+        ]
+
     file_count = 0
     failed_count = 0
 
-    for file in sorted(os.listdir(INPUT_FOLDER)):
-
-        if not file.endswith(".txt"):
-            continue
+    for input_path in input_paths:
+        file = os.path.basename(input_path)
 
         file_count += 1
-
-        input_path = os.path.join(INPUT_FOLDER, file)
 
         print(f"Cleaning: {file}")
 
@@ -102,4 +111,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Clean extracted text files.")
+    parser.add_argument("input_file", nargs="?", help="Optional text file to process.")
+    args = parser.parse_args()
+    main(args.input_file)

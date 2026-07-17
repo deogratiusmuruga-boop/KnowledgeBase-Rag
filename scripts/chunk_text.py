@@ -1,3 +1,4 @@
+import argparse
 import os
 import json
 
@@ -59,25 +60,33 @@ def chunk_text(text, source_document, chunk_size=500, overlap=100):
     return chunks
 
 
-def main():
+def main(input_file=None):
 
     print("Searching for cleaned text files...\n")
 
     if not os.path.isdir(INPUT_FOLDER):
         raise FileNotFoundError(f"Cleaned text folder not found: {INPUT_FOLDER}")
 
+    if input_file:
+        input_file = os.path.abspath(input_file)
+        if not os.path.isfile(input_file) or not input_file.endswith("_cleaned.txt"):
+            raise ValueError(f"Input must be an existing '*_cleaned.txt' file: {input_file}")
+        input_paths = [input_file]
+    else:
+        input_paths = [
+            os.path.join(INPUT_FOLDER, file)
+            for file in sorted(os.listdir(INPUT_FOLDER))
+            if file.endswith("_cleaned.txt")
+        ]
+
     total_documents = 0
     total_chunks = 0
     failed_count = 0
 
-    for file in sorted(os.listdir(INPUT_FOLDER)):
-
-        if not file.endswith("_cleaned.txt"):
-            continue
+    for input_path in input_paths:
+        file = os.path.basename(input_path)
 
         total_documents += 1
-
-        input_path = os.path.join(INPUT_FOLDER, file)
 
         print(f"Chunking: {file}")
 
@@ -135,4 +144,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Split cleaned text files into chunks.")
+    parser.add_argument("input_file", nargs="?", help="Optional cleaned text file to process.")
+    args = parser.parse_args()
+    main(args.input_file)

@@ -1,3 +1,4 @@
+import argparse
 import os
 import fitz  # PyMuPDF
 
@@ -27,64 +28,69 @@ def extract_pdf_text(pdf_path):
         return "".join(page.get_text() for page in document)
 
 
-def main():
+def main(input_file=None):
 
     print("Searching for PDF files...\n")
 
     if not os.path.isdir(RAW_DOCUMENTS):
         raise FileNotFoundError(f"Raw document folder not found: {RAW_DOCUMENTS}")
 
+    if input_file:
+        input_file = os.path.abspath(input_file)
+        if not os.path.isfile(input_file) or not input_file.lower().endswith(".pdf"):
+            raise ValueError(f"Input must be an existing PDF file: {input_file}")
+        pdf_paths = [input_file]
+    else:
+        pdf_paths = []
+        for root, directories, files in os.walk(RAW_DOCUMENTS):
+            directories.sort()
+            pdf_paths.extend(
+                os.path.join(root, file)
+                for file in sorted(files)
+                if file.lower().endswith(".pdf")
+            )
+
     pdf_count = 0
     failed_count = 0
     output_sources = {}
 
-    for root, directories, files in os.walk(RAW_DOCUMENTS):
-        directories.sort()
+    for pdf_path in pdf_paths:
+        file = os.path.basename(pdf_path)
+        pdf_count += 1
 
-        for file in sorted(files):
+        filename = os.path.splitext(file)[0] + ".txt"
+        previous_source = output_sources.get(filename)
+        if previous_source:
+            raise ValueError(
+                f"PDF filename collision: {previous_source} and {pdf_path} both "
+                f"would write {filename}. Rename one of the source PDFs."
+            )
+        output_sources[filename] = pdf_path
 
-            if not file.lower().endswith(".pdf"):
-                continue
+        print(f"Processing: {file}")
 
-            pdf_count += 1
+        try:
+            text = extract_pdf_text(pdf_path)
 
-            pdf_path = os.path.join(root, file)
+            output_path = os.path.join(
+                OUTPUT_FOLDER,
+                filename
+            )
 
-            filename = os.path.splitext(file)[0] + ".txt"
-            previous_source = output_sources.get(filename)
-            if previous_source:
-                raise ValueError(
-                    f"PDF filename collision: {previous_source} and {pdf_path} both "
-                    f"would write {filename}. Rename one of the source PDFs."
-                )
-            output_sources[filename] = pdf_path
+            with open(
+                output_path,
+                "w",
+                encoding="utf-8"
+            ) as f:
+                f.write(text)
 
-            print(f"Processing: {file}")
+            print(f"   Characters: {len(text)}")
+            print(f"   Saved: {filename}\n")
 
-            try:
-
-                text = extract_pdf_text(pdf_path)
-
-                output_path = os.path.join(
-                    OUTPUT_FOLDER,
-                    filename
-                )
-
-                with open(
-                    output_path,
-                    "w",
-                    encoding="utf-8"
-                ) as f:
-                    f.write(text)
-
-                print(f"   Characters: {len(text)}")
-                print(f"   Saved: {filename}\n")
-
-            except Exception as e:
-
-                failed_count += 1
-                print(f"   Failed: {file}")
-                print(f"   Error: {e}\n")
+        except Exception as e:
+            failed_count += 1
+            print(f"   Failed: {file}")
+            print(f"   Error: {e}\n")
 
     print("=" * 50)
     print(f"Finished processing {pdf_count} PDF file(s).")
@@ -95,4 +101,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Extract text from PDF documents.")
+    parser.add_argument("input_file", nargs="?", help="Optional PDF to process.")
+    args = parser.parse_args()
+    main(args.input_file)
