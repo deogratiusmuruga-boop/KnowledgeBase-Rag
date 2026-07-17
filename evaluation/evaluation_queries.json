@@ -1,0 +1,27 @@
+[
+  {
+    "id": "medication_safety",
+    "query": "What are safe ways for older adults to take medicine?",
+    "expected_source": "tips-take-medicines-safely.pdf"
+  },
+  {
+    "id": "caregiver_support",
+    "query": "How can family members help care for an older adult?",
+    "expected_source": "nia_caregivers_handbook.pdf"
+  },
+  {
+    "id": "memory_loss",
+    "query": "What are common signs of memory loss in older adults?",
+    "expected_source": "understanding-memory-loss.pdf"
+  },
+  {
+    "id": "older_adult_exercise",
+    "query": "What kinds of exercise are recommended for older adults?",
+    "expected_source": "exercise-and-older-adults-nia.pdf"
+  },
+  {
+    "id": "healthy_diet",
+    "query": "What does a healthy eating pattern include?",
+    "expected_source": "Dietary_Guidelines_for_Americans_2020-2025.pdf"
+  }
+]

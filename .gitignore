@@ -1,0 +1,19 @@
+# Generated data
+data/extracted_text/
+data/cleaned_text/
+data/chunks/
+data/vector_db/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+
+# VS Code
+.vscode/
+
+# Environment
+.env
