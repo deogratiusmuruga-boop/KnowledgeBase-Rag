@@ -6,6 +6,9 @@ import ollama
 from sentence_transformers import SentenceTransformer
 
 from evidence_aggregation import aggregate_evidence
+from reliability_evaluation import evaluate_reliability
+from adaptive_decision_controller import make_reliability_decision
+from build_grounded_prompt import build_grounded_prompt
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,75 +31,137 @@ LLM_MODEL = "llama3.2:latest"
 
 TOP_K = 5
 
+
 def retrieve_context(query, embedding_model):
 
+    # Load FAISS index
     index = faiss.read_index(INDEX_FILE)
 
+    # Load stored chunks
     with open(EMBEDDING_FILE, "rb") as f:
         data = pickle.load(f)
 
     chunks = data["chunks"]
 
+    # Encode query
     query_embedding = embedding_model.encode(
         [query],
         convert_to_numpy=True,
         normalize_embeddings=True
     ).astype("float32")
 
-    distances, indices = index.search(query_embedding, TOP_K)
-    evidence_items = aggregate_evidence(chunks, distances, indices)
-
-    context = "".join(
-        (
-            f"\n[Source: {item['source_document']} | "
-            f"Category: {item['document_category']} | "
-            f"Authority: {item['authority_score']:.2f} | "
-            f"Similarity: {item['similarity_score']:.4f}]\n"
-            f"{item['text']}\n"
-        )
-        for item in evidence_items
+    # Search
+    distances, indices = index.search(
+        query_embedding,
+        TOP_K
     )
 
-    return context
+    # Aggregate retrieved evidence
+    evidence_items = aggregate_evidence(
+        chunks,
+        distances,
+        indices
+    )
+
+    # Evaluate retrieval quality
+    reliability = evaluate_reliability(
+        query,
+        evidence_items
+    )
+
+    # Adaptive decision
+    decision = make_reliability_decision(
+        reliability["overall_reliability"]
+    )
+
+    return evidence_items, reliability, decision
+
 
 def generate_answer(query, embedding_model):
 
-    context = retrieve_context(query, embedding_model)
+    evidence_items, reliability, decision = retrieve_context(
+        query,
+        embedding_model
+    )
 
-    prompt = f"""
-You are an AI assistant for elderly care.
+    print("\n" + "=" * 60)
+    print("RETRIEVAL REPORT")
+    print("=" * 60)
+    print(f"Authority             : {reliability['authority']:.2f}")
+    print(f"Relevance             : {reliability['relevance']:.2f}")
+    print(f"Support               : {reliability['support']:.2f}")
+    print(f"Coverage              : {reliability['coverage']:.2f}")
+    print(f"Consistency           : {reliability['consistency']:.2f}")
+    print(f"Overall Reliability   : {reliability['overall_reliability']:.2f}")
+    print(f"Decision              : {decision['decision']}")
+    print(f"Reason                : {decision['reason']}")
+    print("=" * 60)
 
-Answer the user's question ONLY using the information provided in the context below.
+    # --------------------------------------------------
+    # Additional Safety Check
+    # --------------------------------------------------
 
-If the answer is not contained in the context, reply:
+    if reliability["support"] < 0.50:
 
-"I couldn't find that information in the knowledge base."
+        return (
+            "I couldn't find reliable information about that topic "
+            "in the knowledge base."
+        )
 
-Keep the answer:
-- Clear
-- Friendly
-- Easy for older adults to understand
+    # --------------------------------------------------
+    # Adaptive Decision Controller
+    # --------------------------------------------------
 
-==========================
-CONTEXT
-==========================
+    if decision["decision"] == "REJECT":
 
-{context}
+        return (
+            "The retrieved information is not reliable enough.\n\n"
+            "I couldn't find reliable information in the knowledge base."
+        )
 
-==========================
-QUESTION
-==========================
+    elif decision["decision"] == "RE-RETRIEVE":
 
-{query}
+        return (
+            "The retrieved evidence is not reliable enough.\n\n"
+            "Please try rephrasing your question or ask something more specific."
+        )
 
-==========================
-ANSWER
-==========================
-"""
+    elif decision["decision"] == "REFINE":
+
+        print("\nModerate reliability detected.")
+        print("Generating answer from retrieved evidence...\n")
+
+    # ACCEPT continues automatically
+
+    # --------------------------------------------------
+    # Build Evidence-Grounded Prompt
+    # --------------------------------------------------
+
+    prompt = build_grounded_prompt(
+        query=query,
+        evidence_items=evidence_items,
+        reliability=reliability,
+        decision=decision
+    )
+
+    # --------------------------------------------------
+    # Call LLM
+    # --------------------------------------------------
 
     response = ollama.chat(
         model=LLM_MODEL,
         messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are a trustworthy elderly-care assistant.\n"
+                    "Answer ONLY from the retrieved evidence.\n"
+                    "Never use outside knowledge.\n"
+                    "Never invent medical facts.\n"
+                    "If the evidence does not answer the question, reply exactly:\n"
+                    "\"I couldn't find that information in the knowledge base.\""
+                )
+            },
             {
                 "role": "user",
                 "content": prompt
@@ -106,6 +171,7 @@ ANSWER
 
     return response["message"]["content"]
 
+
 def main():
 
     print("=" * 60)
@@ -114,7 +180,10 @@ def main():
     print("=" * 60)
 
     print("Loading embedding model...")
-    embedding_model = SentenceTransformer(MODEL_NAME)
+
+    embedding_model = SentenceTransformer(
+        MODEL_NAME
+    )
 
     while True:
 
@@ -128,7 +197,10 @@ def main():
 
         print("\nGenerating answer...\n")
 
-        answer = generate_answer(query, embedding_model)
+        answer = generate_answer(
+            query,
+            embedding_model
+        )
 
         print("=" * 60)
         print("Answer")
@@ -138,4 +210,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -1,0 +1,14 @@
+{
+  "reliability_weights": {
+    "authority": 0.3,
+    "relevance": 0.3,
+    "support": 0.2,
+    "coverage": 0.1,
+    "consistency": 0.1
+  },
+  "decision_thresholds": {
+    "accept": 0.8,
+    "refine": 0.65,
+    "re_retrieve": 0.45
+  }
+}

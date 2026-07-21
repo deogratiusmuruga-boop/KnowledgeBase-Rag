@@ -30,10 +30,11 @@ def chunk_text(text, source_document, chunk_size=500, overlap=100):
     if chunk_size <= 0:
         raise ValueError("chunk_size must be greater than zero.")
     if overlap < 0 or overlap >= chunk_size:
-        raise ValueError("overlap must be greater than or equal to zero and less than chunk_size.")
+        raise ValueError(
+            "overlap must be greater than or equal to zero and less than chunk_size."
+        )
 
     words = text.split()
-
     chunks = []
 
     start = 0
@@ -42,7 +43,6 @@ def chunk_text(text, source_document, chunk_size=500, overlap=100):
     while start < len(words):
 
         end = start + chunk_size
-
         chunk_words = words[start:end]
 
         chunk = {
@@ -54,7 +54,6 @@ def chunk_text(text, source_document, chunk_size=500, overlap=100):
         chunks.append(chunk)
 
         chunk_id += 1
-
         start += chunk_size - overlap
 
     return chunks
@@ -65,12 +64,19 @@ def main(input_file=None):
     print("Searching for cleaned text files...\n")
 
     if not os.path.isdir(INPUT_FOLDER):
-        raise FileNotFoundError(f"Cleaned text folder not found: {INPUT_FOLDER}")
+        raise FileNotFoundError(
+            f"Cleaned text folder not found: {INPUT_FOLDER}"
+        )
 
     if input_file:
         input_file = os.path.abspath(input_file)
-        if not os.path.isfile(input_file) or not input_file.endswith("_cleaned.txt"):
-            raise ValueError(f"Input must be an existing '*_cleaned.txt' file: {input_file}")
+        if (
+            not os.path.isfile(input_file)
+            or not input_file.endswith("_cleaned.txt")
+        ):
+            raise ValueError(
+                f"Input must be an existing *_cleaned.txt file: {input_file}"
+            )
         input_paths = [input_file]
     else:
         input_paths = [
@@ -83,9 +89,12 @@ def main(input_file=None):
     total_chunks = 0
     failed_count = 0
 
-    for input_path in input_paths:
-        file = os.path.basename(input_path)
+    # NEW: master list containing chunks from ALL documents
+    all_chunks = []
 
+    for input_path in input_paths:
+
+        file = os.path.basename(input_path)
         total_documents += 1
 
         print(f"Chunking: {file}")
@@ -95,7 +104,9 @@ def main(input_file=None):
             with open(input_path, "r", encoding="utf-8") as f:
                 text = f.read()
 
-            source_document = file.removesuffix("_cleaned.txt") + ".pdf"
+            source_document = (
+                file.removesuffix("_cleaned.txt") + ".pdf"
+            )
 
             chunks = chunk_text(
                 text,
@@ -104,24 +115,27 @@ def main(input_file=None):
                 OVERLAP
             )
 
-            output_name = file.removesuffix("_cleaned.txt") + "_chunks.json"
+            # Save individual chunk file
+            output_name = (
+                file.removesuffix("_cleaned.txt")
+                + "_chunks.json"
+            )
 
             output_path = os.path.join(
                 OUTPUT_FOLDER,
                 output_name
             )
 
-            with open(
-                output_path,
-                "w",
-                encoding="utf-8"
-            ) as f:
+            with open(output_path, "w", encoding="utf-8") as f:
                 json.dump(
                     chunks,
                     f,
                     indent=4,
                     ensure_ascii=False
                 )
+
+            # NEW: add this document's chunks to master list
+            all_chunks.extend(chunks)
 
             total_chunks += len(chunks)
 
@@ -134,17 +148,42 @@ def main(input_file=None):
             print(f"   Failed: {file}")
             print(f"   Error : {e}\n")
 
+    # NEW: save one combined knowledge base chunk file
+    master_output = os.path.join(
+        OUTPUT_FOLDER,
+        "knowledge_base_chunks.json"
+    )
+
+    with open(master_output, "w", encoding="utf-8") as f:
+        json.dump(
+            all_chunks,
+            f,
+            indent=4,
+            ensure_ascii=False
+        )
+
     print("=" * 60)
     print(f"Documents processed : {total_documents}")
     print(f"Total chunks created: {total_chunks}")
     print(f"Chunk files saved in: {OUTPUT_FOLDER}")
+    print(
+        f"Master knowledge base saved as: {master_output}"
+    )
 
     if failed_count:
-        raise RuntimeError(f"Failed to chunk {failed_count} document(s).")
+        raise RuntimeError(
+            f"Failed to chunk {failed_count} document(s)."
+        )
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Split cleaned text files into chunks.")
-    parser.add_argument("input_file", nargs="?", help="Optional cleaned text file to process.")
+    parser = argparse.ArgumentParser(
+        description="Split cleaned text files into chunks."
+    )
+    parser.add_argument(
+        "input_file",
+        nargs="?",
+        help="Optional cleaned text file to process."
+    )
     args = parser.parse_args()
     main(args.input_file)
