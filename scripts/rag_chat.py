@@ -1,141 +1,129 @@
 import os
-import pickle
 
-import faiss
 import ollama
 from sentence_transformers import SentenceTransformer
 
-from evidence_aggregation import aggregate_evidence
-from reliability_evaluation import evaluate_reliability
-from adaptive_decision_controller import make_reliability_decision
+from hybrid_retriever import hybrid_search
 from build_grounded_prompt import build_grounded_prompt
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-INDEX_FILE = os.path.join(
-    BASE_DIR,
-    "data",
-    "vector_db",
-    "knowledge_base.faiss"
-)
+# ============================================================
+# Configuration
+# ============================================================
 
-EMBEDDING_FILE = os.path.join(
-    BASE_DIR,
-    "data",
-    "vector_db",
-    "knowledge_base_embeddings.pkl"
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
 )
 
 MODEL_NAME = "BAAI/bge-base-en-v1.5"
+
 LLM_MODEL = "llama3.2:latest"
 
-TOP_K = 5
+
+# ============================================================
+# Convert Hybrid Results
+# into Evidence Format
+# expected by Prompt Builder
+# ============================================================
+
+def prepare_evidence(chunks):
+
+    evidence_items = []
+
+    for chunk in chunks:
+
+        evidence_items.append(
+            {
+                "source_document": chunk.get(
+                    "source_document",
+                    "Unknown"
+                ),
+
+                "document_category": chunk.get(
+                    "category",
+                    "Unknown"
+                ),
+
+                "authority_score": 1.0,
+
+                "similarity_score": chunk.get(
+                    "rerank_score",
+                    chunk.get(
+                        "dense_score",
+                        0.0
+                    )
+                ),
+
+                "text": chunk.get(
+                    "text",
+                    ""
+                )
+            }
+        )
+
+    return evidence_items
 
 
-def retrieve_context(query, embedding_model):
 
-    # Load FAISS index
-    index = faiss.read_index(INDEX_FILE)
+# ============================================================
+# Retrieval + Generation
+# ============================================================
 
-    # Load stored chunks
-    with open(EMBEDDING_FILE, "rb") as f:
-        data = pickle.load(f)
+def generate_answer(query):
 
-    chunks = data["chunks"]
 
-    # Encode query
-    query_embedding = embedding_model.encode(
-        [query],
-        convert_to_numpy=True,
-        normalize_embeddings=True
-    ).astype("float32")
+    print("\nRetrieving evidence...\n")
 
-    # Search
-    distances, indices = index.search(
-        query_embedding,
-        TOP_K
+
+    # -----------------------------------------
+    # Step 7:
+    # Hybrid Retrieval
+    # -----------------------------------------
+
+    retrieved_chunks = hybrid_search(
+        query
     )
 
-    # Aggregate retrieved evidence
-    evidence_items = aggregate_evidence(
-        chunks,
-        distances,
-        indices
-    )
 
-    # Evaluate retrieval quality
-    reliability = evaluate_reliability(
-        query,
-        evidence_items
-    )
-
-    # Adaptive decision
-    decision = make_reliability_decision(
-        reliability["overall_reliability"]
-    )
-
-    return evidence_items, reliability, decision
-
-
-def generate_answer(query, embedding_model):
-
-    evidence_items, reliability, decision = retrieve_context(
-        query,
-        embedding_model
-    )
-
-    print("\n" + "=" * 60)
-    print("RETRIEVAL REPORT")
-    print("=" * 60)
-    print(f"Authority             : {reliability['authority']:.2f}")
-    print(f"Relevance             : {reliability['relevance']:.2f}")
-    print(f"Support               : {reliability['support']:.2f}")
-    print(f"Coverage              : {reliability['coverage']:.2f}")
-    print(f"Consistency           : {reliability['consistency']:.2f}")
-    print(f"Overall Reliability   : {reliability['overall_reliability']:.2f}")
-    print(f"Decision              : {decision['decision']}")
-    print(f"Reason                : {decision['reason']}")
-    print("=" * 60)
-
-    # --------------------------------------------------
-    # Additional Safety Check
-    # --------------------------------------------------
-
-    if reliability["support"] < 0.50:
+    if not retrieved_chunks:
 
         return (
-            "I couldn't find reliable information about that topic "
+            "I couldn't find that information "
             "in the knowledge base."
         )
 
-    # --------------------------------------------------
-    # Adaptive Decision Controller
-    # --------------------------------------------------
 
-    if decision["decision"] == "REJECT":
+    # Convert to prompt format
 
-        return (
-            "The retrieved information is not reliable enough.\n\n"
-            "I couldn't find reliable information in the knowledge base."
-        )
+    evidence_items = prepare_evidence(
+        retrieved_chunks
+    )
 
-    elif decision["decision"] == "RE-RETRIEVE":
 
-        return (
-            "The retrieved evidence is not reliable enough.\n\n"
-            "Please try rephrasing your question or ask something more specific."
-        )
+    # Temporary reliability values
+    # Reliability will be integrated later
 
-    elif decision["decision"] == "REFINE":
+    reliability = {
+        "authority": 1.0,
+        "relevance": 1.0,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 1.0
+    }
 
-        print("\nModerate reliability detected.")
-        print("Generating answer from retrieved evidence...\n")
 
-    # ACCEPT continues automatically
+    decision = {
+        "decision": "ACCEPT"
+    }
 
-    # --------------------------------------------------
-    # Build Evidence-Grounded Prompt
-    # --------------------------------------------------
+
+
+    # -----------------------------------------
+    # Prompt Builder
+    # -----------------------------------------
 
     prompt = build_grounded_prompt(
         query=query,
@@ -144,69 +132,102 @@ def generate_answer(query, embedding_model):
         decision=decision
     )
 
-    # --------------------------------------------------
-    # Call LLM
-    # --------------------------------------------------
+
+    # -----------------------------------------
+    # LLM Generation
+    # -----------------------------------------
 
     response = ollama.chat(
+
         model=LLM_MODEL,
+
         messages=[
+
             {
                 "role": "system",
-                "content": (
-                    "You are a trustworthy elderly-care assistant.\n"
-                    "Answer ONLY from the retrieved evidence.\n"
-                    "Never use outside knowledge.\n"
-                    "Never invent medical facts.\n"
-                    "If the evidence does not answer the question, reply exactly:\n"
-                    "\"I couldn't find that information in the knowledge base.\""
-                )
+
+                "content":
+                """
+You are CareBuddy,
+an elderly-care assistant.
+
+Rules:
+
+- Answer ONLY from the provided evidence.
+- Do not use outside knowledge.
+- Do not invent medical facts.
+- If evidence is insufficient,
+say:
+
+I couldn't find that information in the knowledge base.
+
+Always include Sources at the end.
+"""
             },
+
+
             {
                 "role": "user",
+
                 "content": prompt
             }
+
         ]
     )
+
 
     return response["message"]["content"]
 
 
+
+# ============================================================
+# Main
+# ============================================================
+
 def main():
 
     print("=" * 60)
-    print("Elderly Care RAG Assistant")
+    print("CareBuddy Elderly Care Assistant")
     print("Type 'exit' to quit.")
     print("=" * 60)
 
-    print("Loading embedding model...")
-
-    embedding_model = SentenceTransformer(
-        MODEL_NAME
-    )
 
     while True:
 
-        query = input("\nQuestion: ").strip()
+
+        query = input(
+            "\nQuestion: "
+        ).strip()
+
 
         if query.lower() == "exit":
+
             break
 
+
         if not query:
+
             continue
 
-        print("\nGenerating answer...\n")
+
+        print(
+            "\nGenerating answer...\n"
+        )
+
 
         answer = generate_answer(
-            query,
-            embedding_model
+            query
         )
+
 
         print("=" * 60)
         print("Answer")
         print("=" * 60)
+
         print(answer)
 
 
+
 if __name__ == "__main__":
+
     main()
