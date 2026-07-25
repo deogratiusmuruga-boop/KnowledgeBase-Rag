@@ -1,6 +1,7 @@
 import os
 import json
 import pickle
+from collections import Counter
 
 from sentence_transformers import SentenceTransformer
 
@@ -31,6 +32,19 @@ MODEL_NAME = "BAAI/bge-base-en-v1.5"
 
 def main():
 
+    print("=" * 60)
+    print("Knowledge Base Embedding Generation")
+    print("=" * 60)
+
+    # ---------------------------------------------------------
+    # Check knowledge base
+    # ---------------------------------------------------------
+
+    if not os.path.exists(INPUT_FILE):
+        raise FileNotFoundError(
+            f"Knowledge base not found:\n{INPUT_FILE}"
+        )
+
     print("Loading embedding model...")
 
     model = SentenceTransformer(MODEL_NAME)
@@ -40,9 +54,29 @@ def main():
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         chunks = json.load(f)
 
-    texts = [chunk["text"] for chunk in chunks]
+    if len(chunks) == 0:
+        raise ValueError(
+            "knowledge_base_chunks.json contains no chunks."
+        )
 
-    print(f"Generating embeddings for {len(texts)} chunks...")
+    texts = [
+        chunk["text"]
+        for chunk in chunks
+    ]
+
+    category_counts = Counter(
+        chunk["category"]
+        for chunk in chunks
+    )
+
+    print(f"Total chunks found: {len(texts)}")
+
+    print("\nKnowledge Base Summary")
+
+    for category, count in sorted(category_counts.items()):
+        print(f"  {category:<25} {count}")
+
+    print("\nGenerating embeddings...")
 
     embeddings = model.encode(
         texts,
@@ -62,10 +96,19 @@ def main():
     print("\n" + "=" * 60)
     print("Embedding generation complete.")
     print("=" * 60)
-    print(f"Total chunks       : {len(chunks)}")
-    print(f"Embedding shape    : {embeddings.shape}")
-    print(f"Embedding model    : {MODEL_NAME}")
-    print(f"Saved embeddings   : {OUTPUT_FILE}")
+
+    print(f"Embedding model      : {MODEL_NAME}")
+    print(f"Total chunks         : {len(chunks)}")
+    print(f"Embedding dimension  : {embeddings.shape[1]}")
+    print(f"Embedding shape      : {embeddings.shape}")
+    print(f"Output file          : {OUTPUT_FILE}")
+
+    print("\nKnowledge Base Categories")
+
+    for category, count in sorted(category_counts.items()):
+        print(f"  {category:<25} {count}")
+
+    print("\nVector embeddings successfully generated.")
 
 
 if __name__ == "__main__":

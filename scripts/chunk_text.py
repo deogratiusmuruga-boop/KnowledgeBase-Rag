@@ -18,23 +18,70 @@ OUTPUT_FOLDER = os.path.join(
 
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-CHUNK_SIZE = 500
-OVERLAP = 100
+CHUNK_SIZE = 180
+OVERLAP = 40
+DOCUMENT_METADATA = {
+    "nia_caregivers_handbook.pdf": {
+        "document_id": "DOC0001",
+        "title": "NIA Caregivers Handbook",
+        "organization": "National Institute on Aging",
+        "last_updated": "Unknown"
+    },
+    "understanding-memory-loss.pdf": {
+        "document_id": "DOC0002",
+        "title": "Understanding Memory Loss",
+        "organization": "National Institute on Aging",
+        "last_updated": "Unknown"
+    },
+    "Dietary_Guidelines_for_Americans_2020-2025.pdf": {
+        "document_id": "DOC0003",
+        "title": "Dietary Guidelines for Americans 2020–2025",
+        "organization": "USDA",
+        "last_updated": "2020"
+    },
+    "exercise-and-older-adults-nia.pdf": {
+        "document_id": "DOC0004",
+        "title": "Exercise and Older Adults",
+        "organization": "National Institute on Aging",
+        "last_updated": "Unknown"
+    },
+    "tips-take-medicines-safely.pdf": {
+        "document_id": "DOC0005",
+        "title": "Tips to Take Medicines Safely",
+        "organization": "National Institute on Aging",
+        "last_updated": "Unknown"
+    },
+    "who_icope_handbook.pdf": {
+        "document_id": "DOC0006",
+        "title": "WHO ICOPE Handbook",
+        "organization": "World Health Organization",
+        "last_updated": "Unknown"
+    }
+}
 
 
-def chunk_text(text, source_document, chunk_size=500, overlap=100):
+def chunk_text(
+    text,
+    source_document,
+    category,
+    metadata,
+    chunk_size=180,
+    overlap=40
+):
     """
     Split text into overlapping word chunks.
     """
 
     if chunk_size <= 0:
         raise ValueError("chunk_size must be greater than zero.")
+
     if overlap < 0 or overlap >= chunk_size:
         raise ValueError(
             "overlap must be greater than or equal to zero and less than chunk_size."
         )
 
     words = text.split()
+
     chunks = []
 
     start = 0
@@ -47,7 +94,14 @@ def chunk_text(text, source_document, chunk_size=500, overlap=100):
 
         chunk = {
             "chunk_id": chunk_id,
+            "document_id": metadata["document_id"],
+            "title": metadata["title"],
+            "category": category,
+            "organization": metadata["organization"],
             "source_document": source_document,
+            "document_type": "pdf",
+            "language": "English",
+            "last_updated": metadata["last_updated"],
             "text": " ".join(chunk_words)
         }
 
@@ -69,7 +123,9 @@ def main(input_file=None):
         )
 
     if input_file:
+
         input_file = os.path.abspath(input_file)
+
         if (
             not os.path.isfile(input_file)
             or not input_file.endswith("_cleaned.txt")
@@ -77,24 +133,30 @@ def main(input_file=None):
             raise ValueError(
                 f"Input must be an existing *_cleaned.txt file: {input_file}"
             )
+
         input_paths = [input_file]
+
     else:
-        input_paths = [
-            os.path.join(INPUT_FOLDER, file)
-            for file in sorted(os.listdir(INPUT_FOLDER))
-            if file.endswith("_cleaned.txt")
-        ]
+
+        input_paths = []
+
+        for root, _, files in os.walk(INPUT_FOLDER):
+            for file in sorted(files):
+                if file.endswith("_cleaned.txt"):
+                    input_paths.append(
+                        os.path.join(root, file)
+                    )
 
     total_documents = 0
     total_chunks = 0
     failed_count = 0
 
-    # NEW: master list containing chunks from ALL documents
     all_chunks = []
 
     for input_path in input_paths:
 
         file = os.path.basename(input_path)
+
         total_documents += 1
 
         print(f"Chunking: {file}")
@@ -104,18 +166,30 @@ def main(input_file=None):
             with open(input_path, "r", encoding="utf-8") as f:
                 text = f.read()
 
-            source_document = (
-                file.removesuffix("_cleaned.txt") + ".pdf"
+            # Recover the original PDF filename
+            source_document = file.removesuffix("_cleaned.txt") + ".pdf"
+            metadata = DOCUMENT_METADATA.get(source_document)
+            if metadata is None:
+                raise ValueError(
+                    f"No metadata found for {source_document}"
+                )
+                
+            
+                
+
+            category = os.path.basename(
+                os.path.dirname(input_path)
             )
 
             chunks = chunk_text(
-                text,
-                source_document,
-                CHUNK_SIZE,
-                OVERLAP
+                text=text,
+                source_document=source_document,
+                category=category,
+                metadata=metadata,
+                chunk_size=CHUNK_SIZE,
+                overlap=OVERLAP
             )
 
-            # Save individual chunk file
             output_name = (
                 file.removesuffix("_cleaned.txt")
                 + "_chunks.json"
@@ -134,21 +208,21 @@ def main(input_file=None):
                     ensure_ascii=False
                 )
 
-            # NEW: add this document's chunks to master list
             all_chunks.extend(chunks)
 
             total_chunks += len(chunks)
 
-            print(f"   Chunks: {len(chunks)}")
-            print(f"   Saved : {output_name}\n")
+            print(f"   Category : {category}")
+            print(f"   Chunks   : {len(chunks)}")
+            print(f"   Saved    : {output_name}\n")
 
         except Exception as e:
 
             failed_count += 1
+
             print(f"   Failed: {file}")
             print(f"   Error : {e}\n")
 
-    # NEW: save one combined knowledge base chunk file
     master_output = os.path.join(
         OUTPUT_FOLDER,
         "knowledge_base_chunks.json"
@@ -166,9 +240,7 @@ def main(input_file=None):
     print(f"Documents processed : {total_documents}")
     print(f"Total chunks created: {total_chunks}")
     print(f"Chunk files saved in: {OUTPUT_FOLDER}")
-    print(
-        f"Master knowledge base saved as: {master_output}"
-    )
+    print(f"Master knowledge base saved as: {master_output}")
 
     if failed_count:
         raise RuntimeError(
@@ -177,13 +249,17 @@ def main(input_file=None):
 
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser(
         description="Split cleaned text files into chunks."
     )
+
     parser.add_argument(
         "input_file",
         nargs="?",
         help="Optional cleaned text file to process."
     )
+
     args = parser.parse_args()
+
     main(args.input_file)

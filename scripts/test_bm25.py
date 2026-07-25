@@ -1,55 +1,40 @@
 import os
 import pickle
 
-import faiss
-from sentence_transformers import SentenceTransformer
+from rank_bm25 import BM25Okapi
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-INDEX_FILE = os.path.join(
+BM25_FILE = os.path.join(
     BASE_DIR,
     "data",
     "vector_db",
-    "knowledge_base.faiss"
+    "knowledge_base_bm25.pkl"
 )
-
-EMBEDDING_FILE = os.path.join(
-    BASE_DIR,
-    "data",
-    "vector_db",
-    "knowledge_base_embeddings.pkl"
-)
-
-MODEL_NAME = "BAAI/bge-base-en-v1.5"
 
 TOP_K = 5
 
 
-print("Loading embedding model...")
-MODEL = SentenceTransformer(MODEL_NAME)
-
-print("Loading FAISS index...")
-INDEX = faiss.read_index(INDEX_FILE)
-
-print("Loading knowledge base...")
-
-with open(EMBEDDING_FILE, "rb") as f:
-    DATA = pickle.load(f)
-
-CHUNKS = DATA["chunks"]
+def tokenize(text):
+    return text.lower().split()
 
 
 def retrieve(query):
 
-    query_embedding = MODEL.encode(
-        [query],
-        convert_to_numpy=True,
-        normalize_embeddings=True
-    ).astype("float32")
+    with open(BM25_FILE, "rb") as f:
+        data = pickle.load(f)
 
-    scores, indices = INDEX.search(
-        query_embedding,
-        TOP_K
+    bm25 = data["bm25"]
+    chunks = data["chunks"]
+
+    tokenized_query = tokenize(query)
+
+    scores = bm25.get_scores(tokenized_query)
+
+    ranked = sorted(
+        enumerate(scores),
+        key=lambda x: x[1],
+        reverse=True
     )
 
     print("\n" + "=" * 80)
@@ -58,21 +43,15 @@ def retrieve(query):
     print(query)
 
     print("\n" + "=" * 80)
-    print(f"TOP {TOP_K} RETRIEVED DOCUMENTS")
+    print(f"TOP {TOP_K} BM25 DOCUMENTS")
     print("=" * 80)
 
-    for rank, (score, idx) in enumerate(
-        zip(scores[0], indices[0]),
-        start=1
-    ):
+    for rank, (idx, score) in enumerate(ranked[:TOP_K], start=1):
 
-        if idx == -1:
-            continue
-
-        chunk = CHUNKS[idx]
+        chunk = chunks[idx]
 
         print(f"\nRank             : {rank}")
-        print(f"Similarity Score : {score:.4f}")
+        print(f"BM25 Score       : {score:.4f}")
         print(f"Document ID      : {chunk['document_id']}")
         print(f"Title            : {chunk['title']}")
         print(f"Category         : {chunk['category']}")
@@ -96,11 +75,14 @@ def retrieve(query):
 def main():
 
     print("=" * 80)
-    print("Knowledge Base Retrieval Test")
+    print("BM25 Retrieval Test")
     print("=" * 80)
-    print(f"Embedding Model : {MODEL_NAME}")
-    print(f"Indexed Chunks  : {len(CHUNKS)}")
-    print(f"Top-K Retrieved : {TOP_K}")
+
+    with open(BM25_FILE, "rb") as f:
+        data = pickle.load(f)
+
+    print(f"Indexed Chunks : {len(data['chunks'])}")
+    print(f"Top-K Returned : {TOP_K}")
     print("\nType 'exit' to quit.")
 
     while True:
