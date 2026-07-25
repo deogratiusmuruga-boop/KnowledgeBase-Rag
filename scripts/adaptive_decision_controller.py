@@ -1,36 +1,165 @@
-"""Adaptive decision policy for trustworthy RAG reliability scores."""
+"""
+Adaptive Reliability Decision Controller
 
-from reliability_config import load_reliability_config
+Converts reliability score into
+response action decision.
+
+Actions:
+
+ACCEPT
+REFINE
+RE-RETRIEVE
+REJECT
+
+"""
 
 
-DECISION_REASONS = {
-    "ACCEPT": "Retrieved evidence meets the configured high-reliability threshold.",
-    "REFINE": "Retrieved evidence is moderately reliable and should be refined before use.",
-    "RE-RETRIEVE": "Retrieved evidence has limited reliability and should be retrieved again.",
-    "REJECT": "Retrieved evidence is too unreliable to ground an answer.",
-}
+from scripts.reliability_config import (
+    load_reliability_config
+)
 
 
-def make_reliability_decision(reliability, config=None):
-    """Return the policy decision for a reliability score in the range [0, 1]."""
-    reliability = float(reliability)
-    if not 0.0 <= reliability <= 1.0:
-        raise ValueError("Reliability must be between 0 and 1.")
 
-    config = config or load_reliability_config()
-    thresholds = config["decision_thresholds"]
+# ============================================================
+# Decision Function
+# ============================================================
 
-    if reliability >= thresholds["accept"]:
-        decision = "ACCEPT"
-    elif reliability >= thresholds["refine"]:
-        decision = "REFINE"
-    elif reliability >= thresholds["re_retrieve"]:
-        decision = "RE-RETRIEVE"
+def make_reliability_decision(
+    reliability
+):
+
+
+    """
+    reliability can be:
+
+    - dictionary from reliability_evaluation.py
+    - direct float score
+
+    """
+
+
+    # --------------------------------------------------------
+    # Handle dictionary input
+    # --------------------------------------------------------
+
+    if isinstance(
+        reliability,
+        dict
+    ):
+
+        reliability_score = float(
+
+            reliability.get(
+                "overall_reliability",
+                0.0
+            )
+
+        )
+
+
     else:
-        decision = "REJECT"
 
-    return {
-        "decision": decision,
-        "reliability": reliability,
-        "reason": DECISION_REASONS[decision],
-    }
+        reliability_score = float(
+            reliability
+        )
+
+
+
+    # --------------------------------------------------------
+    # Load thresholds
+    # --------------------------------------------------------
+
+    config = load_reliability_config()
+
+
+    thresholds = config.get(
+        "decision_thresholds",
+        {}
+    )
+
+
+
+    accept_threshold = thresholds.get(
+        "accept",
+        0.75
+    )
+
+
+    refine_threshold = thresholds.get(
+        "refine",
+        0.60
+    )
+
+
+    retrieve_threshold = thresholds.get(
+        "re_retrieve",
+        0.40
+    )
+
+
+
+    # --------------------------------------------------------
+    # Decision Logic
+    # --------------------------------------------------------
+
+    if reliability_score >= accept_threshold:
+
+
+        return {
+
+            "decision": "ACCEPT",
+
+            "score": reliability_score,
+
+            "reason":
+            "Retrieved evidence meets the high reliability threshold."
+
+        }
+
+
+
+    elif reliability_score >= refine_threshold:
+
+
+        return {
+
+            "decision": "REFINE",
+
+            "score": reliability_score,
+
+            "reason":
+            "Answer requires refinement before delivery."
+
+        }
+
+
+
+    elif reliability_score >= retrieve_threshold:
+
+
+        return {
+
+            "decision": "RE-RETRIEVE",
+
+            "score": reliability_score,
+
+            "reason":
+            "Additional evidence retrieval is required."
+
+        }
+
+
+
+    else:
+
+
+        return {
+
+            "decision": "REJECT",
+
+            "score": reliability_score,
+
+            "reason":
+            "Evidence reliability is insufficient."
+
+        }

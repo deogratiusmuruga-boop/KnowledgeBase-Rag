@@ -2,7 +2,10 @@
 
 import re
 
-from reliability_config import RELIABILITY_DIMENSIONS, load_reliability_config
+from scripts.reliability_config import (
+    RELIABILITY_DIMENSIONS,
+    load_reliability_config
+)
 
 STOP_WORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "how",

@@ -49,10 +49,10 @@ RERANK_MODEL_NAME = (
 # Retrieval Parameters
 # ============================================================
 
-TOP_K_VECTOR = 10
-TOP_K_BM25 = 10
-TOP_K_RERANK = 20
-FINAL_RESULTS = 5
+TOP_K_VECTOR = 5
+TOP_K_BM25 = 5
+TOP_K_RERANK = 5
+FINAL_RESULTS = 3
 
 
 # ============================================================
