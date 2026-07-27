@@ -13,7 +13,9 @@ POST /ask
 
 Input:
 {
-    "question": "..."
+    "question": "...",
+    "user_profile": {...},
+    "conversation_history": [...]
 }
 
 Output:
@@ -29,15 +31,18 @@ Output:
 }
 """
 
-
 import sys
 import os
 
+from typing import Optional, List
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
 
+from database import get_db
+from models.user import UserProfile as UserProfileDB
 
 
 # ============================================================
@@ -50,11 +55,7 @@ BASE_DIR = os.path.dirname(
     )
 )
 
-
-sys.path.append(
-    BASE_DIR
-)
-
+sys.path.append(BASE_DIR)
 
 
 # ============================================================
@@ -62,7 +63,7 @@ sys.path.append(
 # ============================================================
 
 from scripts.carebuddy_service import answer_question
-
+from api.profile import router as profile_router
 
 
 # ============================================================
@@ -74,7 +75,6 @@ app = FastAPI(
     title="CareBuddy API",
 
     description="""
-
     RAG-based elderly health and welfare assistant.
 
     Features:
@@ -86,13 +86,11 @@ app = FastAPI(
     - Adaptive decision control
     - Future STT/TTS integration
     - Future user profile personalization
-
     """,
 
     version="1.0.0"
 
 )
-
 
 
 # ============================================================
@@ -106,9 +104,7 @@ app.add_middleware(
     allow_origins=[
 
         "http://localhost:5173",
-
         "http://127.0.0.1:5173",
-
         "http://localhost:3000"
 
     ],
@@ -125,28 +121,61 @@ app.add_middleware(
 
     ],
 
-    allow_headers=[
-
-        "*"
-
-    ]
+    allow_headers=["*"]
 
 )
+app.include_router(profile_router)
 
+
+# ============================================================
+# User Profile Schema
+# ============================================================
+
+class UserProfile(BaseModel):
+
+    age: Optional[int] = None
+
+    location: Optional[str] = None
+
+    chronic_conditions: List[str] = []
+
+    medications: List[str] = []
+
+    preferred_language: str = "en"
+
+    speech_speed: str = "normal"
+
+
+# ============================================================
+# Conversation History Schema
+# ============================================================
+
+class ConversationMessage(BaseModel):
+
+    role: str
+
+    content: str
 
 
 # ============================================================
 # Request Schema
 # ============================================================
 
+class ChatMessage(BaseModel):
+    role: str
+    content: str
 class QuestionRequest(BaseModel):
 
     question: str
+    user_id: Optional[int] = None
 
+    user_profile: Optional[UserProfile] = None
+
+    conversation_history: List[ConversationMessage] = []
 
 
 # ============================================================
-# Reliability Schema
+# Decision Schema
 # ============================================================
 
 class DecisionResponse(BaseModel):
@@ -158,7 +187,6 @@ class DecisionResponse(BaseModel):
     reason: str
 
 
-
 # ============================================================
 # Response Schema
 # ============================================================
@@ -167,12 +195,11 @@ class QuestionResponse(BaseModel):
 
     answer: str
 
-    sources: list[str]
+    sources: List[str]
 
     reliability: dict
 
     decision: DecisionResponse
-
 
 
 # ============================================================
@@ -191,7 +218,6 @@ def root():
     }
 
 
-
 # ============================================================
 # Ask Endpoint
 # ============================================================
@@ -201,22 +227,49 @@ def root():
     response_model=QuestionResponse
 )
 def ask_question(
-    request: QuestionRequest
+    request: QuestionRequest,
+    db: Session = Depends(get_db)
 ):
 
     try:
+                # Load user profile from database
+        if request.user_id:
+
+            db_user = db.query(UserProfileDB).filter(
+                UserProfileDB.id == request.user_id
+            ).first()
+
+            if db_user:
+
+                request.user_profile = UserProfile(
+
+                    age=db_user.age,
+
+                    location=db_user.location,
+
+                    chronic_conditions=db_user.chronic_conditions.split(","),
+
+                    medications=db_user.medications.split(","),
+
+                    preferred_language=db_user.preferred_language,
+
+                    speech_speed=db_user.speech_speed
+
+                )
 
         result = answer_question(
-            request.question
-        )
 
+            question=request.question,
+
+            user_profile=request.user_profile,
+
+            conversation_history=request.conversation_history
+
+        )
 
         return result
 
-
-
     except Exception as e:
-
 
         raise HTTPException(
 
