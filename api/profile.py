@@ -15,7 +15,7 @@ router = APIRouter(
 # Request Schema
 # ================================
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, List
 
 
@@ -25,9 +25,9 @@ class ProfileCreate(BaseModel):
 
     location: Optional[str] = None
 
-    chronic_conditions: List[str] = []
+    chronic_conditions: List[str] = Field(default_factory=list)
 
-    medications: List[str] = []
+    medications: List[str] = Field(default_factory=list)
 
     preferred_language: str = "en"
 

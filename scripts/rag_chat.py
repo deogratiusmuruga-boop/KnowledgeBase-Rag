@@ -76,6 +76,9 @@ def prepare_evidence(chunks):
 
 def generate_answer(
         query,
+        user_profile=None,
+        conversation_context="",
+        response_language="en",
         return_evidence=False
         ):
 
@@ -153,7 +156,10 @@ def generate_answer(
         query=query,
         evidence_items=evidence_items,
         reliability=reliability,
-        decision=decision
+        decision=decision,
+        user_profile=user_profile,
+        conversation_context=conversation_context,
+        response_language=response_language
     )
 
 

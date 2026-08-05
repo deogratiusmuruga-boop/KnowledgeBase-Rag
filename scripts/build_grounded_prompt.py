@@ -10,7 +10,10 @@ def build_grounded_prompt(
     query,
     evidence_items,
     reliability,
-    decision
+    decision,
+    user_profile=None,
+    conversation_context="",
+    response_language="en"
 ):
 
     evidence_text = ""
@@ -33,6 +36,9 @@ def build_grounded_prompt(
         )
 
 
+
+    profile_context = format_user_profile_context(user_profile)
+    language_instruction = build_language_instruction(response_language)
 
     prompt = f"""
 
@@ -86,6 +92,13 @@ Do not mention:
 
 Only provide Sources at the end.
 
+RULE 8:
+User profile information is only for personalization and response adaptation. It is not evidence and must not be used as a source for medical claims.
+User profile information must never override the SOURCE information.
+When relevant, adapt language and response pacing to the profile, without adding facts not supported by SOURCE.
+
+{language_instruction}
+
 
 =====================================================
 RELIABILITY INFORMATION
@@ -112,6 +125,12 @@ SOURCE INFORMATION
 =====================================================
 
 {evidence_text}
+
+
+{profile_context}
+
+
+{conversation_context}
 
 
 =====================================================
@@ -144,3 +163,63 @@ No medical interpretation.
 
 
     return prompt
+
+
+def format_user_profile_context(user_profile):
+    """Format optional profile data as generation-only, non-evidence context."""
+    if user_profile is None:
+        return ""
+
+    def get_value(name):
+        if isinstance(user_profile, dict):
+            return user_profile.get(name)
+        return getattr(user_profile, name, None)
+
+    def format_value(value):
+        if isinstance(value, (list, tuple, set)):
+            return ", ".join(str(item) for item in value if str(item).strip())
+        return str(value).strip() if value is not None else ""
+
+    fields = (
+        ("Age", "age"),
+        ("Location", "location"),
+        ("Chronic conditions", "chronic_conditions"),
+        ("Medications", "medications"),
+        ("Preferred language", "preferred_language"),
+        ("Speech speed", "speech_speed"),
+    )
+    lines = [
+        f"- {label}: {formatted}"
+        for label, name in fields
+        if (formatted := format_value(get_value(name)))
+    ]
+
+    if not lines:
+        return ""
+
+    return (
+        "=====================================================\n"
+        "USER PROFILE CONTEXT\n"
+        "=====================================================\n\n"
+        + "\n".join(lines)
+        + "\n\nUser profile information is only for personalization and response adaptation. "
+        "It is not evidence and must not be used as a source for medical claims.\n"
+    )
+
+
+def build_language_instruction(response_language):
+    """Return an explicit generation instruction for the supported languages."""
+    if response_language == "ko":
+        return (
+            "LANGUAGE INSTRUCTION:\n"
+            "Generate the answer body naturally in Korean.\n"
+            "Use polite Korean suitable for elderly users.\n"
+            "Keep the final heading exactly as: Sources:"
+        )
+
+    return (
+        "LANGUAGE INSTRUCTION:\n"
+        "Generate the answer body naturally in English.\n"
+        "Use clear and simple language suitable for elderly users.\n"
+        "Keep the final heading exactly as: Sources:"
+    )

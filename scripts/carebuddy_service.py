@@ -20,95 +20,6 @@ from scripts.adaptive_decision_controller import make_reliability_decision
 
 
 # ============================================================
-# Build Personalized Query
-# ============================================================
-
-def build_personalized_query(
-    question,
-    user_profile=None
-):
-    """
-    Enrich the user's question with profile information
-    to improve retrieval.
-    """
-
-    if user_profile is None:
-        return question
-
-    profile_parts = []
-
-    if getattr(user_profile, "age", None):
-        profile_parts.append(
-            f"Age: {user_profile.age}"
-        )
-
-    if getattr(user_profile, "location", None):
-        profile_parts.append(
-            f"Location: {user_profile.location}"
-        )
-
-    if getattr(user_profile, "chronic_conditions", None):
-        profile_parts.append(
-            "Conditions: "
-            + ", ".join(user_profile.chronic_conditions)
-        )
-
-    if getattr(user_profile, "medications", None):
-        profile_parts.append(
-            "Medications: "
-            + ", ".join(user_profile.medications)
-        )
-
-    if not profile_parts:
-        return question
-
-    return (
-        question
-        + "\n\nUser Profile:\n"
-        + "\n".join(profile_parts)
-    )
-
-
-# ============================================================
-# User Profile Context Builder
-# ============================================================
-
-def build_profile_context(user_profile):
-    """
-    Convert user profile information
-    into optional RAG context.
-    """
-
-    if not user_profile:
-        return ""
-
-    context = """
-
-User Context:
-
-"""
-
-    for key, value in user_profile.model_dump().items():
-
-        if value is None:
-            continue
-
-        if value == []:
-            continue
-
-        context += f"- {key}: {value}\n"
-
-    context += """
-
-Use profile information only when relevant.
-Do not invent information.
-
-"""
-
-    return context
-
-
-# ============================================================
 # Conversation History Context Builder
 # ============================================================
 
@@ -153,7 +64,8 @@ Previous Conversation:
 def answer_question(
     question,
     user_profile=None,
-    conversation_history=None
+    conversation_history=None,
+    response_language="en"
 ):
     """
     Main service function.
@@ -169,57 +81,8 @@ def answer_question(
     }
     """
 
-    print("\n========== USER PROFILE DEBUG ==========")
-
-    if user_profile:
-        print(user_profile.model_dump())
-    else:
-        print("No user profile received")
-
-    print("========================================\n")
-
-
-    # --------------------------------------------------------
-    # Build personalized question
-    # --------------------------------------------------------
-    
-
-    # --------------------------------------------------------
-    # Build personalized question
-    # --------------------------------------------------------
-
-    enhanced_question = build_personalized_query(
-        question,
-        user_profile
-    )
-
-    # --------------------------------------------------------
-    # Build contexts
-    # --------------------------------------------------------
-
-    profile_context = build_profile_context(
-        user_profile
-    )
-
     conversation_context = build_conversation_context(
         conversation_history
-    )
-
-    # --------------------------------------------------------
-    # Build final prompt
-    # --------------------------------------------------------
-
-    final_prompt = ""
-
-    if profile_context:
-        final_prompt += profile_context
-
-    if conversation_context:
-        final_prompt += conversation_context
-
-    final_prompt += (
-        "\nCurrent User Question:\n"
-        + enhanced_question
     )
 
     # --------------------------------------------------------
@@ -227,7 +90,10 @@ def answer_question(
     # --------------------------------------------------------
 
     answer, evidence = generate_answer(
-        final_prompt,
+        question,
+        user_profile=user_profile,
+        conversation_context=conversation_context,
+        response_language=response_language,
         return_evidence=True
     )
 
