@@ -3,6 +3,9 @@ Evidence-Grounded Prompt Builder
 
 Strict citation-first prompt for CareBuddy.
 Forces the LLM to generate only directly supported answers.
+
+Sources are retained internally as evidence metadata but are
+not displayed in the user-facing answer.
 """
 
 
@@ -13,11 +16,11 @@ def build_grounded_prompt(
     decision,
     user_profile=None,
     conversation_context="",
-    response_language="en"
+    response_language="en",
+    assistance_plan=None
 ):
 
     evidence_text = ""
-
 
     for i, item in enumerate(
         evidence_items,
@@ -35,10 +38,9 @@ def build_grounded_prompt(
             "\n"
         )
 
-
-
     profile_context = format_user_profile_context(user_profile)
     language_instruction = build_language_instruction(response_language)
+    assistance_plan_context = format_assistance_plan_context(assistance_plan)
 
     prompt = f"""
 
@@ -88,9 +90,11 @@ Do not mention:
 - SOURCE numbers
 - retrieval
 - evidence
-- documents inside the answer
+- documents
+- source names
+- citations
 
-Only provide Sources at the end.
+in the answer.
 
 RULE 8:
 User profile information is only for personalization and response adaptation. It is not evidence and must not be used as a source for medical claims.
@@ -119,6 +123,15 @@ Coverage:
 Consistency:
 {reliability['consistency']:.2f}
 
+Overall Reliability:
+{reliability['overall_reliability']:.2f}
+
+Decision:
+{decision.get('decision', 'UNKNOWN')}
+
+Decision Reason:
+{decision.get('reason', '')}
+
 
 =====================================================
 SOURCE INFORMATION
@@ -133,6 +146,9 @@ SOURCE INFORMATION
 {conversation_context}
 
 
+{assistance_plan_context}
+
+
 =====================================================
 USER QUESTION
 =====================================================
@@ -144,13 +160,19 @@ USER QUESTION
 ANSWER FORMAT
 =====================================================
 
-Answer:
+Provide only the short answer.
 
-(short answer using only supported facts)
+Do not add:
+- "Answer:"
+- "Sources:"
+- source names
+- document names
+- citations
+- retrieval information
+- reliability information
 
-Sources:
-- document_name.pdf
-
+The response should contain only the natural-language answer
+to the user's question.
 
 Remember:
 
@@ -161,24 +183,38 @@ No medical interpretation.
 
 """
 
-
     return prompt
 
 
 def format_user_profile_context(user_profile):
     """Format optional profile data as generation-only, non-evidence context."""
+
     if user_profile is None:
         return ""
 
     def get_value(name):
         if isinstance(user_profile, dict):
             return user_profile.get(name)
-        return getattr(user_profile, name, None)
+
+        return getattr(
+            user_profile,
+            name,
+            None
+        )
 
     def format_value(value):
         if isinstance(value, (list, tuple, set)):
-            return ", ".join(str(item) for item in value if str(item).strip())
-        return str(value).strip() if value is not None else ""
+            return ", ".join(
+                str(item)
+                for item in value
+                if str(item).strip()
+            )
+
+        return (
+            str(value).strip()
+            if value is not None
+            else ""
+        )
 
     fields = (
         ("Age", "age"),
@@ -188,10 +224,15 @@ def format_user_profile_context(user_profile):
         ("Preferred language", "preferred_language"),
         ("Speech speed", "speech_speed"),
     )
+
     lines = [
         f"- {label}: {formatted}"
         for label, name in fields
-        if (formatted := format_value(get_value(name)))
+        if (
+            formatted := format_value(
+                get_value(name)
+            )
+        )
     ]
 
     if not lines:
@@ -209,17 +250,79 @@ def format_user_profile_context(user_profile):
 
 def build_language_instruction(response_language):
     """Return an explicit generation instruction for the supported languages."""
+
     if response_language == "ko":
+
         return (
             "LANGUAGE INSTRUCTION:\n"
-            "Generate the answer body naturally in Korean.\n"
+            "Generate the answer naturally in Korean.\n"
             "Use polite Korean suitable for elderly users.\n"
-            "Keep the final heading exactly as: Sources:"
+            "Do not add headings such as 'Answer:' or 'Sources:'."
         )
 
     return (
         "LANGUAGE INSTRUCTION:\n"
-        "Generate the answer body naturally in English.\n"
+        "Generate the answer naturally in English.\n"
         "Use clear and simple language suitable for elderly users.\n"
-        "Keep the final heading exactly as: Sources:"
+        "Do not add headings such as 'Answer:' or 'Sources:'."
     )
+
+
+def format_assistance_plan_context(assistance_plan):
+    """
+    Render the validated assistance plan (strategy, actions, safety
+    constraints) as an internal prompt section.
+
+    The assistance plan is a personalization / response-adaptation signal
+    only. It is never evidence and must not be turned into a diagnosis,
+    risk claim, or clinical conclusion.
+    """
+    if not assistance_plan:
+        return ""
+
+    strategy = assistance_plan.get("assistance_strategy")
+    priority = assistance_plan.get("priority")
+    actions = assistance_plan.get("actions") or []
+    safety = assistance_plan.get("safety_constraints") or []
+
+    if not strategy and not actions:
+        return ""
+
+    lines = [
+        "=====================================================",
+        "ASSISTANCE PLAN (response adaptation, NOT medical evidence)",
+        "=====================================================",
+        f"Strategy: {strategy}",
+        f"Priority: {priority}" if priority else "Priority: ",
+    ]
+
+    if actions:
+        lines.append("Assistance actions (system behavior to follow):")
+        for action_item in actions:
+            action_name = None
+            action_reason = ""
+            if isinstance(action_item, dict):
+                action_name = action_item.get("action")
+                action_reason = action_item.get("reason", "")
+            else:
+                action_name = str(action_item)
+            if action_name:
+                line_text = f"- {action_name}"
+                if action_reason:
+                    line_text += f": {action_reason}"
+                lines.append(line_text)
+
+    if safety:
+        lines.append("Safety constraints (must never be violated):")
+        for constraint in safety:
+            lines.append(f"- {constraint}")
+
+    lines.append(
+        "These actions and constraints describe how to adapt the structure, "
+        "tone, and pacing of the response and what to avoid. They are NOT "
+        "clinical evidence, diagnoses, risk predictions, or instructions "
+        "to claim the patient is stable, improved, or deteriorating."
+    )
+    lines.append("")
+
+    return "\n".join(lines)

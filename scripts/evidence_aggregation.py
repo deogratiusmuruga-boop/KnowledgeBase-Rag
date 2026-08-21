@@ -1,6 +1,6 @@
 """Convert FAISS retrieval results into structured, attributable evidence."""
 
-from authority_mapping import classify_source_authority
+from scripts.authority_mapping import classify_source_authority
 
 
 def aggregate_evidence(chunks, distances, indices):
