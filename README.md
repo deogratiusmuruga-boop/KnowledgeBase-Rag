@@ -1,168 +1,153 @@
-# ElderDocAI
-### An Evidence–Grounded, Rule-Bounded Adaptive Framework for Elderly Care Assistance
-Manuscript scaffold / Methods–Results focus draft
-Working title only — finalized with the target journal.
+﻿# KnowledgeBase-Rag (ElderDocAI / CareBuddy)
+
+An **evidence-grounded, rule-bounded** RAG (Retrieval-Augmented Generation) assistant for elderly care. The system retrieves from a caregiver knowledge base, grounds LLM answers with verifiable evidence, gates output through a reliability/adaptive-decision layer, and is served to users through a React frontend.
+
+> **Note:** `SCI_PAPER_DRAFT.md` contains the research-manuscript draft that previously lived here. This README is the project-level reference for the codebase.
 
 ---
 
-## ABSTRACT (working)
+## Features
 
-Caregiver-facing AI systems must assist users without overclaiming medical
-certainty. Large conversational models risk ungrounded diagnoses or risk
-statements. We present ElderDocAI, a pipeline that (i) reduces longitudinal
-clinical records into documented care-activity signals across deterministic
-temporal windows, (ii) derives a safe, rule-based adaptive assistance plan*
-constrained by explicit no-diagnosis / no-risk-prediction guardrails, and
-(iii) generates an evidence-grounded response from a hybrid-retrieval
-knowledge base with reliability gating. The central contribution is the
-separation of a fully validated deterministic personalization layer from a
-grounded LLM response layer, preserving research scope: the system describes
-documented care activity and its temporal change but does not diagnose,
-predict, or infer medical risk.
----
-
-## 1. MANUSCRIPT OUTLINE 
-
-1. Introduction
-   - Background: burden on informal elderly caregivers; risk of ungrounded LLM advice.
-   - Problem: harness longitudinal EMR-style data for adaptive assistance without overclaiming.
-   - Contribution statement: validated deterministic core, safety guardrails, grounded RAG.
-2. Related Work
-   - Retrieval Augmented Generation for healthcare.
-   - Adaptive/reactivity in care technology.
-   - Safety frameworks and the "no diagnosis" boundary in computational care.
-   - Gap: proving a deterministic safety-bounded layer AND a grounded LLM response together.
-3. Methods (detailed in Section 2 below)
-4. Results (detailed in Section 3 below)
-5. Discussion
-   - Meaning of results; why validation matters; significance of `NO_DATA != STABLE`; limitations.
-6. Conclusion
-   - Restate research contribution; future work (prospective data, generalization).
----
-
-## 2. METHODS (DETAILED)
-
-### 2.1 Architectural Overview
-
-ElderDocAI is composed of **two domains**:
-
-1. Deterministic, validated core — clinical features → dynamic care state →
-continuous temporal windows → care-state transitions → adaptive assistance →
-adaptive context → assistance decision → assistance plan.
-2. Grounded response layer — hybrid retrieval, reliability gating, and
-   evidence-grounded LLM generation.
-
-| Layer | Records | Output |
-|-------|---------|--------|
-| Clinical Features | 178 patients | per-patient feature vectors |
-| Dynamic Care State | 178 | aggregate care state |
-| Care-State Window | 9,723 | one-year windows |
-| Care-State Transitions | 9,723 | state deltas |
-| Adaptive Assessment | 9,723 | assistance mode |
-| Adaptive Context (junction) | 9,723 | merged per-window context |
-| Assistance Decision | 9,723 | strategy + priority |
-| Assistance Plan | 9,723 | concrete action set |
-
-### 2.2 Data
-
-- Synthea-derived FHIR records for 178 synthetic elderly patients.
-- Longitudinal records split into disjoint one-year windows
-  (`window_start`, `window_end`).
-- Join key: `(patient_id, window_start, window_end)` — used across every
-  layer (never array position), guaranteeing reproducible alignment.
-
-### 2.3 Adaptive Context
-
-- Each window merges patient profile, care state, transition, changed
-  dimensions, adaptive assistance mode/priority, and a context status.
-- Care states encode documented activity intensity
-  (LOW / MODERATE / HIGH; `NO_DATA` when no activity is documented).
-
-### 2.4 Deterministic Decision + Plan
-
-- Strategy selection is rule-based with precedence:
-  `INITIAL -> ONBOARDING_SUPPORT`
-  `NO_DATA / GAP -> DATA_COLLECTION_SUPPORT`
-  escalation -> `ENHANCED_CONTEXT_SUPPORT`
-  de-escalation -> `ADAPTIVE_DEESCALATION_SUPPORT`
-  increasing / decreasing / no-change -> MONITORING / FOLLOW_UP / tiered support.
-- Each plan carries a verbatim safety policy:
-  `NO_DIAGNOSIS`, `NO_MEDICAL_RISK_PREDICTION`,
-  `NO_DISEASE_PROGRESSION_INFERENCE`, `DOCUMENTED_ACTIVITY_ONLY`,
-  and (for gaps) `NO_DATA_IS_NOT_STABILITY`.
-
-### 2.5 Grounded LLM Response
-
-- Retrieval: hybrid dense + BM25 + cross-encoder reranking over a provider
-  caregiver corpus.
-- Gate: reliability evaluator with accept / refine / re-retrieve / reject policy.
-- Generation: Llama 3.2 (Ollama) with temperature 0, forcing only-from-SOURCE
-  answers; the validated assistance plan (strategy, actions, safety constraints)
-  is injected for response adaptation, never as medical evidence.
+- **Hybrid retrieval** â€” dense vectors (FAISS) + BM25 lexical search + cross-encoder reranking.
+- **Evidence-grounded generation** â€” LLM answers forced to cite the retrieved SOURCE only (temperature 0).
+- **Reliability gating** â€” accept / refine / re-retrieve / reject policy with configurable scores & thresholds.
+- **Adaptive care context** â€” maps longitudinal records into care-state windows, transitions, and adaptive assistance plans (ElderDocAI).
+- **Rule-bounded safety** â€” deterministic no-diagnosis / no-risk-prediction guardrails in generated plans.
+- **User-profile personalization** â€” locale-aware (ko/en), speech-speed, chronic conditions, medications.
+- **REST API** â€” FastAPI backend + SQLite persistence.
+- **React frontend** â€” Create React App (`react-scripts`), voice/chat UI with a digital-human avatar.
 
 ---
 
-## 3. RESULTS (DETAILED, FROM VALIDATED OUTPUTS)
+## Tech Stack
 
-### 3.1 Pipeline Validation
+### Backend
+- **Python 3.12/3.14**, **FastAPI 0.140**, **Uvicorn 0.51**, **SQLAlchemy 2.0**, **Pydantic 2.13**
+- **sentence-transformers 5.6**, **FAISS 1.14**, **rank-bm25 0.2**, **scikit-learn 1.9**, **torch 2.13**
+- **Ollama 0.6** (local LLM, e.g. Llama 3.2)
 
-Every deterministic layer reports **0 errors / 0 warnings / PASS**:
-upstream care-state pipeline, adaptive context, assistance decisions,
-and assistance plans.
+### Frontend
+- **react-scripts** (Create React App), **React 18**, **react-dom**, **lucide-react** (icons)
 
-### 3.2 Layer Size & Coverage
+---
 
-| Artifact | Records |
-|----------|---------|
-| Adaptive Context | 9,723 |
-| Assistance Decision | 9,723 |
-| Assistance Plan (JSON + CSV) | 9,723 |
-| Unique patients | 178 |
-| Unique join keys | 9,723 (0 duplicates) |
-
-### 3.3 Context-Status Breakdown
+## Repository Layout
 
 ```
-Initial      178 (1.8%)
-DataGap    6,356 (65.4%)
-Active     3,189 (32.8%)
+api/                 FastAPI routers (main, profile, medication, appointment, reminder, deps)
+models/              SQLAlchemy models (user, medication, appointment)
+scripts/             RAG pipeline + evaluation/build/reliability scripts
+config/              runtime configuration
+data/                generated indices, text, vector DB, gold-QA set
+datasets/            Synthea FHIR patient records
+evaluation/          gold-QA / retrieval queries
+frontend/            React UI (src/screens, components, services)
+tests/               retrieval / BM25 tests
+create_tables.py     one-time DB table creation
+database.py          SQLAlchemy engine / session / SQLite connection
+carebuddy.db         generated SQLite database (git-ignored)
+dataset_inventory.md NIA caregiver-manual inventory
+SCI_PAPER_DRAFT.md   research manuscript
 ```
 
-### 3.4 Strategy -> Assistance Plan (validated)
+---
 
-| Strategy | Records |
-|----------|---------|
-| ONBOARDING_SUPPORT | 178 |
-| DATA_COLLECTION_SUPPORT | 7,445 |
-| CONTEXTUAL_SUPPORT | 476 |
-| ENHANCED_SUPPORT | 452 |
-| ENHANCED_CONTEXT_SUPPORT | 446 |
-| ADAPTIVE_DEESCALATION_SUPPORT | 302 |
-| LIGHT_SUPPORT | 202 |
-| MONITORING_SUPPORT | 121 |
-| FOLLOW_UP_SUPPORT | 101 |
+## Quickstart
 
-### 3.5 Safety Verification
+### 1. Backend (Python)
 
-- `NO_DATA != STABLE` held across all 7,445 DATA_COLLECTION cases; the planner never
-  labels a gap as stable, improved, or deteriorated.
-- `NO_DATA_IS_NOT_STABILITY` is present on every gap-bound plan.
-- The base safety policy is present on all 9,723 records.
+Create a venv and install dependencies. The venv packages are already installed under `venv/` (no `requirements.txt` yet). Required versions: `fastapi==0.140`, `uvicorn==0.51`, `sqlalchemy==2.0.51`, `pydantic==2.13.4`, `sentence-transformers==5.6`, `faiss-cpu==1.14.3`, `rank-bm25==0.2.2`, `scikit-learn==1.9.0`, `torch==2.13`, `ollama==0.6`.
 
-### 3.6 Representative -> Action / Safety Cases
+> Recommended: consolidate these into a `requirements.txt` for reproducible rebuilds.
 
-- EScalation -> `ENHANCED_CONTEXT_SUPPORT` -> targeted info, review, check-in;
-  no diagnosis claim.
-- De-escalation -> `ADAPTIVE_DEESCALATION_SUPPORT` -> reduce intervention intensity.
-- Increasing -> `MONITORING_SUPPORT` -> acknowledge increased documented activity.
-- NO_DATA -> `DATA_COLLECTION_SUPPORT` -> check-in / data update / avoid
-  personalization; explicit `NOT STABLE`.
-- Initial -> `ONBOARDING_SUPPORT` -> establish context; no medical inference.
+Initialize the SQLite database:
+```bash
+python create_tables.py
+```
 
-### 3.7 Validator Confidence
+Start the API (default port 8000):
+```bash
+uvicorn api.main:app --reload
+```
 
-Each layer (upstream care-state, adaptive-context, decisions, plans) provides an
-automated PASS/FAIL validator — reusable as a reproducibility appendix / table.
+### 2. Frontend (React / react-scripts)
 
+From `frontend/`:
+```bash
+npm start
+```
+Open http://localhost:3000. Point the frontend at the backend via `frontend/.env`:
+```
+# copy from `.env.example`
+REACT_APP_API_URL=http://localhost:8000
+```
+`src/services/ragApi.js` and `src/services/reminderApi.js` read `process.env.REACT_APP_API_URL`, falling back to `http://127.0.0.1:8000`.
 
+---
 
+## Database Schema (SQLite, FK-enforced)
+
+- `user_profiles` â€” `id`, `age`, `location`, `chronic_conditions`, `medications`, `preferred_language`, `speech_speed`
+- `medications` â€” `id`, `user_id â†’ user_profiles.id`, `medicine_name`, `dosage`, `time`, `frequency`
+- `appointments` â€” `id`, `user_id â†’ user_profiles.id`, `title`, `appointment_date`, `appointment_time`, `location`, `notes`
+
+Engine URL: `sqlite:///./carebuddy.db`.
+
+---
+
+## API Endpoints
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| GET  | `/`                      | health check |
+| POST | `/ask`                   | ask the RAG (question, user_id, user_profile, conversation_history) |
+| POST | `/profile/`              | create user profile |
+| POST | `/medications/`          | save a medication |
+| GET  | `/medications/{user_id}` | list a user's medications |
+| POST | `/appointments/`         | create appointment |
+| GET  | `/appointments/`         | list appointments |
+| DELETE | `/appointments/{id}`   | delete appointment |
+| GET  | `/reminders/{user_id}`   | merged medication + appointment reminders |
+
+All user-scoped routes validate that the user exists. CORS allows `localhost:5173`, `127.0.0.1:5173`, `localhost:3000`, with `allow_credentials=True`.
+
+**Note:** `/ask` derives response language from the saved profile's `preferred_language` (default `en`); the request-body `language` / `preferred_language` fields are presently ignored by the backend.
+
+---
+
+## Configuration
+
+`config/reliability_config.json`:
+
+```json
+{
+  "reliability_weights": { "authority": 0.3, "relevance": 0.3, "support": 0.2, "coverage": 0.1, "consistency": 0.1 },
+  "decision_thresholds": { "accept": 0.8, "refine": 0.65, "re_retrieve": 0.45 }
+}
+```
+
+---
+
+## Pipeline (scripts/)
+
+- **Ingest:** `extract_text.py`, `clean_text.py`, `chunk_text.py`
+- **Index:** `build_bm25_index.py`, `build_faiss_index.py`, `generate_embeddings.py`
+- **Retrieval:** `hybrid_retrieval.py`, `reranker.py`, `test_retrieval.py`
+- **Grounding:** `build_grounded_prompt.py`, `build_context.py`, `evidence_aggregation.py`
+- **Reliability / decisions:** `reliability_config.py`, `reliability_evaluation.py`, `adaptive_decision_controller.py`, `authority_mapping.py`
+- **Service / chat:** `rag_chat.py`, `carebuddy_service.py`
+- **Evaluation:** `evaluate_*` scripts, `data/gold_qa_evaluation.json`
+
+See `dataset_inventory.md` for the NIA/NIH source books composing the caregiver knowledge base.
+
+---
+
+## Tests
+
+Scripts under `tests/`, plus `test_retrieval.py` and `test_bm25.py`. The deterministic care-state pipeline ships a built-in PASS/FAIL validator for upstream / context / decision / plan layers.
+
+---
+
+## Status
+
+Internal research prototype. Manuscript draft tracked separately in `SCI_PAPER_DRAFT.md`.
