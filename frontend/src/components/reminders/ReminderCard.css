@@ -1,0 +1,52 @@
+.reminder-section {
+  margin: 20px 0;
+}
+
+
+.reminder-section h2 {
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+
+.reminder-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 16px;
+  margin-bottom: 12px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.05);
+}
+
+
+.reminder-icon {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+.reminder-content h3 {
+  margin:0;
+  color:#2563eb;
+}
+
+
+.reminder-content p {
+  margin:8px 0;
+}
+
+
+.reminder-content span {
+  font-weight:bold;
+  color:#475569;
+}
