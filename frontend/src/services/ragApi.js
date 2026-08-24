@@ -1,7 +1,7 @@
 ﻿
 // CareBuddy API Service
 
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
 
 
 // Ask CareBuddy
@@ -39,7 +39,7 @@ export async function askCareBuddy(
 // Save User Profile
 export async function saveUserProfile(profile) {
 
-  const response = await fetch(`${BASE_URL}/profile`, {
+  const response = await fetch(`${BASE_URL}/profile/`, {
 
     method: "POST",
 
