@@ -4,6 +4,12 @@ data/cleaned_text/
 data/chunks/
 data/vector_db/
 
+# Synthea large/generated files
+datasets/synthea/synthea-with-dependencies.jar
+datasets/synthea/output/fhir/
+datasets/synthea/elderdocai/fhir/
+datasets/synthea/elderdocai/processed/
+
 # Python cache
 __pycache__/
 *.py[cod]
