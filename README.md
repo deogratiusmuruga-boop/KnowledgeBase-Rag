@@ -1,4 +1,4 @@
-﻿# KnowledgeBase-Rag (ElderDocAI / CareBuddy)
+# ElderDocAI-System
 
 An **evidence-grounded, rule-bounded** RAG (Retrieval-Augmented Generation) assistant for elderly care. The system retrieves from a caregiver knowledge base, grounds LLM answers with verifiable evidence, gates output through a reliability/adaptive-decision layer, and is served to users through a React frontend.
 
@@ -8,14 +8,14 @@ An **evidence-grounded, rule-bounded** RAG (Retrieval-Augmented Generation) assi
 
 ## Features
 
-- **Hybrid retrieval** â€” dense vectors (FAISS) + BM25 lexical search + cross-encoder reranking.
-- **Evidence-grounded generation** â€” LLM answers forced to cite the retrieved SOURCE only (temperature 0).
-- **Reliability gating** â€” accept / refine / re-retrieve / reject policy with configurable scores & thresholds.
-- **Adaptive care context** â€” maps longitudinal records into care-state windows, transitions, and adaptive assistance plans (ElderDocAI).
-- **Rule-bounded safety** â€” deterministic no-diagnosis / no-risk-prediction guardrails in generated plans.
-- **User-profile personalization** â€” locale-aware (ko/en), speech-speed, chronic conditions, medications.
-- **REST API** â€” FastAPI backend + SQLite persistence.
-- **React frontend** â€” Create React App (`react-scripts`), voice/chat UI with a digital-human avatar.
+- **Hybrid retrieval** — dense vectors (FAISS) + BM25 lexical search + cross-encoder reranking.
+- **Evidence-grounded generation** — LLM answers forced to cite the retrieved SOURCE only (temperature 0).
+- **Reliability gating** — accept / refine / re-retrieve / reject policy with configurable scores & thresholds.
+- **Adaptive care context** — maps longitudinal records into care-state windows, transitions, and adaptive assistance plans (ElderDocAI).
+- **Rule-bounded safety** — deterministic no-diagnosis / no-risk-prediction guardrails in generated plans.
+- **User-profile personalization** — locale-aware (ko/en), speech-speed, chronic conditions, medications.
+- **REST API** — FastAPI backend + SQLite persistence.
+- **React frontend** — Create React App (`react-scripts`), voice/chat UI with a digital-human avatar.
 
 ---
 
@@ -87,9 +87,9 @@ REACT_APP_API_URL=http://localhost:8000
 
 ## Database Schema (SQLite, FK-enforced)
 
-- `user_profiles` â€” `id`, `age`, `location`, `chronic_conditions`, `medications`, `preferred_language`, `speech_speed`
-- `medications` â€” `id`, `user_id â†’ user_profiles.id`, `medicine_name`, `dosage`, `time`, `frequency`
-- `appointments` â€” `id`, `user_id â†’ user_profiles.id`, `title`, `appointment_date`, `appointment_time`, `location`, `notes`
+- `user_profiles` — `id`, `age`, `location`, `chronic_conditions`, `medications`, `preferred_language`, `speech_speed`
+- `medications` — `id`, `user_id → user_profiles.id`, `medicine_name`, `dosage`, `time`, `frequency`
+- `appointments` — `id`, `user_id → user_profiles.id`, `title`, `appointment_date`, `appointment_time`, `location`, `notes`
 
 Engine URL: `sqlite:///./carebuddy.db`.
 
@@ -132,7 +132,7 @@ All user-scoped routes validate that the user exists. CORS allows `localhost:517
 
 - **Ingest:** `extract_text.py`, `clean_text.py`, `chunk_text.py`
 - **Index:** `build_bm25_index.py`, `build_faiss_index.py`, `generate_embeddings.py`
-- **Retrieval:** `hybrid_retrieval.py`, `reranker.py`, `test_retrieval.py`
+- **Retrieval:** `hybrid_retrieval.py`, `hybrid_retriever.py`, `reranker.py`, `test_retrieval.py`
 - **Grounding:** `build_grounded_prompt.py`, `build_context.py`, `evidence_aggregation.py`
 - **Reliability / decisions:** `reliability_config.py`, `reliability_evaluation.py`, `adaptive_decision_controller.py`, `authority_mapping.py`
 - **Service / chat:** `rag_chat.py`, `carebuddy_service.py`
@@ -144,7 +144,7 @@ See `dataset_inventory.md` for the NIA/NIH source books composing the caregiver 
 
 ## Tests
 
-Scripts under `tests/`, plus `test_retrieval.py` and `test_bm25.py`. The deterministic care-state pipeline ships a built-in PASS/FAIL validator for upstream / context / decision / plan layers.
+Scripts under `tests/`, plus `test_retrieval.py` and `test_bm25.py`. Unit tests are provided under `tests/` (e.g., `tests/test_api.py`), and PASS/FAIL-style evaluation scripts run under `scripts/` (e.g., `evaluate_retrieval.py`, `evaluate_latency.py`, `evaluate_carebuddy.py`).
 
 ---
 
