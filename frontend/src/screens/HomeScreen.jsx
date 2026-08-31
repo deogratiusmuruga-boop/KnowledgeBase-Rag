@@ -71,7 +71,7 @@ export default function HomeScreen() {
 
     ko: {
 
-      title: "🌸 어르신의 다정한 AI 동반자",
+      title: "어르신의 다정한 AI 동반자",
       subtitle: "현재 돌봄 상태를 이해하고 상황에 맞는 도움을 제공합니다",
 
       placeholder:
@@ -149,7 +149,7 @@ export default function HomeScreen() {
 
     en: {
 
-      title: "🌸 Senior AI Companion",
+      title: " Senior AI Companion",
 
       subtitle:
         "Understands the current care state and adapts assistance accordingly",
