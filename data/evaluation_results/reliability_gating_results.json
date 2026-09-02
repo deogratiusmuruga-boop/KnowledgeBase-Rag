@@ -1,0 +1,231 @@
+{
+  "config": {
+    "reliability_weights": {
+      "authority": 0.3,
+      "relevance": 0.3,
+      "support": 0.2,
+      "coverage": 0.1,
+      "consistency": 0.1
+    },
+    "decision_thresholds": {
+      "accept": 0.8,
+      "refine": 0.65,
+      "re_retrieve": 0.45
+    }
+  },
+  "summary": {
+    "n": 16,
+    "avg_overall": 0.9394125,
+    "min_overall": 0.8571,
+    "max_overall": 0.9691,
+    "decision_distribution": {
+      "ACCEPT": 16
+    },
+    "n_accept": 16,
+    "n_refine": 0,
+    "n_reretrieve": 0,
+    "n_reject": 0,
+    "dimension_averages": {
+      "authority": 1.0,
+      "relevance": 0.8757,
+      "support": 0.9583,
+      "coverage": 0.8504,
+      "consistency": 1.0
+    },
+    "decision_consistency": 16
+  },
+  "rows": [
+    {
+      "id": "GQ-001",
+      "overall_reliability": 0.9452,
+      "authority": 1.0,
+      "relevance": 0.865,
+      "support": 1.0,
+      "coverage": 0.8571,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-002",
+      "overall_reliability": 0.9515,
+      "authority": 1.0,
+      "relevance": 0.8939,
+      "support": 1.0,
+      "coverage": 0.8333,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-003",
+      "overall_reliability": 0.8894,
+      "authority": 1.0,
+      "relevance": 0.8535,
+      "support": 0.6667,
+      "coverage": 1.0,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-004",
+      "overall_reliability": 0.9355,
+      "authority": 1.0,
+      "relevance": 0.859,
+      "support": 1.0,
+      "coverage": 0.7778,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-005",
+      "overall_reliability": 0.9652,
+      "authority": 1.0,
+      "relevance": 0.884,
+      "support": 1.0,
+      "coverage": 1.0,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-006",
+      "overall_reliability": 0.9681,
+      "authority": 1.0,
+      "relevance": 0.8936,
+      "support": 1.0,
+      "coverage": 1.0,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-007",
+      "overall_reliability": 0.9678,
+      "authority": 1.0,
+      "relevance": 0.8928,
+      "support": 1.0,
+      "coverage": 1.0,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-008",
+      "overall_reliability": 0.9581,
+      "authority": 1.0,
+      "relevance": 0.8602,
+      "support": 1.0,
+      "coverage": 1.0,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-009",
+      "overall_reliability": 0.922,
+      "authority": 1.0,
+      "relevance": 0.8511,
+      "support": 1.0,
+      "coverage": 0.6667,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-010",
+      "overall_reliability": 0.9557,
+      "authority": 1.0,
+      "relevance": 0.8524,
+      "support": 1.0,
+      "coverage": 1.0,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-011",
+      "overall_reliability": 0.9175,
+      "authority": 1.0,
+      "relevance": 0.868,
+      "support": 1.0,
+      "coverage": 0.5714,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-012",
+      "overall_reliability": 0.9357,
+      "authority": 1.0,
+      "relevance": 0.8412,
+      "support": 1.0,
+      "coverage": 0.8333,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-013",
+      "overall_reliability": 0.8571,
+      "authority": 1.0,
+      "relevance": 0.8569,
+      "support": 0.6667,
+      "coverage": 0.6667,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-014",
+      "overall_reliability": 0.958,
+      "authority": 1.0,
+      "relevance": 0.9267,
+      "support": 1.0,
+      "coverage": 0.8,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-015",
+      "overall_reliability": 0.9347,
+      "authority": 1.0,
+      "relevance": 0.9158,
+      "support": 1.0,
+      "coverage": 0.6,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    },
+    {
+      "id": "GQ-016",
+      "overall_reliability": 0.9691,
+      "authority": 1.0,
+      "relevance": 0.8969,
+      "support": 1.0,
+      "coverage": 1.0,
+      "consistency": 1.0,
+      "stored_decision": "ACCEPT",
+      "recomputed_decision": "ACCEPT",
+      "decision_consistent": true
+    }
+  ]
+}

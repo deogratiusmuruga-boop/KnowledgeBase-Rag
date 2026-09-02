@@ -1,0 +1,908 @@
+{
+  "metadata": {
+    "title": "ElderDocAI RQ4/RQ5 - Dynamic Care-State and Adaptive Assistance Evaluation",
+    "data_source": "Synthetic longitudinal clinical records derived from Synthea",
+    "n_patients": 178,
+    "n_windows": 9723,
+    "analysis_type": "descriptive statistics + internal rule-consistency",
+    "disclaimer": "Synthetic data. Descriptive/internal-consistency evaluation only. Not a clinical validation study. Does not imply clinical validity."
+  },
+  "rq4": {
+    "datasets": [
+      "clinical_features.json",
+      "dynamic_care_states.json",
+      "care_state_timeline.json",
+      "care_state_transitions.json"
+    ],
+    "A_patient_statistics": {
+      "n_patients": 178,
+      "n_windows": 9723,
+      "windows_per_patient": {
+        "avg": 54.62,
+        "min": 5,
+        "max": 88,
+        "median": 54.0,
+        "pct_patients_with_more_than_one_window": 100.0
+      },
+      "n_transition_records": 9723,
+      "n_patients_in_transitions": 178
+    },
+    "B_state_distribution_window": {
+      "STABLE": {
+        "count": 1,
+        "pct": 0.01
+      },
+      "LOW_ACTIVITY": {
+        "count": 1271,
+        "pct": 13.07
+      },
+      "MODERATE_ACTIVITY": {
+        "count": 1257,
+        "pct": 12.93
+      },
+      "HIGH_ACTIVITY": {
+        "count": 838,
+        "pct": 8.62
+      },
+      "NO_DATA": {
+        "count": 6356,
+        "pct": 65.37
+      }
+    },
+    "B_state_distribution_patient_dominant": {
+      "STABLE": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "LOW_ACTIVITY": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "MODERATE_ACTIVITY": {
+        "count": 4,
+        "pct": 2.25
+      },
+      "HIGH_ACTIVITY": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "NO_DATA": {
+        "count": 174,
+        "pct": 97.75
+      }
+    },
+    "B_state_distribution_patient_ever": {
+      "STABLE": {
+        "count": 1,
+        "pct": 0.56
+      },
+      "LOW_ACTIVITY": {
+        "count": 178,
+        "pct": 100.0
+      },
+      "MODERATE_ACTIVITY": {
+        "count": 178,
+        "pct": 100.0
+      },
+      "HIGH_ACTIVITY": {
+        "count": 163,
+        "pct": 91.57
+      },
+      "NO_DATA": {
+        "count": 176,
+        "pct": 98.88
+      }
+    },
+    "C_score_statistics": {
+      "n_scored_windows": 3367,
+      "n_null_score_windows": 6356,
+      "min": 0.2462,
+      "max": 0.9864,
+      "mean": 0.6202,
+      "median": 0.5851,
+      "stdev": 0.1666,
+      "q1": 0.4496,
+      "q2": 0.5851,
+      "q3": 0.7494
+    },
+    "D_transition_distribution": {
+      "INITIAL_STATE": {
+        "count": 178,
+        "pct": 1.83
+      },
+      "NO_CHANGE": {
+        "count": 1130,
+        "pct": 11.62
+      },
+      "STATE_ESCALATION": {
+        "count": 446,
+        "pct": 4.59
+      },
+      "STATE_DEESCALATION": {
+        "count": 302,
+        "pct": 3.11
+      },
+      "INCREASING_ACTIVITY": {
+        "count": 121,
+        "pct": 1.24
+      },
+      "DECREASING_ACTIVITY": {
+        "count": 101,
+        "pct": 1.04
+      },
+      "GAP": {
+        "count": 7445,
+        "pct": 76.57
+      }
+    },
+    "D_transition_direction_distribution": {
+      "INITIAL": {
+        "count": 178,
+        "pct": 1.83
+      },
+      "UNCHANGED": {
+        "count": 1130,
+        "pct": 11.62
+      },
+      "INCREASING": {
+        "count": 567,
+        "pct": 5.83
+      },
+      "DECREASING": {
+        "count": 403,
+        "pct": 4.14
+      },
+      "UNKNOWN": {
+        "count": 7445,
+        "pct": 76.57
+      }
+    },
+    "D_escalation_deescalation_stats": {
+      "n_escalation_STATE_ESCALATION": 446,
+      "n_deescalation_STATE_DEESCALATION": 302,
+      "n_increasing_INCREASING_ACTIVITY": 121,
+      "n_decreasing_DECREASING_ACTIVITY": 101,
+      "n_unchanged_NO_CHANGE": 1130,
+      "n_initial_INITIAL_STATE": 178,
+      "n_gap_GAP": 7445
+    },
+    "D_transition_rate": {
+      "n_transitionable_windows_excl_initial_and_gap": 2100,
+      "n_transition_events": 970,
+      "rate_pct_events_over_transitionable": 46.19,
+      "all_windows_event_rate_pct": 9.98
+    },
+    "E_transition_matrix": [
+      {
+        "previous": "HIGH_ACTIVITY",
+        "current": "HIGH_ACTIVITY",
+        "count": 523,
+        "pct_of_all_windows": 5.38,
+        "pct_within_previous_state": 68.82
+      },
+      {
+        "previous": "HIGH_ACTIVITY",
+        "current": "LOW_ACTIVITY",
+        "count": 19,
+        "pct_of_all_windows": 0.2,
+        "pct_within_previous_state": 2.5
+      },
+      {
+        "previous": "HIGH_ACTIVITY",
+        "current": "MODERATE_ACTIVITY",
+        "count": 214,
+        "pct_of_all_windows": 2.2,
+        "pct_within_previous_state": 28.16
+      },
+      {
+        "previous": "HIGH_ACTIVITY",
+        "current": "NO_DATA",
+        "count": 4,
+        "pct_of_all_windows": 0.04,
+        "pct_within_previous_state": 0.53
+      },
+      {
+        "previous": "LOW_ACTIVITY",
+        "current": "HIGH_ACTIVITY",
+        "count": 23,
+        "pct_of_all_windows": 0.24,
+        "pct_within_previous_state": 1.84
+      },
+      {
+        "previous": "LOW_ACTIVITY",
+        "current": "LOW_ACTIVITY",
+        "count": 204,
+        "pct_of_all_windows": 2.1,
+        "pct_within_previous_state": 16.33
+      },
+      {
+        "previous": "LOW_ACTIVITY",
+        "current": "MODERATE_ACTIVITY",
+        "count": 144,
+        "pct_of_all_windows": 1.48,
+        "pct_within_previous_state": 11.53
+      },
+      {
+        "previous": "LOW_ACTIVITY",
+        "current": "NO_DATA",
+        "count": 878,
+        "pct_of_all_windows": 9.03,
+        "pct_within_previous_state": 70.3
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "HIGH_ACTIVITY",
+        "count": 278,
+        "pct_of_all_windows": 2.86,
+        "pct_within_previous_state": 23.58
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "LOW_ACTIVITY",
+        "count": 68,
+        "pct_of_all_windows": 0.7,
+        "pct_within_previous_state": 5.77
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "MODERATE_ACTIVITY",
+        "count": 625,
+        "pct_of_all_windows": 6.43,
+        "pct_within_previous_state": 53.01
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "NO_DATA",
+        "count": 207,
+        "pct_of_all_windows": 2.13,
+        "pct_within_previous_state": 17.56
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "STABLE",
+        "count": 1,
+        "pct_of_all_windows": 0.01,
+        "pct_within_previous_state": 0.08
+      },
+      {
+        "previous": "NO_DATA",
+        "current": "HIGH_ACTIVITY",
+        "count": 13,
+        "pct_of_all_windows": 0.13,
+        "pct_within_previous_state": 0.2
+      },
+      {
+        "previous": "NO_DATA",
+        "current": "LOW_ACTIVITY",
+        "count": 820,
+        "pct_of_all_windows": 8.43,
+        "pct_within_previous_state": 12.9
+      },
+      {
+        "previous": "NO_DATA",
+        "current": "MODERATE_ACTIVITY",
+        "count": 256,
+        "pct_of_all_windows": 2.63,
+        "pct_within_previous_state": 4.03
+      },
+      {
+        "previous": "NO_DATA",
+        "current": "NO_DATA",
+        "count": 5267,
+        "pct_of_all_windows": 54.17,
+        "pct_within_previous_state": 82.87
+      },
+      {
+        "previous": "STABLE",
+        "current": "HIGH_ACTIVITY",
+        "count": 1,
+        "pct_of_all_windows": 0.01,
+        "pct_within_previous_state": 100.0
+      }
+    ],
+    "E_transition_matrix_active_only": [
+      {
+        "previous": "HIGH_ACTIVITY",
+        "current": "HIGH_ACTIVITY",
+        "count": 523,
+        "pct_of_all_windows": 5.38,
+        "pct_within_previous_state": 69.18
+      },
+      {
+        "previous": "HIGH_ACTIVITY",
+        "current": "LOW_ACTIVITY",
+        "count": 19,
+        "pct_of_all_windows": 0.2,
+        "pct_within_previous_state": 2.51
+      },
+      {
+        "previous": "HIGH_ACTIVITY",
+        "current": "MODERATE_ACTIVITY",
+        "count": 214,
+        "pct_of_all_windows": 2.2,
+        "pct_within_previous_state": 28.31
+      },
+      {
+        "previous": "LOW_ACTIVITY",
+        "current": "HIGH_ACTIVITY",
+        "count": 23,
+        "pct_of_all_windows": 0.24,
+        "pct_within_previous_state": 6.2
+      },
+      {
+        "previous": "LOW_ACTIVITY",
+        "current": "LOW_ACTIVITY",
+        "count": 204,
+        "pct_of_all_windows": 2.1,
+        "pct_within_previous_state": 54.99
+      },
+      {
+        "previous": "LOW_ACTIVITY",
+        "current": "MODERATE_ACTIVITY",
+        "count": 144,
+        "pct_of_all_windows": 1.48,
+        "pct_within_previous_state": 38.81
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "HIGH_ACTIVITY",
+        "count": 278,
+        "pct_of_all_windows": 2.86,
+        "pct_within_previous_state": 28.6
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "LOW_ACTIVITY",
+        "count": 68,
+        "pct_of_all_windows": 0.7,
+        "pct_within_previous_state": 7.0
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "MODERATE_ACTIVITY",
+        "count": 625,
+        "pct_of_all_windows": 6.43,
+        "pct_within_previous_state": 64.3
+      },
+      {
+        "previous": "MODERATE_ACTIVITY",
+        "current": "STABLE",
+        "count": 1,
+        "pct_of_all_windows": 0.01,
+        "pct_within_previous_state": 0.1
+      },
+      {
+        "previous": "STABLE",
+        "current": "HIGH_ACTIVITY",
+        "count": 1,
+        "pct_of_all_windows": 0.01,
+        "pct_within_previous_state": 100.0
+      }
+    ],
+    "F_longitudinal": {
+      "state_persistence_avg_consecutive_windows": {
+        "STABLE": {
+          "avg_consecutive_windows": 1,
+          "n_runs": 1
+        },
+        "LOW_ACTIVITY": {
+          "avg_consecutive_windows": 1.19,
+          "n_runs": 1067
+        },
+        "MODERATE_ACTIVITY": {
+          "avg_consecutive_windows": 1.99,
+          "n_runs": 632
+        },
+        "HIGH_ACTIVITY": {
+          "avg_consecutive_windows": 2.66,
+          "n_runs": 315
+        },
+        "NO_DATA": {
+          "avg_consecutive_windows": 5.84,
+          "n_runs": 1089
+        }
+      },
+      "avg_meaningful_transitions_per_patient": 11.8,
+      "avg_state_changes_per_patient": 5.48,
+      "median_meaningful_transitions_per_patient": 12.0,
+      "pct_patients_with_at_least_one_escalation": 96.63,
+      "pct_patients_with_at_least_one_deescalation": 85.39,
+      "pct_patients_with_at_least_one_increase": 53.93,
+      "pct_patients_with_at_least_one_decrease": 46.07,
+      "pct_patients_unchanged_across_meaningful_transitions": 0.56,
+      "pct_patients_single_state_across_all_windows": 0.0,
+      "n_patients_with_meaningful_transitions": 178
+    }
+  },
+  "rq5": {
+    "datasets": [
+      "adaptive_context.json",
+      "adaptive_assistance.json",
+      "assistance_plans.json",
+      "assistance_decisions.json"
+    ],
+    "n_windows": 9723,
+    "A_assistance_mode_distribution": {
+      "ADAPTIVE_DEESCALATION": {
+        "count": 302,
+        "pct": 3.11
+      },
+      "ADAPTIVE_ESCALATION": {
+        "count": 446,
+        "pct": 4.59
+      },
+      "CONTEXTUAL_SUPPORT": {
+        "count": 476,
+        "pct": 4.9
+      },
+      "ENHANCED_SUPPORT": {
+        "count": 452,
+        "pct": 4.65
+      },
+      "FOLLOW_UP_SUPPORT": {
+        "count": 101,
+        "pct": 1.04
+      },
+      "INITIAL_CONTEXT": {
+        "count": 178,
+        "pct": 1.83
+      },
+      "LIGHT_SUPPORT": {
+        "count": 202,
+        "pct": 2.08
+      },
+      "MONITORING_SUPPORT": {
+        "count": 121,
+        "pct": 1.24
+      },
+      "WAIT_FOR_DATA": {
+        "count": 7445,
+        "pct": 76.57
+      }
+    },
+    "B_priority_distribution": {
+      "HIGH": {
+        "count": 969,
+        "pct": 9.97
+      },
+      "LOW": {
+        "count": 7807,
+        "pct": 80.29
+      },
+      "MODERATE": {
+        "count": 947,
+        "pct": 9.74
+      }
+    },
+    "C_state_assistance_mapping": [
+      {
+        "care_state": "HIGH_ACTIVITY",
+        "assistance_mode": "ADAPTIVE_ESCALATION",
+        "count": 302,
+        "pct_of_all_windows": 3.11,
+        "pct_within_state": 36.04
+      },
+      {
+        "care_state": "HIGH_ACTIVITY",
+        "assistance_mode": "ENHANCED_SUPPORT",
+        "count": 452,
+        "pct_of_all_windows": 4.65,
+        "pct_within_state": 53.94
+      },
+      {
+        "care_state": "HIGH_ACTIVITY",
+        "assistance_mode": "FOLLOW_UP_SUPPORT",
+        "count": 37,
+        "pct_of_all_windows": 0.38,
+        "pct_within_state": 4.42
+      },
+      {
+        "care_state": "HIGH_ACTIVITY",
+        "assistance_mode": "MONITORING_SUPPORT",
+        "count": 34,
+        "pct_of_all_windows": 0.35,
+        "pct_within_state": 4.06
+      },
+      {
+        "care_state": "HIGH_ACTIVITY",
+        "assistance_mode": "WAIT_FOR_DATA",
+        "count": 13,
+        "pct_of_all_windows": 0.13,
+        "pct_within_state": 1.55
+      },
+      {
+        "care_state": "LOW_ACTIVITY",
+        "assistance_mode": "ADAPTIVE_DEESCALATION",
+        "count": 87,
+        "pct_of_all_windows": 0.89,
+        "pct_within_state": 6.85
+      },
+      {
+        "care_state": "LOW_ACTIVITY",
+        "assistance_mode": "FOLLOW_UP_SUPPORT",
+        "count": 1,
+        "pct_of_all_windows": 0.01,
+        "pct_within_state": 0.08
+      },
+      {
+        "care_state": "LOW_ACTIVITY",
+        "assistance_mode": "INITIAL_CONTEXT",
+        "count": 160,
+        "pct_of_all_windows": 1.65,
+        "pct_within_state": 12.59
+      },
+      {
+        "care_state": "LOW_ACTIVITY",
+        "assistance_mode": "LIGHT_SUPPORT",
+        "count": 202,
+        "pct_of_all_windows": 2.08,
+        "pct_within_state": 15.89
+      },
+      {
+        "care_state": "LOW_ACTIVITY",
+        "assistance_mode": "MONITORING_SUPPORT",
+        "count": 1,
+        "pct_of_all_windows": 0.01,
+        "pct_within_state": 0.08
+      },
+      {
+        "care_state": "LOW_ACTIVITY",
+        "assistance_mode": "WAIT_FOR_DATA",
+        "count": 820,
+        "pct_of_all_windows": 8.43,
+        "pct_within_state": 64.52
+      },
+      {
+        "care_state": "MODERATE_ACTIVITY",
+        "assistance_mode": "ADAPTIVE_DEESCALATION",
+        "count": 214,
+        "pct_of_all_windows": 2.2,
+        "pct_within_state": 17.02
+      },
+      {
+        "care_state": "MODERATE_ACTIVITY",
+        "assistance_mode": "ADAPTIVE_ESCALATION",
+        "count": 144,
+        "pct_of_all_windows": 1.48,
+        "pct_within_state": 11.46
+      },
+      {
+        "care_state": "MODERATE_ACTIVITY",
+        "assistance_mode": "CONTEXTUAL_SUPPORT",
+        "count": 476,
+        "pct_of_all_windows": 4.9,
+        "pct_within_state": 37.87
+      },
+      {
+        "care_state": "MODERATE_ACTIVITY",
+        "assistance_mode": "FOLLOW_UP_SUPPORT",
+        "count": 63,
+        "pct_of_all_windows": 0.65,
+        "pct_within_state": 5.01
+      },
+      {
+        "care_state": "MODERATE_ACTIVITY",
+        "assistance_mode": "INITIAL_CONTEXT",
+        "count": 18,
+        "pct_of_all_windows": 0.19,
+        "pct_within_state": 1.43
+      },
+      {
+        "care_state": "MODERATE_ACTIVITY",
+        "assistance_mode": "MONITORING_SUPPORT",
+        "count": 86,
+        "pct_of_all_windows": 0.88,
+        "pct_within_state": 6.84
+      },
+      {
+        "care_state": "MODERATE_ACTIVITY",
+        "assistance_mode": "WAIT_FOR_DATA",
+        "count": 256,
+        "pct_of_all_windows": 2.63,
+        "pct_within_state": 20.37
+      },
+      {
+        "care_state": "NO_DATA",
+        "assistance_mode": "WAIT_FOR_DATA",
+        "count": 6356,
+        "pct_of_all_windows": 65.37,
+        "pct_within_state": 100.0
+      },
+      {
+        "care_state": "STABLE",
+        "assistance_mode": "ADAPTIVE_DEESCALATION",
+        "count": 1,
+        "pct_of_all_windows": 0.01,
+        "pct_within_state": 100.0
+      }
+    ],
+    "D_transition_assistance_mapping": [
+      {
+        "transition_type": "DECREASING_ACTIVITY",
+        "assistance_mode": "FOLLOW_UP_SUPPORT",
+        "count": 101,
+        "pct_of_all_windows": 1.04,
+        "pct_within_transition": 100.0
+      },
+      {
+        "transition_type": "GAP",
+        "assistance_mode": "WAIT_FOR_DATA",
+        "count": 7445,
+        "pct_of_all_windows": 76.57,
+        "pct_within_transition": 100.0
+      },
+      {
+        "transition_type": "INCREASING_ACTIVITY",
+        "assistance_mode": "MONITORING_SUPPORT",
+        "count": 121,
+        "pct_of_all_windows": 1.24,
+        "pct_within_transition": 100.0
+      },
+      {
+        "transition_type": "INITIAL_STATE",
+        "assistance_mode": "INITIAL_CONTEXT",
+        "count": 178,
+        "pct_of_all_windows": 1.83,
+        "pct_within_transition": 100.0
+      },
+      {
+        "transition_type": "NO_CHANGE",
+        "assistance_mode": "CONTEXTUAL_SUPPORT",
+        "count": 476,
+        "pct_of_all_windows": 4.9,
+        "pct_within_transition": 42.12
+      },
+      {
+        "transition_type": "NO_CHANGE",
+        "assistance_mode": "ENHANCED_SUPPORT",
+        "count": 452,
+        "pct_of_all_windows": 4.65,
+        "pct_within_transition": 40.0
+      },
+      {
+        "transition_type": "NO_CHANGE",
+        "assistance_mode": "LIGHT_SUPPORT",
+        "count": 202,
+        "pct_of_all_windows": 2.08,
+        "pct_within_transition": 17.88
+      },
+      {
+        "transition_type": "STATE_DEESCALATION",
+        "assistance_mode": "ADAPTIVE_DEESCALATION",
+        "count": 302,
+        "pct_of_all_windows": 3.11,
+        "pct_within_transition": 100.0
+      },
+      {
+        "transition_type": "STATE_ESCALATION",
+        "assistance_mode": "ADAPTIVE_ESCALATION",
+        "count": 446,
+        "pct_of_all_windows": 4.59,
+        "pct_within_transition": 100.0
+      }
+    ],
+    "E_coverage": {
+      "join_key": "(patient_id, window_start)",
+      "n_timeline_windows": 9723,
+      "n_unique_timeline_keys": 9723,
+      "artifacts": {
+        "adaptive_context": {
+          "n_records": 9723,
+          "n_unique_keys": 9723,
+          "n_duplicate_keys": 0,
+          "matched_to_timeline": 9723,
+          "pct_of_timeline_windows": 100.0,
+          "missing": 0
+        },
+        "adaptive_assistance": {
+          "n_records": 9723,
+          "n_unique_keys": 9723,
+          "n_duplicate_keys": 0,
+          "matched_to_timeline": 9723,
+          "pct_of_timeline_windows": 100.0,
+          "missing": 0
+        },
+        "assistance_plans": {
+          "n_records": 9723,
+          "n_unique_keys": 9723,
+          "n_duplicate_keys": 0,
+          "matched_to_timeline": 9723,
+          "pct_of_timeline_windows": 100.0,
+          "missing": 0
+        },
+        "assistance_decisions": {
+          "n_records": 9723,
+          "n_unique_keys": 9723,
+          "n_duplicate_keys": 0,
+          "matched_to_timeline": 9723,
+          "pct_of_timeline_windows": 100.0,
+          "missing": 0
+        }
+      },
+      "null_rates": {
+        "assistance_mode_null": 0,
+        "priority_null": 0,
+        "plan_strategy_null": 0,
+        "plan_actions_missing": 0,
+        "decision_strategy_null": 0
+      }
+    },
+    "F_rule_consistency": {
+      "reference_policy": "deterministic rule tables from build_adaptive_assistance.py",
+      "n_records_checked": 9723,
+      "mode_agreement_count": 9723,
+      "mode_agreement_pct": 100.0,
+      "priority_agreement_count": 9723,
+      "priority_agreement_pct": 100.0,
+      "n_mismatches": 0,
+      "mismatch_examples": [],
+      "state_priority": [
+        {
+          "care_state": "HIGH_ACTIVITY",
+          "priority": "HIGH",
+          "count": 825,
+          "pct_within_state": 98.45
+        },
+        {
+          "care_state": "HIGH_ACTIVITY",
+          "priority": "LOW",
+          "count": 13,
+          "pct_within_state": 1.55
+        },
+        {
+          "care_state": "LOW_ACTIVITY",
+          "priority": "LOW",
+          "count": 1182,
+          "pct_within_state": 93.0
+        },
+        {
+          "care_state": "LOW_ACTIVITY",
+          "priority": "MODERATE",
+          "count": 89,
+          "pct_within_state": 7.0
+        },
+        {
+          "care_state": "MODERATE_ACTIVITY",
+          "priority": "HIGH",
+          "count": 144,
+          "pct_within_state": 11.46
+        },
+        {
+          "care_state": "MODERATE_ACTIVITY",
+          "priority": "LOW",
+          "count": 256,
+          "pct_within_state": 20.37
+        },
+        {
+          "care_state": "MODERATE_ACTIVITY",
+          "priority": "MODERATE",
+          "count": 857,
+          "pct_within_state": 68.18
+        },
+        {
+          "care_state": "NO_DATA",
+          "priority": "LOW",
+          "count": 6356,
+          "pct_within_state": 100.0
+        },
+        {
+          "care_state": "STABLE",
+          "priority": "MODERATE",
+          "count": 1,
+          "pct_within_state": 100.0
+        }
+      ],
+      "transition_priority": [
+        {
+          "transition_type": "DECREASING_ACTIVITY",
+          "priority": "HIGH",
+          "count": 37,
+          "pct_within_transition": 36.63
+        },
+        {
+          "transition_type": "DECREASING_ACTIVITY",
+          "priority": "MODERATE",
+          "count": 64,
+          "pct_within_transition": 63.37
+        },
+        {
+          "transition_type": "GAP",
+          "priority": "LOW",
+          "count": 7445,
+          "pct_within_transition": 100.0
+        },
+        {
+          "transition_type": "INCREASING_ACTIVITY",
+          "priority": "HIGH",
+          "count": 34,
+          "pct_within_transition": 28.1
+        },
+        {
+          "transition_type": "INCREASING_ACTIVITY",
+          "priority": "MODERATE",
+          "count": 87,
+          "pct_within_transition": 71.9
+        },
+        {
+          "transition_type": "INITIAL_STATE",
+          "priority": "LOW",
+          "count": 160,
+          "pct_within_transition": 89.89
+        },
+        {
+          "transition_type": "INITIAL_STATE",
+          "priority": "MODERATE",
+          "count": 18,
+          "pct_within_transition": 10.11
+        },
+        {
+          "transition_type": "NO_CHANGE",
+          "priority": "HIGH",
+          "count": 452,
+          "pct_within_transition": 40.0
+        },
+        {
+          "transition_type": "NO_CHANGE",
+          "priority": "LOW",
+          "count": 202,
+          "pct_within_transition": 17.88
+        },
+        {
+          "transition_type": "NO_CHANGE",
+          "priority": "MODERATE",
+          "count": 476,
+          "pct_within_transition": 42.12
+        },
+        {
+          "transition_type": "STATE_DEESCALATION",
+          "priority": "MODERATE",
+          "count": 302,
+          "pct_within_transition": 100.0
+        },
+        {
+          "transition_type": "STATE_ESCALATION",
+          "priority": "HIGH",
+          "count": 446,
+          "pct_within_transition": 100.0
+        }
+      ],
+      "semantic_checks": {
+        "state_intensity": {
+          "HIGH_ACTIVITY_windows": 838,
+          "HIGH_ACTIVITY_high_priority_pct": 98.45,
+          "HIGH_ACTIVITY_ENHANCED_or_escalation_mode_pct": 89.98,
+          "MODERATE_ACTIVITY_windows": 1257,
+          "MODERATE_ACTIVITY_moderate_priority_pct": 68.18,
+          "LOW_ACTIVITY_windows": 1271,
+          "LOW_ACTIVITY_low_priority_pct": 93.0,
+          "STABLE_windows": 1,
+          "STABLE_low_priority_pct": 0.0,
+          "NO_DATA_windows": 6356,
+          "NO_DATA_low_priority_pct": 100.0
+        },
+        "transition_semantics": {
+          "STATE_ESCALATION_ADAPTIVE_ESCALATION_pct": 100.0,
+          "STATE_ESCALATION_high_priority_pct": 100.0,
+          "STATE_DEESCALATION_ADAPTIVE_DEESCALATION_pct": 100.0,
+          "INCREASING_ACTIVITY_MONITORING_SUPPORT_pct": 100.0,
+          "INCREASING_ACTIVITY_priority_ge_MODERATE_pct": 100.0,
+          "DECREASING_ACTIVITY_FOLLOW_UP_SUPPORT_pct": 100.0,
+          "GAP_WAIT_FOR_DATA_pct": 100.0,
+          "INITIAL_STATE_INITIAL_CONTEXT_pct": 100.0,
+          "NO_CHANGE_state_default_mode_pct": 100.0
+        }
+      },
+      "strategy_agreement_plans_pct": 100.0,
+      "strategy_agreement_decisions_pct": 100.0,
+      "note": "Internal rule-consistency check. Does not establish clinical validity."
+    }
+  },
+  "figures": [
+    "rq4_fig1_care_state_distribution.png",
+    "rq4_fig2_transition_distribution.png",
+    "rq4_fig3_transition_matrix_heatmap.png",
+    "rq5_fig4_state_assistance_stacked.png",
+    "rq5_fig5_transition_assistance_stacked.png",
+    "rq5_fig6_transition_priority_grouped.png"
+  ]
+}

@@ -1,0 +1,213 @@
+ELDERDOCAI ABLATION STUDY
+patient_ctx: {'patient_id': '8855fb38-21b3-1cab-1e78-84154dad9252', 'static_profile': {'chronic_conditions': ['History of appendectomy (situation)', 'Received higher education (finding)', 'Body mass index 30+ - obesity (finding)', 'Prediabetes (finding)', 'Anemia (disorder)', 'History of tubal ligation (situation)'], 'medications': [], 'preferred_language': 'en', 'speech_speed': 'normal'}, 'patient_profile': {'chronic_conditions': ['History of appendectomy (situation)', 'Received higher education (finding)', 'Body mass index 30+ - obesity (finding)', 'Prediabetes (finding)', 'Anemia (disorder)', 'History of tubal ligation (situation)'], 'medications': [], 'preferred_language': 'en', 'speech_speed': 'normal', 'patient_id': '8855fb38-21b3-1cab-1e78-84154dad9252'}, 'adaptive_context_window': {'window_start': '2015-01-01', 'window_end': '2015-12-31', 'context_status': 'ACTIVE', 'care_state': 'HIGH_ACTIVITY', 'transition_type': 'NO_CHANGE'}, 'assistance_plan': {'assistance_strategy': 'ENHANCED_SUPPORT', 'priority': 'HIGH', 'actions': [{'action': 'PROVIDE_TARGETED_INFORMATION', 'reason': 'Documented care activity remained high; provide targeted information.'}, {'action': 'REVIEW_RECENT_CARE_CONTEXT', 'reason': 'High documented activity state; review recent care context.'}, {'action': 'ENCOURAGE_FUTURE_CHECK_IN', 'reason': 'High documented activity state; encourage a future check-in.'}], 'safety_constraints': ['NO_DIAGNOSIS', 'NO_MEDICAL_RISK_PREDICTION', 'NO_DISEASE_PROGRESSION_INFERENCE', 'DOCUMENTED_ACTIVITY_ONLY']}, 'assistance_plan_strategy': 'ENHANCED_SUPPORT'}
+### CONDITION A0 - Full ElderDocAI
+[1/16] A0 :: GQ-001 :: Is dementia a normal part of aging, and what abilities do people with dementia lose?
+  src=True chunk_recall=True span=True rel=0.9452 dec=ACCEPT faith=1.0 relv=1.0
+[2/16] A0 :: GQ-002 :: What are some warning signs that memory problems may be more serious than typical forgetfulness?
+  src=True chunk_recall=True span=True rel=0.9515 dec=ACCEPT faith=0.75 relv=0.75
+[3/16] A0 :: GQ-003 :: What is mild cognitive impairment (MCI)?
+  src=True chunk_recall=True span=True rel=0.8894 dec=ACCEPT faith=1.0 relv=1.0
+[4/16] A0 :: GQ-004 :: What did the doctor suggest Mary do to support her memory as she ages?
+  src=True chunk_recall=True span=True rel=0.9355 dec=ACCEPT faith=0.75 relv=1.0
+[5/16] A0 :: GQ-005 :: How much moderate-intensity aerobic activity should adults aim for each week?
+  src=True chunk_recall=True span=True rel=0.9652 dec=ACCEPT faith=1.0 relv=1.0
+[6/16] A0 :: GQ-006 :: What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?
+  src=True chunk_recall=True span=True rel=0.9681 dec=ACCEPT faith=1.0 relv=1.0
+[7/16] A0 :: GQ-007 :: Why is mixing certain medicines dangerous, and what should older adults be sure to know?
+  src=True chunk_recall=True span=True rel=0.9678 dec=ACCEPT faith=1.0 relv=1.0
+[8/16] A0 :: GQ-008 :: What questions should you ask about your medicines?
+  src=True chunk_recall=True span=True rel=0.9581 dec=ACCEPT faith=1.0 relv=1.0
+[9/16] A0 :: GQ-009 :: What is the guidance about taking the correct dose of medicine?
+  src=True chunk_recall=True span=False rel=0.922 dec=ACCEPT faith=1.0 relv=1.0
+[10/16] A0 :: GQ-010 :: What is respite care, and how long can it last?
+  src=True chunk_recall=True span=True rel=0.9557 dec=ACCEPT faith=1.0 relv=1.0
+[11/16] A0 :: GQ-011 :: If someone is new to caregiving, what advice does the handbook give?
+  src=True chunk_recall=True span=True rel=0.9175 dec=ACCEPT faith=0.75 relv=0.25
+[12/16] A0 :: GQ-012 :: What is the grandparent scam and how can families protect themselves?
+  src=True chunk_recall=True span=True rel=0.9357 dec=ACCEPT faith=1.0 relv=0.5
+[13/16] A0 :: GQ-013 :: What is the WHO ICOPE handbook about?
+  src=True chunk_recall=True span=True rel=0.8571 dec=ACCEPT faith=0.75 relv=1.0
+[14/16] A0 :: GQ-014 :: What are key ICOPE care pathways in primary care?
+  src=True chunk_recall=True span=False rel=0.958 dec=ACCEPT faith=1.0 relv=1.0
+[15/16] A0 :: GQ-015 :: What is the overall message of the Dietary Guidelines for Americans 2020-2025?
+  src=True chunk_recall=True span=True rel=0.9347 dec=ACCEPT faith=1.0 relv=0.75
+[16/16] A0 :: GQ-016 :: How can physical activity help older adults manage type 2 diabetes?
+  src=True chunk_recall=True span=True rel=0.9691 dec=ACCEPT faith=1.0 relv=1.0
+
+### CONDITION A1 - No Dynamic Care State
+[1/16] A1 :: GQ-001 :: Is dementia a normal part of aging, and what abilities do people with dementia lose?
+  src=True chunk_recall=True span=True rel=0.9452 dec=ACCEPT faith=1.0 relv=1.0
+[2/16] A1 :: GQ-002 :: What are some warning signs that memory problems may be more serious than typical forgetfulness?
+  src=True chunk_recall=True span=True rel=0.9515 dec=ACCEPT faith=1.0 relv=1.0
+[3/16] A1 :: GQ-003 :: What is mild cognitive impairment (MCI)?
+  src=True chunk_recall=True span=True rel=0.8894 dec=ACCEPT faith=0.75 relv=0.75
+[4/16] A1 :: GQ-004 :: What did the doctor suggest Mary do to support her memory as she ages?
+  src=True chunk_recall=True span=True rel=0.9355 dec=ACCEPT faith=1.0 relv=1.0
+[5/16] A1 :: GQ-005 :: How much moderate-intensity aerobic activity should adults aim for each week?
+  src=True chunk_recall=True span=True rel=0.9652 dec=ACCEPT faith=1.0 relv=1.0
+[6/16] A1 :: GQ-006 :: What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?
+  src=True chunk_recall=True span=True rel=0.9681 dec=ACCEPT faith=1.0 relv=1.0
+[7/16] A1 :: GQ-007 :: Why is mixing certain medicines dangerous, and what should older adults be sure to know?
+  src=True chunk_recall=True span=True rel=0.9678 dec=ACCEPT faith=1.0 relv=1.0
+[8/16] A1 :: GQ-008 :: What questions should you ask about your medicines?
+  src=True chunk_recall=True span=True rel=0.9581 dec=ACCEPT faith=1.0 relv=1.0
+[9/16] A1 :: GQ-009 :: What is the guidance about taking the correct dose of medicine?
+  src=True chunk_recall=True span=False rel=0.922 dec=ACCEPT faith=1.0 relv=1.0
+[10/16] A1 :: GQ-010 :: What is respite care, and how long can it last?
+  src=True chunk_recall=True span=True rel=0.9557 dec=ACCEPT faith=1.0 relv=0.75
+[11/16] A1 :: GQ-011 :: If someone is new to caregiving, what advice does the handbook give?
+  src=True chunk_recall=True span=True rel=0.9175 dec=ACCEPT faith=1.0 relv=0.75
+[12/16] A1 :: GQ-012 :: What is the grandparent scam and how can families protect themselves?
+  src=True chunk_recall=True span=True rel=0.9357 dec=ACCEPT faith=0.75 relv=1.0
+[13/16] A1 :: GQ-013 :: What is the WHO ICOPE handbook about?
+  src=True chunk_recall=True span=True rel=0.8571 dec=ACCEPT faith=1.0 relv=1.0
+[14/16] A1 :: GQ-014 :: What are key ICOPE care pathways in primary care?
+  src=True chunk_recall=True span=False rel=0.958 dec=ACCEPT faith=1.0 relv=1.0
+[15/16] A1 :: GQ-015 :: What is the overall message of the Dietary Guidelines for Americans 2020-2025?
+  src=True chunk_recall=True span=True rel=0.9347 dec=ACCEPT faith=1.0 relv=1.0
+[16/16] A1 :: GQ-016 :: How can physical activity help older adults manage type 2 diabetes?
+  src=True chunk_recall=True span=True rel=0.9691 dec=ACCEPT faith=1.0 relv=1.0
+
+### CONDITION A2 - No Adaptive Assistance
+[1/16] A2 :: GQ-001 :: Is dementia a normal part of aging, and what abilities do people with dementia lose?
+  src=True chunk_recall=True span=True rel=0.9452 dec=ACCEPT faith=0.75 relv=1.0
+[2/16] A2 :: GQ-002 :: What are some warning signs that memory problems may be more serious than typical forgetfulness?
+  src=True chunk_recall=True span=True rel=0.9515 dec=ACCEPT faith=0.75 relv=1.0
+[3/16] A2 :: GQ-003 :: What is mild cognitive impairment (MCI)?
+  src=True chunk_recall=True span=True rel=0.8894 dec=ACCEPT faith=1.0 relv=1.0
+[4/16] A2 :: GQ-004 :: What did the doctor suggest Mary do to support her memory as she ages?
+  src=True chunk_recall=True span=True rel=0.9355 dec=ACCEPT faith=0.75 relv=0.25
+[5/16] A2 :: GQ-005 :: How much moderate-intensity aerobic activity should adults aim for each week?
+  src=True chunk_recall=True span=True rel=0.9652 dec=ACCEPT faith=1.0 relv=1.0
+[6/16] A2 :: GQ-006 :: What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?
+  src=True chunk_recall=True span=True rel=0.9681 dec=ACCEPT faith=0.75 relv=1.0
+[7/16] A2 :: GQ-007 :: Why is mixing certain medicines dangerous, and what should older adults be sure to know?
+  src=True chunk_recall=True span=True rel=0.9678 dec=ACCEPT faith=1.0 relv=1.0
+[8/16] A2 :: GQ-008 :: What questions should you ask about your medicines?
+  src=True chunk_recall=True span=True rel=0.9581 dec=ACCEPT faith=0.75 relv=1.0
+[9/16] A2 :: GQ-009 :: What is the guidance about taking the correct dose of medicine?
+  src=True chunk_recall=True span=False rel=0.922 dec=ACCEPT faith=1.0 relv=1.0
+[10/16] A2 :: GQ-010 :: What is respite care, and how long can it last?
+  src=True chunk_recall=True span=True rel=0.9557 dec=ACCEPT faith=1.0 relv=1.0
+[11/16] A2 :: GQ-011 :: If someone is new to caregiving, what advice does the handbook give?
+  src=True chunk_recall=True span=True rel=0.9175 dec=ACCEPT faith=1.0 relv=0.75
+[12/16] A2 :: GQ-012 :: What is the grandparent scam and how can families protect themselves?
+  src=True chunk_recall=True span=True rel=0.9357 dec=ACCEPT faith=0.75 relv=1.0
+[13/16] A2 :: GQ-013 :: What is the WHO ICOPE handbook about?
+  src=True chunk_recall=True span=True rel=0.8571 dec=ACCEPT faith=1.0 relv=1.0
+[14/16] A2 :: GQ-014 :: What are key ICOPE care pathways in primary care?
+  src=True chunk_recall=True span=False rel=0.958 dec=ACCEPT faith=0.75 relv=1.0
+[15/16] A2 :: GQ-015 :: What is the overall message of the Dietary Guidelines for Americans 2020-2025?
+  src=True chunk_recall=True span=True rel=0.9347 dec=ACCEPT faith=1.0 relv=1.0
+[16/16] A2 :: GQ-016 :: How can physical activity help older adults manage type 2 diabetes?
+  src=True chunk_recall=True span=True rel=0.9691 dec=ACCEPT faith=1.0 relv=1.0
+
+### CONDITION A3 - Dense Retrieval Only
+[1/16] A3 :: GQ-001 :: Is dementia a normal part of aging, and what abilities do people with dementia lose?
+  src=True chunk_recall=True span=True rel=0.9452 dec=ACCEPT faith=0.75 relv=1.0
+[2/16] A3 :: GQ-002 :: What are some warning signs that memory problems may be more serious than typical forgetfulness?
+  src=True chunk_recall=True span=True rel=0.9515 dec=ACCEPT faith=1.0 relv=0.75
+[3/16] A3 :: GQ-003 :: What is mild cognitive impairment (MCI)?
+  src=True chunk_recall=True span=True rel=0.8894 dec=ACCEPT faith=1.0 relv=1.0
+[4/16] A3 :: GQ-004 :: What did the doctor suggest Mary do to support her memory as she ages?
+  src=True chunk_recall=True span=True rel=0.9355 dec=ACCEPT faith=0.75 relv=0.75
+[5/16] A3 :: GQ-005 :: How much moderate-intensity aerobic activity should adults aim for each week?
+  src=False chunk_recall=False span=False rel=0.9328 dec=ACCEPT faith=1.0 relv=0.75
+[6/16] A3 :: GQ-006 :: What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?
+  src=True chunk_recall=True span=True rel=0.9681 dec=ACCEPT faith=1.0 relv=1.0
+[7/16] A3 :: GQ-007 :: Why is mixing certain medicines dangerous, and what should older adults be sure to know?
+  src=True chunk_recall=True span=True rel=0.9678 dec=ACCEPT faith=1.0 relv=1.0
+[8/16] A3 :: GQ-008 :: What questions should you ask about your medicines?
+  src=True chunk_recall=True span=True rel=0.9581 dec=ACCEPT faith=1.0 relv=1.0
+[9/16] A3 :: GQ-009 :: What is the guidance about taking the correct dose of medicine?
+  src=False chunk_recall=False span=False rel=0.9068 dec=ACCEPT faith=1.0 relv=0.0
+[10/16] A3 :: GQ-010 :: What is respite care, and how long can it last?
+  src=True chunk_recall=True span=True rel=0.9557 dec=ACCEPT faith=0.75 relv=1.0
+[11/16] A3 :: GQ-011 :: If someone is new to caregiving, what advice does the handbook give?
+  src=True chunk_recall=False span=False rel=0.8391 dec=ACCEPT faith=1.0 relv=0.0
+[12/16] A3 :: GQ-012 :: What is the grandparent scam and how can families protect themselves?
+  src=True chunk_recall=True span=True rel=0.855 dec=ACCEPT faith=0.75 relv=1.0
+[13/16] A3 :: GQ-013 :: What is the WHO ICOPE handbook about?
+  src=True chunk_recall=True span=True rel=0.8577 dec=ACCEPT faith=1.0 relv=1.0
+[14/16] A3 :: GQ-014 :: What are key ICOPE care pathways in primary care?
+  src=True chunk_recall=True span=False rel=0.958 dec=ACCEPT faith=0.75 relv=1.0
+[15/16] A3 :: GQ-015 :: What is the overall message of the Dietary Guidelines for Americans 2020-2025?
+  src=True chunk_recall=True span=True rel=0.9347 dec=ACCEPT faith=1.0 relv=1.0
+[16/16] A3 :: GQ-016 :: How can physical activity help older adults manage type 2 diabetes?
+  src=True chunk_recall=True span=True rel=0.9692 dec=ACCEPT faith=1.0 relv=1.0
+
+### CONDITION A4 - Hybrid Without Reranking
+[1/16] A4 :: GQ-001 :: Is dementia a normal part of aging, and what abilities do people with dementia lose?
+  src=True chunk_recall=True span=True rel=0.9452 dec=ACCEPT faith=1.0 relv=1.0
+[2/16] A4 :: GQ-002 :: What are some warning signs that memory problems may be more serious than typical forgetfulness?
+  src=True chunk_recall=True span=True rel=0.9494 dec=ACCEPT faith=0.75 relv=0.75
+[3/16] A4 :: GQ-003 :: What is mild cognitive impairment (MCI)?
+  src=True chunk_recall=True span=True rel=0.8894 dec=ACCEPT faith=0.75 relv=0.75
+[4/16] A4 :: GQ-004 :: What did the doctor suggest Mary do to support her memory as she ages?
+  src=True chunk_recall=True span=True rel=0.9355 dec=ACCEPT faith=0.75 relv=0.25
+[5/16] A4 :: GQ-005 :: How much moderate-intensity aerobic activity should adults aim for each week?
+  src=True chunk_recall=True span=True rel=0.9645 dec=ACCEPT faith=1.0 relv=1.0
+[6/16] A4 :: GQ-006 :: What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?
+  src=True chunk_recall=True span=True rel=0.9652 dec=ACCEPT faith=1.0 relv=1.0
+[7/16] A4 :: GQ-007 :: Why is mixing certain medicines dangerous, and what should older adults be sure to know?
+  src=True chunk_recall=True span=True rel=0.9678 dec=ACCEPT faith=1.0 relv=0.75
+[8/16] A4 :: GQ-008 :: What questions should you ask about your medicines?
+  src=True chunk_recall=True span=True rel=0.9581 dec=ACCEPT faith=0.75 relv=1.0
+[9/16] A4 :: GQ-009 :: What is the guidance about taking the correct dose of medicine?
+  src=False chunk_recall=False span=False rel=0.9056 dec=ACCEPT faith=1.0 relv=1.0
+[10/16] A4 :: GQ-010 :: What is respite care, and how long can it last?
+  src=True chunk_recall=True span=True rel=0.9557 dec=ACCEPT faith=1.0 relv=1.0
+[11/16] A4 :: GQ-011 :: If someone is new to caregiving, what advice does the handbook give?
+  src=True chunk_recall=False span=False rel=0.8385 dec=ACCEPT faith=1.0 relv=0.25
+[12/16] A4 :: GQ-012 :: What is the grandparent scam and how can families protect themselves?
+  src=True chunk_recall=True span=True rel=0.855 dec=ACCEPT faith=1.0 relv=0.75
+[13/16] A4 :: GQ-013 :: What is the WHO ICOPE handbook about?
+  src=True chunk_recall=True span=True rel=0.8577 dec=ACCEPT faith=1.0 relv=1.0
+[14/16] A4 :: GQ-014 :: What are key ICOPE care pathways in primary care?
+  src=True chunk_recall=True span=False rel=0.9771 dec=ACCEPT faith=0.75 relv=0.25
+[15/16] A4 :: GQ-015 :: What is the overall message of the Dietary Guidelines for Americans 2020-2025?
+  src=True chunk_recall=True span=True rel=0.9347 dec=ACCEPT faith=1.0 relv=1.0
+[16/16] A4 :: GQ-016 :: How can physical activity help older adults manage type 2 diabetes?
+  src=True chunk_recall=True span=True rel=0.9691 dec=ACCEPT faith=1.0 relv=1.0
+
+### CONDITION A5 - No Reliability Gate
+[1/16] A5 :: GQ-001 :: Is dementia a normal part of aging, and what abilities do people with dementia lose?
+  src=True chunk_recall=True span=True rel=0.9452 dec=ACCEPT faith=0.75 relv=1.0
+[2/16] A5 :: GQ-002 :: What are some warning signs that memory problems may be more serious than typical forgetfulness?
+  src=True chunk_recall=True span=True rel=0.9515 dec=ACCEPT faith=1.0 relv=1.0
+[3/16] A5 :: GQ-003 :: What is mild cognitive impairment (MCI)?
+  src=True chunk_recall=True span=True rel=0.8894 dec=ACCEPT faith=1.0 relv=1.0
+[4/16] A5 :: GQ-004 :: What did the doctor suggest Mary do to support her memory as she ages?
+  src=True chunk_recall=True span=True rel=0.9355 dec=ACCEPT faith=1.0 relv=0.75
+[5/16] A5 :: GQ-005 :: How much moderate-intensity aerobic activity should adults aim for each week?
+  src=True chunk_recall=True span=True rel=0.9652 dec=ACCEPT faith=0.75 relv=1.0
+[6/16] A5 :: GQ-006 :: What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?
+  src=True chunk_recall=True span=True rel=0.9681 dec=ACCEPT faith=0.75 relv=1.0
+[7/16] A5 :: GQ-007 :: Why is mixing certain medicines dangerous, and what should older adults be sure to know?
+  src=True chunk_recall=True span=True rel=0.9678 dec=ACCEPT faith=0.75 relv=1.0
+[8/16] A5 :: GQ-008 :: What questions should you ask about your medicines?
+  src=True chunk_recall=True span=True rel=0.9581 dec=ACCEPT faith=1.0 relv=1.0
+[9/16] A5 :: GQ-009 :: What is the guidance about taking the correct dose of medicine?
+  src=True chunk_recall=True span=False rel=0.922 dec=ACCEPT faith=1.0 relv=1.0
+[10/16] A5 :: GQ-010 :: What is respite care, and how long can it last?
+  src=True chunk_recall=True span=True rel=0.9557 dec=ACCEPT faith=0.75 relv=1.0
+[11/16] A5 :: GQ-011 :: If someone is new to caregiving, what advice does the handbook give?
+  src=True chunk_recall=True span=True rel=0.9175 dec=ACCEPT faith=1.0 relv=1.0
+[12/16] A5 :: GQ-012 :: What is the grandparent scam and how can families protect themselves?
+  src=True chunk_recall=True span=True rel=0.9357 dec=ACCEPT faith=1.0 relv=1.0
+[13/16] A5 :: GQ-013 :: What is the WHO ICOPE handbook about?
+  src=True chunk_recall=True span=True rel=0.8571 dec=ACCEPT faith=0.75 relv=1.0
+[14/16] A5 :: GQ-014 :: What are key ICOPE care pathways in primary care?
+  src=True chunk_recall=True span=False rel=0.958 dec=ACCEPT faith=0.75 relv=0.25
+[15/16] A5 :: GQ-015 :: What is the overall message of the Dietary Guidelines for Americans 2020-2025?
+  src=True chunk_recall=True span=True rel=0.9347 dec=ACCEPT faith=1.0 relv=1.0
+[16/16] A5 :: GQ-016 :: How can physical activity help older adults manage type 2 diabetes?
+  src=True chunk_recall=True span=True rel=0.9691 dec=ACCEPT faith=1.0 relv=1.0
+
+### A6 prompt-equivalence check (deterministic; no LLM calls)
+A6 prompt-equivalence check (deterministic; no LLM calls): 16/16 A1/A6 grounded prompts byte-identical (SHA-256 equal per gold question.).
+A6: generated/judged by reusing A1 outputs (identical prompt verified via SHA-256 across all 16 gold questions); no duplicate LLM calls.
+### PART 7 - Window-level adaptive assistance analysis
+adaptive: {'n_windows': 9723, 'policies': {'full': {'n_distinct_modes': 9, 'mode_distribution': {'WAIT_FOR_DATA': 7445, 'CONTEXTUAL_SUPPORT': 476, 'ENHANCED_SUPPORT': 452, 'ADAPTIVE_ESCALATION': 446, 'ADAPTIVE_DEESCALATION': 302, 'LIGHT_SUPPORT': 202, 'INITIAL_CONTEXT': 178, 'MONITORING_SUPPORT': 121, 'FOLLOW_UP_SUPPORT': 101}, 'priority_distribution': {'LOW': 7807, 'HIGH': 969, 'MODERATE': 947}}, 'state_only_A2_proxy': {'n_distinct_modes': 5, 'mode_distribution': {'WAIT_FOR_DATA': 6356, 'LIGHT_SUPPORT': 1271, 'CONTEXTUAL_SUPPORT': 1257, 'ENHANCED_SUPPORT': 838, 'MAINTENANCE_SUPPORT': 1}, 'priority_distribution': {'LOW': 7628, 'MODERATE': 1257, 'HIGH': 838}}, 'static_patient_A6_proxy': {'n_distinct_modes': 3, 'mode_distribution': {'CONTEXTUAL_SUPPORT': 4313, 'ENHANCED_SUPPORT': 4093, 'MAINTENANCE_SUPPORT': 1317}, 'priority_distribution': {'MODERATE': 4313, 'HIGH': 4093, 'LOW': 1317}}, 'fixed_default_A1_proxy': {'n_distinct_modes': 1, 'mode_distribution': {'GENERAL_SUPPORT': 9723}, 'priority_distribution': {'LOW': 9723}}}, 'adaptive_metrics': {'state_sensitive_adaptation_rate_pct': 100.0, 'transition_sensitive_adaptation_rate_pct': 23.01, 'priority_shift_rate_vs_state_only_pct': 5.17, 'priority_shift_rate_vs_fixed_pct': 19.71, 'n_windows_mode_changed_by_care_state': 9723, 'n_windows_mode_changed_by_transition': 2237, 'exact_agreement_full_vs_state_only_pct': 76.99, 'exact_agreement_full_vs_static_patient_pct': 6.14, 'exact_agreement_full_vs_fixed_default_pct': 0.0}, 'transition_sensitivity_breakdown': {'INITIAL_STATE': {'n_windows': 178, 'mode_differs_from_state_only': 178, 'pct_mode_differs': 100.0}, 'NO_CHANGE': {'n_windows': 1130, 'mode_differs_from_state_only': 0, 'pct_mode_differs': 0.0}, 'STATE_ESCALATION': {'n_windows': 446, 'mode_differs_from_state_only': 446, 'pct_mode_differs': 100.0}, 'STATE_DEESCALATION': {'n_windows': 302, 'mode_differs_from_state_only': 302, 'pct_mode_differs': 100.0}, 'INCREASING_ACTIVITY': {'n_windows': 121, 'mode_differs_from_state_only': 121, 'pct_mode_differs': 100.0}, 'DECREASING_ACTIVITY': {'n_windows': 101, 'mode_differs_from_state_only': 101, 'pct_mode_differs': 100.0}, 'GAP': {'n_windows': 7445, 'mode_differs_from_state_only': 1089, 'pct_mode_differs': 14.63}}, 'transition_distribution': {'GAP': 7445, 'NO_CHANGE': 1130, 'STATE_ESCALATION': 446, 'STATE_DEESCALATION': 302, 'INITIAL_STATE': 178, 'INCREASING_ACTIVITY': 121, 'DECREASING_ACTIVITY': 101}}
+### PART 8 - Reliability gate comparison
+### PART 11 - Paired statistics

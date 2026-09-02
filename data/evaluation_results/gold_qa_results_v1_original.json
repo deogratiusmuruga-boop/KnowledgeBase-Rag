@@ -1,0 +1,1474 @@
+{
+  "results": [
+    {
+      "id": "GQ-001",
+      "question": "Is dementia a normal part of aging, and what abilities do people with dementia lose?",
+      "topic": "dementia",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        8
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 8
+        }
+      ],
+      "supporting_span": "Dementia is not a normal part of aging, people with dementia lose their ability to think, remember, learn, and reason",
+      "reference_answer": "Dementia is not a normal part of aging. People with dementia lose their ability to think, remember, learn, and reason, which makes everyday activities challenging.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        8,
+        9,
+        184
+      ],
+      "generated_answer": "Dementia is not a normal part of aging. People with dementia lose their ability to think, remember, learn, and reason, which makes everyday activities challenging. Memory loss is common in dementia, but it's not the only sign; people may also struggle to find the right word, have trouble paying attention, or see and hear things that are not there.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.865,
+        "support": 1.0,
+        "coverage": 0.8571,
+        "consistency": 1.0,
+        "overall_reliability": 0.9452
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "All statements are supported by evidence."
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss",
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          8
+        ],
+        "retrieved_chunk_ids": [
+          8,
+          9,
+          184
+        ],
+        "supporting_span_supported": false,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 8
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 1.478,
+        "judge_seconds": 0.745
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-002",
+      "question": "What are some warning signs that memory problems may be more serious than typical forgetfulness?",
+      "topic": "memory-warning-signs",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        1,
+        2,
+        5
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 1
+        },
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 2
+        },
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 5
+        }
+      ],
+      "supporting_span": "forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem",
+      "reference_answer": "Forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        5,
+        2,
+        6
+      ],
+      "generated_answer": "Forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8939,
+        "support": 1.0,
+        "coverage": 0.8333,
+        "consistency": 1.0,
+        "overall_reliability": 0.9515
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 0.25,
+        "reason": "The answer is mostly unrelated as it provides specific examples of forgetfulness (forgetting how to use the phone, not knowing how to find your way home) rather than addressing what warning signs may be more serious than typical forgetfulness."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "tiny unsupported wording"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1,
+          2,
+          5
+        ],
+        "retrieved_chunk_ids": [
+          2,
+          5,
+          6
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 1
+          },
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 2
+          },
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 5
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.905,
+        "judge_seconds": 1.082
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-003",
+      "question": "What is mild cognitive impairment (MCI)?",
+      "topic": "mci",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        6
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 6
+        }
+      ],
+      "supporting_span": "mild cognitive impairment (MCI), meaning they have more memory or thinking problems than other people their age",
+      "reference_answer": "Mild cognitive impairment (MCI) is a condition in which some older adults have more memory or thinking problems than other people their age.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        6,
+        22,
+        23
+      ],
+      "generated_answer": "Mild cognitive impairment (MCI) is a condition that causes people to have more memory problems than other people their age. The signs of MCI are not as severe as those of Alzheimer\u2019s, and they include losing things often, forgetting to go to events and appointments, and having more trouble coming up with the right words.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8535,
+        "support": 0.6667,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.8894
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "almost completely supported"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          6
+        ],
+        "retrieved_chunk_ids": [
+          6,
+          22,
+          23
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 6
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.849,
+        "judge_seconds": 0.77
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-004",
+      "question": "What did the doctor suggest Mary do to support her memory as she ages?",
+      "topic": "memory-health-behaviors",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        2,
+        3
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 2
+        },
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 3
+        }
+      ],
+      "supporting_span": "the doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure",
+      "reference_answer": "The doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        3,
+        2,
+        7
+      ],
+      "generated_answer": "The doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.859,
+        "support": 1.0,
+        "coverage": 0.7778,
+        "consistency": 1.0,
+        "overall_reliability": 0.9355
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question about what the doctor suggested to support Mary's memory as she ages."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "no unsupported information, short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          2,
+          3
+        ],
+        "retrieved_chunk_ids": [
+          2,
+          3,
+          7
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 2
+          },
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 3
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.731,
+        "judge_seconds": 0.879
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-005",
+      "question": "How much moderate-intensity aerobic activity should adults aim for each week?",
+      "topic": "aerobic-guideline",
+      "category": "exercise",
+      "expected_source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+      "expected_chunk_ids": [
+        379,
+        280,
+        281,
+        352
+      ],
+      "target_keys": [
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 379
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 280
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 281
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 352
+        }
+      ],
+      "supporting_span": "adults need at least 150 to 300 minutes of moderate-intensity aerobic activity per week",
+      "reference_answer": "Adults need at least 150 to 300 minutes of moderate-intensity aerobic activity per week; the talk test is a good way to assess moderate intensity for older adults.",
+      "retrieved_source_documents": [
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+        "exercise-and-older-adults-nia.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        281,
+        7,
+        217
+      ],
+      "generated_answer": "Adults need at least 150 to 300 minutes of moderate-intensity aerobic activity each week.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.884,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9652
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "directly and completely addresses the question"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "dietaryguidelinesforamericans20202025",
+        "retrieved_sources_normalized": [
+          "dietaryguidelinesforamericans20202025",
+          "exerciseandolderadultsnia",
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          280,
+          281,
+          352,
+          379
+        ],
+        "retrieved_chunk_ids": [
+          7,
+          217,
+          281
+        ],
+        "supporting_span_supported": false,
+        "target_keys": [
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 379
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 280
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 281
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 352
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.626,
+        "judge_seconds": 0.87
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-006",
+      "question": "What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?",
+      "topic": "falls-bones",
+      "category": "exercise",
+      "expected_source_document": "exercise-and-older-adults-nia.pdf",
+      "expected_chunk_ids": [
+        18,
+        19
+      ],
+      "target_keys": [
+        {
+          "source_document": "exercise-and-older-adults-nia.pdf",
+          "chunk_id": 18
+        },
+        {
+          "source_document": "exercise-and-older-adults-nia.pdf",
+          "chunk_id": 19
+        }
+      ],
+      "supporting_span": "weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder",
+      "reference_answer": "Weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder. Including muscle-strengthening and balance exercises is beneficial too.",
+      "retrieved_source_documents": [
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        19,
+        18,
+        12
+      ],
+      "generated_answer": "Weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder. Including muscle-strengthening and balance exercises is beneficial too.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8936,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9681
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "exerciseandolderadultsnia",
+        "retrieved_sources_normalized": [
+          "exerciseandolderadultsnia"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          18,
+          19
+        ],
+        "retrieved_chunk_ids": [
+          12,
+          18,
+          19
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "exercise-and-older-adults-nia.pdf",
+            "chunk_id": 18
+          },
+          {
+            "source_document": "exercise-and-older-adults-nia.pdf",
+            "chunk_id": 19
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.739,
+        "judge_seconds": 0.798
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-007",
+      "question": "Why is mixing certain medicines dangerous, and what should older adults be sure to know?",
+      "topic": "medication-mixing",
+      "category": "medications",
+      "expected_source_document": "tips-take-medicines-safely.pdf",
+      "expected_chunk_ids": [
+        1
+      ],
+      "target_keys": [
+        {
+          "source_document": "tips-take-medicines-safely.pdf",
+          "chunk_id": 1
+        }
+      ],
+      "supporting_span": "mixing certain medicines can cause unpleasant and sometimes serious side effects",
+      "reference_answer": "Mixing certain medicines can cause unpleasant and sometimes serious side effects. Make sure you know about all medicines and supplements you take.",
+      "retrieved_source_documents": [
+        "tips-take-medicines-safely.pdf",
+        "nia_caregivers_handbook.pdf",
+        "tips-take-medicines-safely.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        1,
+        115,
+        5
+      ],
+      "generated_answer": "Mixing certain medicines can cause unpleasant and sometimes serious side effects. Older adults should be sure to know about all medicines and supplements they take, including prescription medications, over-the-counter drugs, and vitamins.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8928,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9678
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "tipstakemedicinessafely",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook",
+          "tipstakemedicinessafely"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          5,
+          115
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "tips-take-medicines-safely.pdf",
+            "chunk_id": 1
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.831,
+        "judge_seconds": 0.801
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-008",
+      "question": "What questions should you ask about your medicines?",
+      "topic": "medication-questions",
+      "category": "medications",
+      "expected_source_document": "tips-take-medicines-safely.pdf",
+      "expected_chunk_ids": [
+        2
+      ],
+      "target_keys": [
+        {
+          "source_document": "tips-take-medicines-safely.pdf",
+          "chunk_id": 2
+        }
+      ],
+      "supporting_span": "what are common side effects of this medication",
+      "reference_answer": "Possible questions include: Why am I taking this medicine? How much and how often? When will it start working and how will I know it is working? What are common side effects, and what should I do if I have serious side effects? Is it safe to drive? Should I take it with food? What should I do if I forget to take it?",
+      "retrieved_source_documents": [
+        "tips-take-medicines-safely.pdf",
+        "tips-take-medicines-safely.pdf",
+        "tips-take-medicines-safely.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        2,
+        1,
+        3
+      ],
+      "generated_answer": "Ask your doctor or pharmacist any questions you have about your medications, such as: \u2022 Why am I taking this medicine? How much medicine should I take and how often? \u2022 When will the medicine start working? How will I know if it\u2019s working?",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8602,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9581
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "almost completely supported, but lacks one possible question"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "tipstakemedicinessafely",
+        "retrieved_sources_normalized": [
+          "tipstakemedicinessafely"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          2
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          2,
+          3
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "tips-take-medicines-safely.pdf",
+            "chunk_id": 2
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.735,
+        "judge_seconds": 0.875
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-009",
+      "question": "What is the guidance about taking the correct dose of medicine?",
+      "topic": "medication-dose",
+      "category": "medications",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        4,
+        115
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 4
+        },
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 115
+        }
+      ],
+      "supporting_span": "do take the right dose. don't take a larger dose of a medicine, thinking it will help you more",
+      "reference_answer": "Do take the right dose. Do not take a larger dose of a medicine thinking it will help you more, and do not skip or take half doses of a prescription drug to save money. Talk with your doctor or pharmacist if you have concerns.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "tips-take-medicines-safely.pdf",
+        "tips-take-medicines-safely.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        115,
+        1,
+        3
+      ],
+      "generated_answer": "Read everything on the prescription label and any paper handouts that come with the medicine. Follow the instructions carefully.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8511,
+        "support": 1.0,
+        "coverage": 0.6667,
+        "consistency": 1.0,
+        "overall_reliability": 0.922
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "tiny unsupported wording"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook",
+          "tipstakemedicinessafely"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          4,
+          115
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          3,
+          115
+        ],
+        "supporting_span_supported": false,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 4
+          },
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 115
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.603,
+        "judge_seconds": 0.784
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-010",
+      "question": "What is respite care, and how long can it last?",
+      "topic": "respite",
+      "category": "caregiving",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        49
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 49
+        }
+      ],
+      "supporting_span": "respite services provide short-term care for an older adult at home, in a health care facility, or at an adult day care center",
+      "reference_answer": "Respite services provide short-term care for an older adult at home, in a health care facility, or at an adult day care center. The care may last anywhere from a few hours to several weeks at a time.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "who_icope_handbook.pdf",
+        "nia_caregivers_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        49,
+        391,
+        50
+      ],
+      "generated_answer": "Respite care provides short-term care for an older adult at home, in a health care facility, or at an adult day care center. The care may last anywhere from a few hours to several weeks at a time.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8524,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9557
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 0.75,
+        "reason": "answers main question but misses minor aspects"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook",
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          49
+        ],
+        "retrieved_chunk_ids": [
+          49,
+          50,
+          391
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 49
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.683,
+        "judge_seconds": 0.753
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-011",
+      "question": "If someone is new to caregiving, what advice does the handbook give?",
+      "topic": "caregiving-start",
+      "category": "caregiving",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        8,
+        12
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 8
+        },
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 12
+        }
+      ],
+      "supporting_span": "caregiving can be overwhelming, especially at the beginning. try to tackle one task at a time",
+      "reference_answer": "Caregiving can be overwhelming, especially at the beginning. Try to tackle one task at a time. Find out as much as you can about the person's medical situation and learn about their health and treatments.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        12,
+        156,
+        1
+      ],
+      "generated_answer": "Try to tackle one task at a time. Find out as much as you can about the person\u2019s medical situation.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.868,
+        "support": 1.0,
+        "coverage": 0.5714,
+        "consistency": 1.0,
+        "overall_reliability": 0.9175
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 0.25,
+        "reason": "The answer is mostly unrelated."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "almost completely supported, only tiny unsupported wording"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          8,
+          12
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          12,
+          156
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 8
+          },
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 12
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.547,
+        "judge_seconds": 0.749
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-012",
+      "question": "What is the grandparent scam and how can families protect themselves?",
+      "topic": "scam-awareness",
+      "category": "caregiving",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        37
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 37
+        }
+      ],
+      "supporting_span": "the grandparent scam, in which a caller pretends to be a grandchild or other relative in distress",
+      "reference_answer": "In the grandparent scam, a caller pretends to be a grandchild or other relative in distress. There are steps you can take to help protect yourself and your loved ones from scams, and you should remind your family about them.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        37,
+        38,
+        6
+      ],
+      "generated_answer": "The grandparent scam is a type of scam where a caller pretends to be a grandchild or other relative in distress, often claiming to need money for emergency expenses. To protect themselves, families should not give out sensitive personal information over the phone or in response to an email, social media post, or text message, and always verify incoming bills for unauthorized charges.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8412,
+        "support": 1.0,
+        "coverage": 0.8333,
+        "consistency": 1.0,
+        "overall_reliability": 0.9357
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 0.5,
+        "reason": "The answer answers the main question but misses minor aspects, specifically providing examples and details on how to verify incoming bills."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          37
+        ],
+        "retrieved_chunk_ids": [
+          6,
+          37,
+          38
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 37
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.857,
+        "judge_seconds": 0.99
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-013",
+      "question": "What is the WHO ICOPE handbook about?",
+      "topic": "icope",
+      "category": "who-health",
+      "expected_source_document": "who_icope_handbook.pdf",
+      "expected_chunk_ids": [
+        1,
+        2,
+        182,
+        440,
+        444,
+        46
+      ],
+      "target_keys": [
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 1
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 2
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 182
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 440
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 444
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 46
+        }
+      ],
+      "supporting_span": "integrated care for older people (ICOPE): guidance for person-centred assessment and pathways in primary care",
+      "reference_answer": "The WHO ICOPE handbook, 'Integrated care for older people', provides guidance for person-centred assessment and pathways in primary care.",
+      "retrieved_source_documents": [
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        46,
+        1,
+        440
+      ],
+      "generated_answer": "The WHO ICOPE handbook is about guidance for person-centred assessment and pathways in primary care, specifically integrated care for older people.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8569,
+        "support": 0.6667,
+        "coverage": 0.6667,
+        "consistency": 1.0,
+        "overall_reliability": 0.8571
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "whoicopehandbook",
+        "retrieved_sources_normalized": [
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1,
+          2,
+          46,
+          182,
+          440,
+          444
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          46,
+          440
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 1
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 2
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 182
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 440
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 444
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 46
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.687,
+        "judge_seconds": 0.76
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-014",
+      "question": "What are key ICOPE care pathways in primary care?",
+      "topic": "icope-pathways",
+      "category": "who-health",
+      "expected_source_document": "who_icope_handbook.pdf",
+      "expected_chunk_ids": [
+        4,
+        5,
+        184,
+        185,
+        186,
+        145
+      ],
+      "target_keys": [
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 4
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 5
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 184
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 185
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 186
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 145
+        }
+      ],
+      "supporting_span": "care pathway to manage cognitive decline, care pathway to improve mobility, care pathway to manage malnutrition",
+      "reference_answer": "The ICOPE care pathway includes pathways to manage cognitive decline, improve mobility, manage malnutrition, manage vision impairment, manage hearing loss, manage depressive symptoms, and care pathways for social support.",
+      "retrieved_source_documents": [
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        145,
+        72,
+        140
+      ],
+      "generated_answer": "Key steps of the ICOPE care pathway in primary care include: \n\n1. Basic assessment and interventions in the community \n2. In-depth assessment \n3. Developing a personalized care plan \n4. Implementing and monitoring the plan",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.9267,
+        "support": 1.0,
+        "coverage": 0.8,
+        "consistency": 1.0,
+        "overall_reliability": 0.958
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question about key ICOPE care pathways in primary care."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "whoicopehandbook",
+        "retrieved_sources_normalized": [
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          4,
+          5,
+          145,
+          184,
+          185,
+          186
+        ],
+        "retrieved_chunk_ids": [
+          72,
+          140,
+          145
+        ],
+        "supporting_span_supported": false,
+        "target_keys": [
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 4
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 5
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 184
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 185
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 186
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 145
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.669,
+        "judge_seconds": 0.806
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-015",
+      "question": "What is the overall message of the Dietary Guidelines for Americans 2020-2025?",
+      "topic": "dietary-guidelines",
+      "category": "nutrition",
+      "expected_source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+      "expected_chunk_ids": [
+        1,
+        3,
+        17,
+        27,
+        69,
+        70,
+        75,
+        171,
+        172,
+        383
+      ],
+      "target_keys": [
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 1
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 3
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 17
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 27
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 69
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 70
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 75
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 171
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 172
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 383
+        }
+      ],
+      "supporting_span": "make every bite count",
+      "reference_answer": "The Dietary Guidelines for Americans 2020-2025 message is 'Make Every Bite Count.'",
+      "retrieved_source_documents": [
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        17,
+        35,
+        22
+      ],
+      "generated_answer": "Make healthy eating a priority in the United States to promote health and reduce chronic disease risk.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.9158,
+        "support": 1.0,
+        "coverage": 0.6,
+        "consistency": 1.0,
+        "overall_reliability": 0.9347
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 0.5,
+        "reason": "some important statement not supported"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "dietaryguidelinesforamericans20202025",
+        "retrieved_sources_normalized": [
+          "dietaryguidelinesforamericans20202025"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1,
+          3,
+          17,
+          27,
+          69,
+          70,
+          75,
+          171,
+          172,
+          383
+        ],
+        "retrieved_chunk_ids": [
+          17,
+          22,
+          35
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 1
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 3
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 17
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 27
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 69
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 70
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 75
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 171
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 172
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 383
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.553,
+        "judge_seconds": 0.731
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-016",
+      "question": "How can physical activity help older adults manage type 2 diabetes?",
+      "topic": "diabetes-exercise",
+      "category": "exercise",
+      "expected_source_document": "exercise-and-older-adults-nia.pdf",
+      "expected_chunk_ids": [
+        19
+      ],
+      "target_keys": [
+        {
+          "source_document": "exercise-and-older-adults-nia.pdf",
+          "chunk_id": 19
+        }
+      ],
+      "supporting_span": "physical activity can help older adults manage type 2 diabetes and stay healthy longer",
+      "reference_answer": "Physical activity can help older adults manage type 2 diabetes and stay healthy longer. It improves blood glucose levels, can prevent or slow risk factors that contribute to the disease getting worse, and helps protect against the leading cause of death related to the disease.",
+      "retrieved_source_documents": [
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        19,
+        4,
+        14
+      ],
+      "generated_answer": "Physical activity can help older adults manage type 2 diabetes by improving blood glucose levels, preventing or slowing risk factors that contribute to the disease getting worse, and protecting against cardiovascular diseases such as heart disease and stroke.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8969,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9691
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly answers the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "exerciseandolderadultsnia",
+        "retrieved_sources_normalized": [
+          "exerciseandolderadultsnia"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          19
+        ],
+        "retrieved_chunk_ids": [
+          4,
+          14,
+          19
+        ],
+        "supporting_span_supported": true,
+        "target_keys": [
+          {
+            "source_document": "exercise-and-older-adults-nia.pdf",
+            "chunk_id": 19
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.778,
+        "judge_seconds": 0.745
+      },
+      "error": null
+    }
+  ]
+}

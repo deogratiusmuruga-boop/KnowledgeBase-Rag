@@ -1,0 +1,1586 @@
+{
+  "results": [
+    {
+      "id": "GQ-001",
+      "question": "Is dementia a normal part of aging, and what abilities do people with dementia lose?",
+      "topic": "dementia",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        8
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 8
+        }
+      ],
+      "supporting_span": "Dementia is not a normal part of aging, people with dementia lose their ability to think, remember, learn, and reason",
+      "reference_answer": "Dementia is not a normal part of aging. People with dementia lose their ability to think, remember, learn, and reason, which makes everyday activities challenging.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        8,
+        9,
+        184
+      ],
+      "retrieved_evidence_texts": [
+        "becoming more forgetful and confused. Also, she was spending a lot of time alone in her house. One day, she even got lost on her way home from grocery shopping. Anna knew it was time to get help and took her mother to the doctor. The doctor told them that Marie has dementia. It has been tough, but learning about ways to manage the disease and what to expect in the future has helped the whole family. Anna and Marie are taking life one day at a time. Dementia Dementia is not a normal part of aging. People with demen\u00ad tia lose their ability to think, remember, learn, and reason, which makes everyday activities challenging. Memory loss, though common, is not the only sign of dementia. People with dementia may also struggle to find the right word to use, have trouble paying attention, or see and hear things that are not there. Some people experience personality changes. Differences Between Normal Aging and Dementia Age-Related Forgetfulness Dementia Making a bad decision once in a while Making poor judgments and decisions often",
+        "trouble paying attention, or see and hear things that are not there. Some people experience personality changes. Differences Between Normal Aging and Dementia Age-Related Forgetfulness Dementia Making a bad decision once in a while Making poor judgments and decisions often Missing a monthly payment Missing monthly payments often Forgetting which day it is and remembering later Losing track of the date or time of year Sometimes forgetting which word to use Trouble having a conversation Losing things from time to time Misplacing things often and being unable to find them There are different types of dementia, and symptoms may vary from person to person. Types of dementia include: Alzheimer\u2019s Disease Alzheimer\u2019s causes memory problems that worsen slowly over time. People with Alzheimer\u2019s have trouble thinking clearly and may find it hard to do everyday things like shop\u00ad ping, driving, and cooking. As the disease gets worse, people with Alzheimer\u2019s may need someone to take care of all their daily needs at home or in a nursing home. These needs may include feeding, bathing, and dressing. Vascular Dementia Signs of vascular",
+        "such as depression, hypertension, diabetes and Alzheimer disease and other dementias. Other factors for increased risk of cognitive decline include lack of physical exercise, social isolation and a low level of education. Cognitive decline is commonly accompanied by changes in mood, emotional control, behaviour or motivation and it becomes of greatest concern when it starts to interfere with a person\u2019s ability to function effectively in their environment (dementia). It has physical, psychological, social and economic impacts, not only for the person with cognitive decline, but also for their carers, families and society at large. Cognitive decline and dementia are not part of normal ageing and many people will not experience cognitive decline or dementia in older age. The estimated prevalence of dementia in people over 60 years old in 2019 varied by region from 2.9% in South East Asia to 6.5% in Europe. The global prevalence rises rapidly with age, from 1.1% in people aged 60-64 to 35.9% in those aged 90 and over (20). Care pathway to manage cognitive decline Cognition \u2022 Social care (maintaining daily routines) and support"
+      ],
+      "generated_answer": "Dementia is not a normal part of aging. People with dementia lose their ability to think, remember, learn, and reason, which makes everyday activities challenging. Memory loss is common in dementia, but it's not the only sign; people may also struggle to find the right word, have trouble paying attention, or see and hear things that are not there.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.865,
+        "support": 1.0,
+        "coverage": 0.8571,
+        "consistency": 1.0,
+        "overall_reliability": 0.9452
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely answers the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "all information supported by evidence"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss",
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          8
+        ],
+        "retrieved_chunk_ids": [
+          8,
+          9,
+          184
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 8
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 5.793,
+        "judge_seconds": 0.908
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-002",
+      "question": "What are some warning signs that memory problems may be more serious than typical forgetfulness?",
+      "topic": "memory-warning-signs",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        1,
+        2,
+        5
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 1
+        },
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 2
+        },
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 5
+        }
+      ],
+      "supporting_span": "forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem",
+      "reference_answer": "Forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        5,
+        2,
+        6
+      ],
+      "retrieved_evidence_texts": [
+        "memory problems make it hard to do everyday tasks. For example, you may find it difficult to drive, find the bathroom in your home, or recognize friends and family. Other signs of serious memory problems may include: \u2022 Asking the same questions over and over again \u2022 Getting lost in places you used to know well \u2022 Having trouble following recipes or directions \u2022 Becoming more confused about time, people, and places \u2022 Not taking care of yourself \u2014 eating poorly, not bathing, or behaving unsafely Many things can cause serious memory problems, such as blood clots, depression, and Alzheimer\u2019s disease or related dementias. Once you know the cause of your memory problems, you can find ways to help manage them. Worried About Your Forgetfulness? Talk with a health care provider. Tell them about your concerns. Be sure to make a follow-up appointment to check your memory in the next six months to a year. If you think you might forget, ask a family member, friend, or the doctor\u2019s office to remind you. Conditions That May Cause Memory Problems If",
+        "once in a while. However, forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem. This booklet will help you learn about: \u2022 The difference between mild forgetfulness and more serious memory problems \u2022 Causes of memory problems and how to manage memory changes \u2022 How to cope with serious memory problems Mary\u2019s Story Mary couldn\u2019t find her car keys. She looked on the hook just inside the front door. They weren\u2019t there. She searched in her purse. No luck. Finally, she found them on her desk. Yesterday, she forgot her neighbor\u2019s name. She feels like her memory is playing tricks on her and has started to worry. She decided to see her doctor. After a complete checkup, the doctor reassured her that she was fine. Her forgetfulness was likely just a normal part of growing older. The doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure. These",
+        "a follow-up appointment to check your memory in the next six months to a year. If you think you might forget, ask a family member, friend, or the doctor\u2019s office to remind you. Conditions That May Cause Memory Problems If you are having signs of a serious memory problem, a doctor can help you figure out the cause. Some serious memory problems can be treated or managed. For conditions that won\u2019t go away, like Alzheimer\u2019s or another dementia, doctors can help you cope with the symptoms. Mild Cognitive Impairment Some older adults have a condition called mild cognitive impairment (MCI), meaning they have more memory or thinking problems than other people their age. People with MCI can usually take care of themselves and are able to carry out their day-to-day tasks. MCI may be an early sign of Alzheimer\u2019s, but not everyone with MCI will develop Alzheimer\u2019s. A doctor can do thinking, memory, and language tests to see if you have MCI. They may also suggest that you see a specialist for more tests. Since MCI may be an early"
+      ],
+      "generated_answer": "Forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8939,
+        "support": 1.0,
+        "coverage": 0.8333,
+        "consistency": 1.0,
+        "overall_reliability": 0.9515
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly addresses the question and provides relevant warning signs for serious memory problems."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "Almost completely supported. Only tiny unsupported wording."
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1,
+          2,
+          5
+        ],
+        "retrieved_chunk_ids": [
+          2,
+          5,
+          6
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 1
+          },
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 2
+          },
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 5
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.641,
+        "judge_seconds": 0.841
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-003",
+      "question": "What is mild cognitive impairment (MCI)?",
+      "topic": "mci",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        6
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 6
+        }
+      ],
+      "supporting_span": "mild cognitive impairment (MCI), meaning they have more memory or thinking problems than other people their age",
+      "reference_answer": "Mild cognitive impairment (MCI) is a condition in which some older adults have more memory or thinking problems than other people their age.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        6,
+        22,
+        23
+      ],
+      "retrieved_evidence_texts": [
+        "a follow-up appointment to check your memory in the next six months to a year. If you think you might forget, ask a family member, friend, or the doctor\u2019s office to remind you. Conditions That May Cause Memory Problems If you are having signs of a serious memory problem, a doctor can help you figure out the cause. Some serious memory problems can be treated or managed. For conditions that won\u2019t go away, like Alzheimer\u2019s or another dementia, doctors can help you cope with the symptoms. Mild Cognitive Impairment Some older adults have a condition called mild cognitive impairment (MCI), meaning they have more memory or thinking problems than other people their age. People with MCI can usually take care of themselves and are able to carry out their day-to-day tasks. MCI may be an early sign of Alzheimer\u2019s, but not everyone with MCI will develop Alzheimer\u2019s. A doctor can do thinking, memory, and language tests to see if you have MCI. They may also suggest that you see a specialist for more tests. Since MCI may be an early",
+        "the brain. Dementia (duh-men-shuh) A loss of cognitive functioning. This means changes to a person\u2019s thinking, remembering, reasoning, and behavior that make daily life and activities difficult to manage. Frontotemporal disorders (frun-toe-tem-pour-ul diss-or-derz) Also called FTD. A group of medical conditions caused by damage to nerve cells in specific areas of the brain. The signs can occur in both younger and older adults. These signs may include unusual behaviors, emotional problems, trouble communicating, difficulty with work, or difficulty with walking. Lewy body dementia (Lew-ee baa-dee duh-men-shuh) Also called LBD. A medical condition caused by changes in the brain from abnormal protein clusters, called Lewy bodies. Early on, the signs of LBD may be very mild but increase over time. Signs include problems with thinking, movement, behavior, and mood. Mild cognitive impairment (mild kog-ni-tiv im-pair-ment) Also called MCI. A medical condition that causes people to have more memory problems than other people their age. The signs of MCI are not as severe as those of Alzheimer\u2019s. They include losing things often, forgetting to go to events and appointments, and having more",
+        "that causes people to have more memory problems than other people their age. The signs of MCI are not as severe as those of Alzheimer\u2019s. They include losing things often, forgetting to go to events and appointments, and having more trouble coming up with the right words. Vascular dementia (vas-kue-ler duh-men-shuh) A medical condition caused by changes in the blood supply to the brain, often after a stroke. Signs can begin gradually or can occur suddenly. These signs include changes in memory, language, thinking skills, and mood. For More Information Alzheimer\u2019s and related Dementias Education and Re\u00ad ferral (ADEAR) Center 800-438-4380 adear@nia.nih.gov | www.alzheimers.gov The NIA ADEAR Center offers information and free print publications about Alzheimer\u2019s and related dementias for families, caregivers, and health professionals. ADEAR Center staff answer telephone, email, and written requests and make referrals to local and national resources. Alzheimers.gov www.alzheimers.gov Visit Alzheimers.gov for information and resources on Alzheimer\u2019s and related dementias from across the federal government. National Institute of Mental Health 866-615-6464 nimhinfo@nih.gov | www.nimh.nih.gov National Institute of Neurological Disorders and Stroke 800-352-9424 braininfo@ninds.nih.gov | www.ninds.nih.gov"
+      ],
+      "generated_answer": "Mild cognitive impairment (MCI) is a condition that causes people to have more memory problems than other people their age. The signs of MCI are not as severe as those of Alzheimer\u2019s, and they include losing things often, forgetting to go to events and appointments, and having more trouble coming up with the right words.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8535,
+        "support": 0.6667,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.8894
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "unsupported wording: 'MCI may be an early sign of Alzheimer\u2019s, but not everyone with MCI will develop Alzheimer\u2019s.' Although supported by evidence, this statement is slightly nuanced and should have been summarized more concisely."
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          6
+        ],
+        "retrieved_chunk_ids": [
+          6,
+          22,
+          23
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 6
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.864,
+        "judge_seconds": 1.009
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-004",
+      "question": "What did the doctor suggest Mary do to support her memory as she ages?",
+      "topic": "memory-health-behaviors",
+      "category": "memory-loss",
+      "expected_source_document": "understanding-memory-loss.pdf",
+      "expected_chunk_ids": [
+        2,
+        3
+      ],
+      "target_keys": [
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 2
+        },
+        {
+          "source_document": "understanding-memory-loss.pdf",
+          "chunk_id": 3
+        }
+      ],
+      "supporting_span": "the doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure",
+      "reference_answer": "The doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure.",
+      "retrieved_source_documents": [
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf",
+        "understanding-memory-loss.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        3,
+        2,
+        7
+      ],
+      "retrieved_evidence_texts": [
+        "reassured her that she was fine. Her forgetfulness was likely just a normal part of growing older. The doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure. These things are good for her physical health and may help her maintain her memory longer. Memory Changes With Age Getting older changes all parts of the body, including the brain. As a result, some people notice that they don\u2019t remem\u00ad ber information as well as they once did and aren\u2019t able to recall it as quickly. It may take longer to learn new things or remember certain words. You may lose things around the house or forget to pay a bill. Changes like these are often signs of mild forgetfulness, not serious memory problems. There are a variety of techniques that may help you stay healthy and adapt to changes in memory and mental skills. Here are some ideas: \u2022 Learn a new skill. \u2022 Follow a daily routine. \u2022 Use to-do lists, notes, and calendars to help plan tasks.",
+        "once in a while. However, forgetting how to use the phone, not knowing how to find your way home, or missing more than one monthly payment may be signs of a more serious memory problem. This booklet will help you learn about: \u2022 The difference between mild forgetfulness and more serious memory problems \u2022 Causes of memory problems and how to manage memory changes \u2022 How to cope with serious memory problems Mary\u2019s Story Mary couldn\u2019t find her car keys. She looked on the hook just inside the front door. They weren\u2019t there. She searched in her purse. No luck. Finally, she found them on her desk. Yesterday, she forgot her neighbor\u2019s name. She feels like her memory is playing tricks on her and has started to worry. She decided to see her doctor. After a complete checkup, the doctor reassured her that she was fine. Her forgetfulness was likely just a normal part of growing older. The doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure. These",
+        "not everyone with MCI will develop Alzheimer\u2019s. A doctor can do thinking, memory, and language tests to see if you have MCI. They may also suggest that you see a specialist for more tests. Since MCI may be an early sign of more serious memory problems, it\u2019s important to see a doctor or a specialist every six to 12 months. At this time, there is no standard treatment for MCI, but there are things you can do that may help you stay healthy and deal with changes in your memory. Check out the list on page 4 for suggestions on some ways to help your memory. Anna and Marie\u2019s Story Anna thought that her mother, Marie, was still going strong at 85. She kept busy with friends and church activities. But recently, Anna started to notice changes. Her mother was becoming more forgetful and confused. Also, she was spending a lot of time alone in her house. One day, she even got lost on her way home from grocery shopping. Anna knew it was time to get help and took"
+      ],
+      "generated_answer": "The doctor suggested that Mary continue to make healthy food choices, be physically and socially active, and manage her high blood pressure.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.859,
+        "support": 1.0,
+        "coverage": 0.7778,
+        "consistency": 1.0,
+        "overall_reliability": 0.9355
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 0.75,
+        "reason": "the answer answers the main question but misses minor aspects."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "all statements supported by evidence, no unsupported information present"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "understandingmemoryloss",
+        "retrieved_sources_normalized": [
+          "understandingmemoryloss"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          2,
+          3
+        ],
+        "retrieved_chunk_ids": [
+          2,
+          3,
+          7
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 2
+          },
+          {
+            "source_document": "understanding-memory-loss.pdf",
+            "chunk_id": 3
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.609,
+        "judge_seconds": 0.891
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-005",
+      "question": "How much moderate-intensity aerobic activity should adults aim for each week?",
+      "topic": "aerobic-guideline",
+      "category": "exercise",
+      "expected_source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+      "expected_chunk_ids": [
+        379,
+        280,
+        281,
+        352
+      ],
+      "target_keys": [
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 379
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 280
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 281
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 352
+        }
+      ],
+      "supporting_span": "adults need at least 150 to 300 minutes of moderate-intensity aerobic activity per week",
+      "reference_answer": "Adults need at least 150 to 300 minutes of moderate-intensity aerobic activity per week; the talk test is a good way to assess moderate intensity for older adults.",
+      "retrieved_source_documents": [
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+        "exercise-and-older-adults-nia.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        281,
+        7,
+        217
+      ],
+      "retrieved_evidence_texts": [
+        "most health benefits from physical activity, adults need at least 150 to 300 minutes of moderate- intensity aerobic activity, like brisk walking or fast dancing, each week. Adults also need muscle-strengthening activity, like lifting weights or doing push-ups, at least 2 days each week. The U.S. Department of Health and Human Service\u2019s Physical Activity Guidelines for Americans and related Move Your Way\u00ae resources have more information about the benefits of physical activity and tips on how to get started. Available at health.gov/paguidelines. Overweight and Obesity In the United States, 74 percent of adults have overweight or obesity, creating an increased risk for the development of other chronic health conditions, including cardiovascular disease, type 2 diabetes, and certain types of cancer. Losing weight and maintaining weight loss is not a simple task. It requires adults to reduce the number of calories they get from foods and beverages and increase the amount expended through physical activity. Weight loss and maintenance are not likely achieved using short-term solutions. They require a commitment to long-term lifestyle change and often need support from healthcare providers,",
+        "diseases that are common in older adults, such as diabetes, certain cancers, and heart disease. Gradually build up to at least 150 minutes of moderate- intensity aerobic activity (such as brisk walking) each week. If exercising with chronic conditions makes it hard to get the recommended amount of activity, talk with your doctor about what you can do. In general, it\u2019s a good idea to be as physically active as you can \u2014 even light-intensity activity can be beneficial. Try to be active throughout your day and avoid sitting for long periods of time. Examples of moderate-intensity aerobic activities that build endurance include: \u2022 Yard work, such as raking leaves or pushing a lawnmower \u2022 Housework, such as mopping or vacuuming \u2022 Dancing \u2022 Swimming \u2022 Bicycling \u2022 Climbing stairs or hills \u2022 Playing pickleball To test your level of intensity when you\u2019re being active, try talking. If you\u2019re breathing hard but can still have a conversation easily, it\u2019s likely moderate-intensity activity. If you can only say a few words before you have to take a breath, it\u2019s vigorous-intensity activity,",
+        "tasks, gardening, dancing and sport. \u2022 Too much sedentary behaviour is unhealthy. Getting moving and replacing sedentary time with physical activity of any intensity provides health benefits. \u2022 Physical activity should be adjusted to a person\u2019s ability. \u2022 A healthy diet is also important. 7.1 Each week: \u2022 Get at least 150 minutes of moderate intensity aerobic physical activity or at least 75 minutes of vigorous intensity aerobic physical activity, or an equivalent combination of both. \u2022 Aim for 300 minutes of moderate intensity activity or 150 minutes of vigorous intensity activity for substantial health benefits. \u2022 Exercise at least 10 minutes at a time. \u2022 Do muscle-strengthening activities that involve all major muscle groups 2 days or more. \u2022 Perform physical activity that enhances balance on 3 days or more. \u2022 Do multimodal physical activity combining both balance and strength training on 3 days or more. \u2022 If you cannot exercise as much as recommended, be as physically active as you can. Moderate intensity activity: heart is beating faster than usual, and you are breaking a sweat. Carrying on"
+      ],
+      "generated_answer": "Adults need at least 150 to 300 minutes of moderate-intensity aerobic activity each week.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.884,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9652
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "all provided information supported by retrieved evidence"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "dietaryguidelinesforamericans20202025",
+        "retrieved_sources_normalized": [
+          "dietaryguidelinesforamericans20202025",
+          "exerciseandolderadultsnia",
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          280,
+          281,
+          352,
+          379
+        ],
+        "retrieved_chunk_ids": [
+          7,
+          217,
+          281
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": false,
+        "supporting_span_coverage": 0.9167,
+        "target_keys": [
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 379
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 280
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 281
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 352
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.575,
+        "judge_seconds": 0.864
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-006",
+      "question": "What types of exercise help prevent falls and fractures, and why are weight-bearing exercises beneficial?",
+      "topic": "falls-bones",
+      "category": "exercise",
+      "expected_source_document": "exercise-and-older-adults-nia.pdf",
+      "expected_chunk_ids": [
+        18,
+        19
+      ],
+      "target_keys": [
+        {
+          "source_document": "exercise-and-older-adults-nia.pdf",
+          "chunk_id": 18
+        },
+        {
+          "source_document": "exercise-and-older-adults-nia.pdf",
+          "chunk_id": 19
+        }
+      ],
+      "supporting_span": "weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder",
+      "reference_answer": "Weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder. Including muscle-strengthening and balance exercises is beneficial too.",
+      "retrieved_source_documents": [
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        19,
+        18,
+        12
+      ],
+      "retrieved_evidence_texts": [
+        "prevent falls and fractures. Weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder. Including muscle-strengthening and balance exercises is beneficial, too. Type 2 Diabetes Physical activity can help older adults manage type 2 diabetes and stay healthy longer. It improves blood glucose levels, can prevent or slow risk factors that contribute to the disease getting worse, and helps protect against the leading cause of death in people with type 2 diabetes \u2014 cardiovascular diseases such as heart disease and stroke. Aim for at least 150 minutes a week of moderate-intensity aerobic activity, plus two days a week of muscle-strengthening activity. Set a goal to be active most days of the week and create a plan that fits into your life. Your health care team can help. People exercising with diabetes must be especially careful about monitoring their blood glucose, choosing appropriate footwear, and avoiding injury to their feet. Sidney\u2019s Story About five years ago, Sidney had triple bypass surgery. He didn\u2019t exercise much before his surgery, but knew he needed",
+        "Both aerobic and muscle-strengthening activities are beneficial. Work with your health care provider as you increase physical activity. Adjustments to blood pressure medication may be needed. Obesity If you are overweight or have obesity, don\u2019t let that stop you from being physically active. Anything that gets you moving \u2014 even if it\u2019s for only a few minutes a day in the beginning \u2014 is a healthy start. Slowly work up to more. If you have difficulty bending or moving easily, or feel self- conscious, try different activities, such as walking, water exercises, dancing, or weightlifting, to see what works best for you. Osteoporosis If you have osteoporosis, talk with your health care provider about physical activity that is safe for you and good for your bone health. A combination of exercise types can help build and maintain healthy bones and prevent falls and fractures. Weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder. Including muscle-strengthening and balance exercises is beneficial, too. Type 2 Diabetes Physical activity can help older adults",
+        "about doing a particular movement, seek guidance from your health care provider. \u2022 Consider scheduling a session or two with a personal trainer or look for a group class at a local gym, recreation center, or senior center to learn proper form. Free online videos demonstrating specific strength exercises can also help. Balance-Training Activity Balance involves maintaining the body\u2019s stability while still or in motion. As with muscle-strengthening exercises, balance exercises can help to prevent falls and fall-related injuries. Aim for about three sessions of balance exercises each week. Examples of balance exercises include: \u2022 Yoga \u2022 Tai chi \u2022 Standing on one foot \u2022 Walking backward or sideways \u2022 Practicing standing from a sitting position \u2022 Using a wobble board Safety Tips for Balance-Training Activity \u2022 Listen to your body. If you feel unsteady, take action to steady yourself. \u2022 Move slowly and mindfully to prevent falling. \u2022 Have a sturdy chair, person, or wall nearby to hold onto for support. \u2022 Wear comfortable, stable footwear or go barefoot to have grip on the floor or mat. \u2022 If"
+      ],
+      "generated_answer": "Weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder. Including muscle-strengthening and balance exercises is beneficial too.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8936,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9681
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "exerciseandolderadultsnia",
+        "retrieved_sources_normalized": [
+          "exerciseandolderadultsnia"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          18,
+          19
+        ],
+        "retrieved_chunk_ids": [
+          12,
+          18,
+          19
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "exercise-and-older-adults-nia.pdf",
+            "chunk_id": 18
+          },
+          {
+            "source_document": "exercise-and-older-adults-nia.pdf",
+            "chunk_id": 19
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.659,
+        "judge_seconds": 0.844
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-007",
+      "question": "Why is mixing certain medicines dangerous, and what should older adults be sure to know?",
+      "topic": "medication-mixing",
+      "category": "medications",
+      "expected_source_document": "tips-take-medicines-safely.pdf",
+      "expected_chunk_ids": [
+        1
+      ],
+      "target_keys": [
+        {
+          "source_document": "tips-take-medicines-safely.pdf",
+          "chunk_id": 1
+        }
+      ],
+      "supporting_span": "mixing certain medicines can cause unpleasant and sometimes serious side effects",
+      "reference_answer": "Mixing certain medicines can cause unpleasant and sometimes serious side effects. Make sure you know about all medicines and supplements you take.",
+      "retrieved_source_documents": [
+        "tips-take-medicines-safely.pdf",
+        "nia_caregivers_handbook.pdf",
+        "tips-take-medicines-safely.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        1,
+        115,
+        5
+      ],
+      "retrieved_evidence_texts": [
+        "Tips for Taking Medicines Safely as You Age Medicines are intended to help us live longer and healthier lives, but taking medicines the wrong way or mixing certain drugs and supplements can be dangerous. Older adults often have multiple medical conditions and may take many medicines. The following tips can help you safely take and keep track of all your medicines. Mixing certain medicines can cause unpleasant and sometimes serious side effects. Make sure you know about all medicines and supplements you take, including: \u2022 Prescription medications \u2022 Over-the-counter (nonprescription) drugs \u2022 Vitamins Be sure your doctor and pharmacist are also aware of everything you take. Also tell your health care provider about alcohol, tobacco, and drug use. These substances can have harmful interactions with certain medications and may change the way your medicines work. Ask your doctor or pharmacist any questions you have about your medications. Possible questions include: \u2022 Why am I taking this medicine? How much medicine should I take and how often? \u2022 When will the medicine start working? How will I know if it\u2019s working?",
+        "or more drugs than are medically necessary \u2014 called polypharmacy \u2014 is a growing concern for older adults . Some combinations of medicines and supplements make it more likely that a person will become confused or dizzy, fall and get hurt, or develop other health issues . Also, complicated regimens involving multiple drugs make it more likely that a person will miss doses or take the medicines incorrectly . As a caregiver, you can help an older person keep track of their medicines and supplements and use them safely . Worksheet: Managing Medications and Supplements, on page 65 of this guide, offers a place to record the name, dose, and frequency of every prescription drug, OTC medicine, and supplement the person is taking . You can also note any concerns that you have . Keep this list handy for yourself and other caregivers, and share it with all of the person\u2019s health care providers . Here are some additional tips for managing a person\u2019s medications: Stay Organized \u2022 Create a file. Save all the written information that comes with the",
+        "Call your doctor right away if you have any trouble with your medicines. There may be something else you can take. DON\u2019T stop taking your medicine abruptly. If you have uncomfortable side effects, write them down so you can report them to your doctor or pharmacist accurately. DON\u2019T share medicines. Do not take medicines prescribed for another person or give yours to someone else. DON\u2019T take medicines in the dark. Turn on a light so you don\u2019t make a mistake. To learn more about taking medicines safely as you age, visit www.nia.nih.gov/medication-safety. People age 65 and older tend to take more medicines than those in any other age group, often because they have several diseases or other health problems at the same time. Taking multiple medications can be expensive and difficult to track. It also can increase the risk of side effects and other unintended problems. If you are concerned that you might be taking too many medications, or you can\u2019t afford all your medications, have a conversation with your health care provider about whether there are any you could"
+      ],
+      "generated_answer": "Mixing certain medicines can cause unpleasant and sometimes serious side effects. Older adults should be sure to know about all medicines and supplements they take, including prescription medications, over-the-counter drugs, and vitamins.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8928,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9678
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 0.75,
+        "reason": "The answer answers the main question but misses minor aspects."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "tiny unsupported wording"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "tipstakemedicinessafely",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook",
+          "tipstakemedicinessafely"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          5,
+          115
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "tips-take-medicines-safely.pdf",
+            "chunk_id": 1
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.682,
+        "judge_seconds": 0.784
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-008",
+      "question": "What questions should you ask about your medicines?",
+      "topic": "medication-questions",
+      "category": "medications",
+      "expected_source_document": "tips-take-medicines-safely.pdf",
+      "expected_chunk_ids": [
+        2
+      ],
+      "target_keys": [
+        {
+          "source_document": "tips-take-medicines-safely.pdf",
+          "chunk_id": 2
+        }
+      ],
+      "supporting_span": "what are common side effects of this medication",
+      "reference_answer": "Possible questions include: Why am I taking this medicine? How much and how often? When will it start working and how will I know it is working? What are common side effects, and what should I do if I have serious side effects? Is it safe to drive? Should I take it with food? What should I do if I forget to take it?",
+      "retrieved_source_documents": [
+        "tips-take-medicines-safely.pdf",
+        "tips-take-medicines-safely.pdf",
+        "tips-take-medicines-safely.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        2,
+        1,
+        3
+      ],
+      "retrieved_evidence_texts": [
+        "any questions you have about your medications. Possible questions include: \u2022 Why am I taking this medicine? How much medicine should I take and how often? \u2022 When will the medicine start working? How will I know if it\u2019s working? \u2022 What are common side effects of this medication? What should I do if I experience serious side effects? \u2022 Is it safe to drive while taking this medicine? \u2022 Should I take the medicine with food? \u2022 What should I do if I forget to take my medicine? Make a list of all prescription medicines, over-the-counter drugs, vitamins, and dietary supplements you take. Keep one copy of the list in a safe place at home and one in your wallet or purse. The list should include the: \u2022 Name of each medicine or supplement \u2022 Amount you take \u2022 Time(s) you take it For prescription medicines, also include the: \u2022 Name of the doctor who prescribed it \u2022 Reason it was prescribed \u2022 Dietary supplements \u2022 Herbal remedies Know What You\u2019re Taking Ask Questions About Your Medicines Keep Track",
+        "Tips for Taking Medicines Safely as You Age Medicines are intended to help us live longer and healthier lives, but taking medicines the wrong way or mixing certain drugs and supplements can be dangerous. Older adults often have multiple medical conditions and may take many medicines. The following tips can help you safely take and keep track of all your medicines. Mixing certain medicines can cause unpleasant and sometimes serious side effects. Make sure you know about all medicines and supplements you take, including: \u2022 Prescription medications \u2022 Over-the-counter (nonprescription) drugs \u2022 Vitamins Be sure your doctor and pharmacist are also aware of everything you take. Also tell your health care provider about alcohol, tobacco, and drug use. These substances can have harmful interactions with certain medications and may change the way your medicines work. Ask your doctor or pharmacist any questions you have about your medications. Possible questions include: \u2022 Why am I taking this medicine? How much medicine should I take and how often? \u2022 When will the medicine start working? How will I know if it\u2019s working?",
+        "Time(s) you take it For prescription medicines, also include the: \u2022 Name of the doctor who prescribed it \u2022 Reason it was prescribed \u2022 Dietary supplements \u2022 Herbal remedies Know What You\u2019re Taking Ask Questions About Your Medicines Keep Track of Your Medicines \u2022 Dietary supplements \u2022 Herbal remedies When you have a prescription filled, read everything on the prescription label and any paper handouts that come with the medicine. Follow the instructions carefully. Here are some dos and don\u2019ts for taking your medicines the right way: \u2022 Keep your medicines out of the reach of children and pets. If you take any prescription pain medicines (for example, morphine or codeine), keep them in a locked cabinet or drawer. \u2022 Check the expiration dates on your medication bottles and discard any unused or expired medicines as soon as possible. Timely disposal of medicines can reduce the risk of others taking them accidentally or misusing the medications on purpose. \u2022 Ask your doctor or pharmacist how to safely discard expired or unneeded medications. National Institute on Aging Information Center 800-222-2225 |"
+      ],
+      "generated_answer": "Ask your doctor or pharmacist any questions you have about your medications, such as: \u2022 Why am I taking this medicine? How much medicine should I take and how often? \u2022 When will the medicine start working? How will I know if it\u2019s working?",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8602,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9581
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "tipstakemedicinessafely",
+        "retrieved_sources_normalized": [
+          "tipstakemedicinessafely"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          2
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          2,
+          3
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "tips-take-medicines-safely.pdf",
+            "chunk_id": 2
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.755,
+        "judge_seconds": 0.807
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-009",
+      "question": "What is the guidance about taking the correct dose of medicine?",
+      "topic": "medication-dose",
+      "category": "medications",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        4,
+        115
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 4
+        },
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 115
+        }
+      ],
+      "supporting_span": "do take the right dose. don't take a larger dose of a medicine, thinking it will help you more",
+      "reference_answer": "Do take the right dose. Do not take a larger dose of a medicine thinking it will help you more, and do not skip or take half doses of a prescription drug to save money. Talk with your doctor or pharmacist if you have concerns.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "tips-take-medicines-safely.pdf",
+        "tips-take-medicines-safely.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        115,
+        1,
+        3
+      ],
+      "retrieved_evidence_texts": [
+        "or more drugs than are medically necessary \u2014 called polypharmacy \u2014 is a growing concern for older adults . Some combinations of medicines and supplements make it more likely that a person will become confused or dizzy, fall and get hurt, or develop other health issues . Also, complicated regimens involving multiple drugs make it more likely that a person will miss doses or take the medicines incorrectly . As a caregiver, you can help an older person keep track of their medicines and supplements and use them safely . Worksheet: Managing Medications and Supplements, on page 65 of this guide, offers a place to record the name, dose, and frequency of every prescription drug, OTC medicine, and supplement the person is taking . You can also note any concerns that you have . Keep this list handy for yourself and other caregivers, and share it with all of the person\u2019s health care providers . Here are some additional tips for managing a person\u2019s medications: Stay Organized \u2022 Create a file. Save all the written information that comes with the",
+        "Tips for Taking Medicines Safely as You Age Medicines are intended to help us live longer and healthier lives, but taking medicines the wrong way or mixing certain drugs and supplements can be dangerous. Older adults often have multiple medical conditions and may take many medicines. The following tips can help you safely take and keep track of all your medicines. Mixing certain medicines can cause unpleasant and sometimes serious side effects. Make sure you know about all medicines and supplements you take, including: \u2022 Prescription medications \u2022 Over-the-counter (nonprescription) drugs \u2022 Vitamins Be sure your doctor and pharmacist are also aware of everything you take. Also tell your health care provider about alcohol, tobacco, and drug use. These substances can have harmful interactions with certain medications and may change the way your medicines work. Ask your doctor or pharmacist any questions you have about your medications. Possible questions include: \u2022 Why am I taking this medicine? How much medicine should I take and how often? \u2022 When will the medicine start working? How will I know if it\u2019s working?",
+        "Time(s) you take it For prescription medicines, also include the: \u2022 Name of the doctor who prescribed it \u2022 Reason it was prescribed \u2022 Dietary supplements \u2022 Herbal remedies Know What You\u2019re Taking Ask Questions About Your Medicines Keep Track of Your Medicines \u2022 Dietary supplements \u2022 Herbal remedies When you have a prescription filled, read everything on the prescription label and any paper handouts that come with the medicine. Follow the instructions carefully. Here are some dos and don\u2019ts for taking your medicines the right way: \u2022 Keep your medicines out of the reach of children and pets. If you take any prescription pain medicines (for example, morphine or codeine), keep them in a locked cabinet or drawer. \u2022 Check the expiration dates on your medication bottles and discard any unused or expired medicines as soon as possible. Timely disposal of medicines can reduce the risk of others taking them accidentally or misusing the medications on purpose. \u2022 Ask your doctor or pharmacist how to safely discard expired or unneeded medications. National Institute on Aging Information Center 800-222-2225 |"
+      ],
+      "generated_answer": "Read everything on the prescription label and any paper handouts that come with the medicine. Follow the instructions carefully.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8511,
+        "support": 1.0,
+        "coverage": 0.6667,
+        "consistency": 1.0,
+        "overall_reliability": 0.922
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "almost completely supported, only tiny unsupported wording"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook",
+          "tipstakemedicinessafely"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          4,
+          115
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          3,
+          115
+        ],
+        "supporting_span_supported": false,
+        "supporting_span_exact": false,
+        "supporting_span_coverage": 0.75,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 4
+          },
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 115
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.571,
+        "judge_seconds": 0.879
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-010",
+      "question": "What is respite care, and how long can it last?",
+      "topic": "respite",
+      "category": "caregiving",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        49
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 49
+        }
+      ],
+      "supporting_span": "respite services provide short-term care for an older adult at home, in a health care facility, or at an adult day care center",
+      "reference_answer": "Respite services provide short-term care for an older adult at home, in a health care facility, or at an adult day care center. The care may last anywhere from a few hours to several weeks at a time.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "who_icope_handbook.pdf",
+        "nia_caregivers_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        49,
+        391,
+        50
+      ],
+      "retrieved_evidence_texts": [
+        "costs . \u2022 You must pay all costs not covered by a government program or insurance . To find an adult day care center in your area, contact the National Adult Day Services Association at www.nadsa.org or 877-745-1440 . For resources in your community, visit the Eldercare Locator at https://eldercare.acl.gov or call 800-677-1116 . Respite care. Respite services provide short-term care for an older adult at home, in a health care facility, or at an adult day care center . The care may last anywhere from a few hours to several weeks at a time . These services provide regular caregivers with a break to rest, travel, or spend time with other family and friends . What to know about costs: \u2022 Respite services charge by the hour or by the number of days or weeks that services are provided . \u2022 For a person receiving hospice care, Medicare will cover most of the cost for up to five consecutive days of respite care in a hospital or skilled nursing facility . Medicaid also may provide payment assistance . T",
+        "in the form of home-based care, day care or temporary admission of the person being cared for to a care facility. Respite from caregiving may help to keep the caring relationship healthy and sustainable, and if properly organized and managed, periods away from the usual carer should not have a negative effect on the person receiving care. When caring has become too demanding, respite care should be considered. A health worker should explore whether another person can temporarily supervise and care for the older person and support this to happen. This could be another member of the family or household, or a trained social care worker, whether professional or volunteer, in the home or in a care facility. The opportunity for an older person to attend a day care centre or receive day care at home can relieve the main carer, who can then rest or carry out other activities. Day care is a type of community support service, which provides personal care (bathing, feeding, shaving, toileting), recreational and social activity programmes, meals and transportation, several hours a day for",
+        ". \u2022 For a person receiving hospice care, Medicare will cover most of the cost for up to five consecutive days of respite care in a hospital or skilled nursing facility . Medicaid also may provide payment assistance . T H E C A R E G I V E R \u2019 S H A N D B O O K \u2022 Most private health insurance plans do not cover these costs . Some long-term care insurance plans may help pay for respite care . \u2022 You must pay all costs not covered by insurance or government programs . To search for respite care programs in your area, visit the ARCH National Respite Locator at https://archrespite.org/respitelocator or call 703-256-2084 . For more resources in your community, visit the Eldercare Locator at https://eldercare.acl.gov or call 800-677-1116 . Counseling from a mental health professional. Counselors can help older adults and caregivers deal with stress they may be feeling . They can help you understand your feelings, such as anger, sadness, or feeling out of control and overwhelmed . Counselors can also help"
+      ],
+      "generated_answer": "Respite care provides short-term care for an older adult at home, in a health care facility, or at an adult day care center. The care may last anywhere from a few hours to several weeks at a time.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8524,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9557
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook",
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          49
+        ],
+        "retrieved_chunk_ids": [
+          49,
+          50,
+          391
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 49
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.684,
+        "judge_seconds": 0.761
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-011",
+      "question": "If someone is new to caregiving, what advice does the handbook give?",
+      "topic": "caregiving-start",
+      "category": "caregiving",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        8,
+        12
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 8
+        },
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 12
+        }
+      ],
+      "supporting_span": "caregiving can be overwhelming, especially at the beginning. try to tackle one task at a time",
+      "reference_answer": "Caregiving can be overwhelming, especially at the beginning. Try to tackle one task at a time. Find out as much as you can about the person's medical situation and learn about their health and treatments.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        12,
+        156,
+        1
+      ],
+      "retrieved_evidence_texts": [
+        "helpful to check in with others who see them regularly \u2014 such as neighbors, friends, doctors, or relatives \u2014 and ask these people to call you if they have any concerns . I\u2019m new to caregiving. Where do I start? Caregiving can be overwhelming, especially at the beginning . Try to tackle one task at a time . Here are some ways to get started: Find out as much as you can about the person\u2019s medical situation. Learn about the person\u2019s health and any treatments they are receiving . Knowing the details of their situation can help you understand what is going on, anticipate how an illness might change or worsen over time, and manage the person\u2019s health care . It can also make talking with the person\u2019s doctors easier and reduce the likelihood of a medical crisis . The older person may be hesitant to share their health information . They may not If you or someone you know is struggling with thoughts of suicide, a mental health or substance abuse crisis, or any other kind of emotional distress,",
+        "done, and let the other person choose what they\u2019d like to do . Worksheet: Coordinating Caregiving, on page 55 of this guide, provides a list of caregiving activities that you could divide up with others . \u2022 If someone offers to help, practice saying, \u201cThanks for asking . Here\u2019s what you can do .\u201d \u2022 Be honest about what you need and what you don\u2019t need . Not every offer is going to be helpful . \u2022 Be prepared for some people to say \u201cno,\u201d and don\u2019t take it personally . What else can I do if I\u2019m feeling overwhelmed? If you\u2019re feeling overwhelmed by caregiving, tending to your own needs may be the last thing on your mind . But taking time for yourself can actually make you a better caregiver. If you can find small ways to lower your stress and boost your mood, you\u2019ll have more strength and stamina to take care of someone else . This list provides some activities you can try . If you only have a few minutes every day, start with one",
+        "The Caregiver\u2019s Handbook A guide to getting started, finding support, and taking care of yourself Table of Contents Introduction, 2 Chapter 1: Getting Started, 5 Chapter 2: Finding the Care You Need at Home , 11 Chapter 3: Choosing a Long-Term Care Facility, 20 Chapter 4: Covering the Costs of Caregiving, 2 7 Chapter 5: Coordinating Medical Care, 33 Chapter 6: Planning Ahead , 40 Chapter 7: Caring for Yourself as a Caregiver, 47 Summary, 52 For More Information, 53 Worksheets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .55 \u201cThere are only four kinds of people in the world \u2014 those who have been caregivers, those who are currently caregivers, those who will be caregivers, and those who will need"
+      ],
+      "generated_answer": "Try to tackle one task at a time. Find out as much as you can about the person\u2019s medical situation.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.868,
+        "support": 1.0,
+        "coverage": 0.5714,
+        "consistency": 1.0,
+        "overall_reliability": 0.9175
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 0.25,
+        "reason": "The answer mostly unrelated."
+      },
+      "faithfulness": {
+        "score": 0.75,
+        "reason": "only tiny unsupported wording"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          8,
+          12
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          12,
+          156
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 8
+          },
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 12
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.561,
+        "judge_seconds": 0.802
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-012",
+      "question": "What is the grandparent scam and how can families protect themselves?",
+      "topic": "scam-awareness",
+      "category": "caregiving",
+      "expected_source_document": "nia_caregivers_handbook.pdf",
+      "expected_chunk_ids": [
+        37
+      ],
+      "target_keys": [
+        {
+          "source_document": "nia_caregivers_handbook.pdf",
+          "chunk_id": 37
+        }
+      ],
+      "supporting_span": "the grandparent scam, in which a caller pretends to be a grandchild or other relative in distress",
+      "reference_answer": "In the grandparent scam, a caller pretends to be a grandchild or other relative in distress. There are steps you can take to help protect yourself and your loved ones from scams, and you should remind your family about them.",
+      "retrieved_source_documents": [
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf",
+        "nia_caregivers_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        37,
+        38,
+        6
+      ],
+      "retrieved_evidence_texts": [
+        "\u2022 Government impersonator scams, such as someone posing as a Medicare representative asking for account information \u2022 Fake prize, sweepstakes, and lottery scams, in which you are asked to pay money or provide account information to claim winnings \u2022 Computer tech support scams, in which a scammer tells you that your computer has a problem and wants you to pay for support services to fix it \u2022 The grandparent scam, in which a caller pretends to be a grandchild or other relative in distress There are steps you can take to help protect yourself and your loved ones from scams . Remind your family and friends that they should not give out sensitive personal information over the phone or in response to an email, social media post, or text message . Sensitive information includes Social Security, bank account, and credit card numbers; PINs; and passwords . Always check incoming bills, including utility bills and credit card statements, for charges that were not authorized . One reason that scammers target older adults is that they are less likely to report suspected",
+        "card numbers; PINs; and passwords . Always check incoming bills, including utility bills and credit card statements, for charges that were not authorized . One reason that scammers target older adults is that they are less likely to report suspected fraud . If you think that an older adult in your life has been the target of a scam, contact the National Elder Fraud Hotline at 833\u2013372\u20138311 . Beware of Scams! Does the older adult forget to take their medicines? You can set an alert on a smartphone or smart home speaker to remind someone when it is time for their next dose . Special pill boxes enable you to organize pills daily for an entire week . Transportation. If the person has trouble walking, a cane or walker could help them get around more easily . If they need more assistance, think about getting an electric scooter or chair . If the person can no longer drive, neighbors or volunteers may be able to help take them to the doctor\u2019s office or run errands, such as grocery shopping .",
+        "to a friend or family member. About 1 in 4 Americans are caregivers. T H E C A R E G I V E R \u2019 S H A N D B O O K Most of the information in this guide is designed for people who are taking care of older relatives and friends . However, many grandparents and older adults are caregivers for grandchildren and other young relatives . These child care arrangements are often called grandfamilies (in the case of grandparents and grandchildren) or, more generally, kinship families . These resources can provide information and support for grandfamilies and kinship families: The Child Welfare Information Gateway This service of the Administration for Children and Families offers information, resources, and tools for kinship caregivers, including grandparents . 800-394-3366 info@childwelfare.gov | www.childwelfare.gov/topics/outofhome/kinship The National Family Caregiver Support Program This program from the Administration for Community Living provides information and assistance via state governments to family caregivers, including older relatives (not parents) age 55 and providing care to children under the age of 18 . 202-401-4634 https://acl.gov/programs/support-caregivers/national-family-caregiver- support-program Additional resources"
+      ],
+      "generated_answer": "The grandparent scam is a type of scam where a caller pretends to be a grandchild or other relative in distress, often claiming to need money for emergency expenses. To protect themselves, families should not give out sensitive personal information over the phone or in response to an email, social media post, or text message, and always verify incoming bills for unauthorized charges.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8412,
+        "support": 1.0,
+        "coverage": 0.8333,
+        "consistency": 1.0,
+        "overall_reliability": 0.9357
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "niacaregivershandbook",
+        "retrieved_sources_normalized": [
+          "niacaregivershandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          37
+        ],
+        "retrieved_chunk_ids": [
+          6,
+          37,
+          38
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "nia_caregivers_handbook.pdf",
+            "chunk_id": 37
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.838,
+        "judge_seconds": 0.789
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-013",
+      "question": "What is the WHO ICOPE handbook about?",
+      "topic": "icope",
+      "category": "who-health",
+      "expected_source_document": "who_icope_handbook.pdf",
+      "expected_chunk_ids": [
+        1,
+        2,
+        182,
+        440,
+        444,
+        46
+      ],
+      "target_keys": [
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 1
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 2
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 182
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 440
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 444
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 46
+        }
+      ],
+      "supporting_span": "integrated care for older people (ICOPE): guidance for person-centred assessment and pathways in primary care",
+      "reference_answer": "The WHO ICOPE handbook, 'Integrated care for older people', provides guidance for person-centred assessment and pathways in primary care.",
+      "retrieved_source_documents": [
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        46,
+        1,
+        440
+      ],
+      "retrieved_evidence_texts": [
+        "relatives, friends Understand the older person's life, values, priorities and socioeconomic context for loss of intrinsic capacity for key factors in older people's health (social support, support for carers, urinary incontinence) provide health and lifestyle advice and promote self-care Before the assessment: An integrated care plan, developed with the older person Coordinated implementation and follow up by a multidisciplinary team Integrated care for older people 1.4 Integrated care for older people: guidance for person- centred assessment and pathways in primary care (ICOPE handbook), second edition This second edition of the ICOPE handbook in primary care incorporates learning from the implementation of integrated care for older people in diverse contexts around the world and relevant new or updated guidelines produced by WHO. The ICOPE handbook (second edition) has been developed in collaboration with experts in healthy ageing and the care of older people through WHO\u2019s Clinical Consortium on Healthy Ageing (CCHA) and with colleagues across a range of technical units and regions in WHO. Inputs were sought through field experiences as well as meetings of the CCHA, primarily the 2023 meeting,",
+        "Guidance for person-centred assessment and pathways in primary care Second edition handbook Integrated care for older people i Guidance for person-centred assessment and pathways in primary care Second edition handbook Integrated care for older people Integrated care for older people (ICOPE): guidance for person-centred assessment and pathways in primary care, second edition ISBN 978-92-4-010372-6 (electronic version) ISBN 978-92-4-010373-3 (print version) \u00a9 World Health Organization 2024 Some rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). Under the terms of this licence, you may copy, redistribute and adapt the work for non-commercial purposes, provided the work is appropriately cited, as indicated below. In any use of this work, there should be no suggestion that WHO endorses any specific organization, products or services. The use of the WHO logo is not permitted. If you adapt the work, then you must license your work under the same or equivalent Creative Commons licence. If you create a translation of this work, you should add the following disclaimer along with the suggested citation: \u201cThis translation",
+        "as part of a broader monitoring and evaluation of healthy ageing, guided by the WHO framework and indicators for measuring the progress and impact of the UN Decade of Healthy Ageing (2021-2030). MORE INFORMATION \u0007Evidence, policy, impact: WHO guide for evidence- informed decision-making. WHO; 2021 (https://iris.who.int/handle/10665/350994). \u0007Integrated care for older people (ICOPE) implementation framework: guidance for systems and services. WHO; 2019 (https://iris.who.int/ handle/10665/325669). \u0007Long-term care for older people: package for universal health coverage. WHO; 2024 (https://iris. who.int/handle/10665/376585). \u0007Operational framework for primary health care: transforming vision into action. WHO and UNICEF; 2020 (https://iris.who.int/handle/10665/337641). \u0007WHO guideline on health policy and system support to optimize community health worker programmes. WHO; 2018 (https://iris.who.int/handle/10665/275474). Implementation considerations for ICOPE Ageist assumptions that older people cannot or do not want to use digital technology should be tackled. Within the context of PHC, countries will need to assess gaps, determine priorities, establish baselines and targets, and track progress and performance towards UHC across their health and social care systems. References 1. World report on ageing and health. Geneva: World Health Organization; 2015 (https://iris.who.int/handle/10665/186463). Licence: CC BY-NC-SA 3.0 IGO."
+      ],
+      "generated_answer": "The WHO ICOPE handbook is about guidance for person-centred assessment and pathways in primary care, specifically integrated care for older people.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8569,
+        "support": 0.6667,
+        "coverage": 0.6667,
+        "consistency": 1.0,
+        "overall_reliability": 0.8571
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "whoicopehandbook",
+        "retrieved_sources_normalized": [
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1,
+          2,
+          46,
+          182,
+          440,
+          444
+        ],
+        "retrieved_chunk_ids": [
+          1,
+          46,
+          440
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 1
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 2
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 182
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 440
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 444
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 46
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.671,
+        "judge_seconds": 0.845
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-014",
+      "question": "What are key ICOPE care pathways in primary care?",
+      "topic": "icope-pathways",
+      "category": "who-health",
+      "expected_source_document": "who_icope_handbook.pdf",
+      "expected_chunk_ids": [
+        4,
+        5,
+        184,
+        185,
+        186,
+        145
+      ],
+      "target_keys": [
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 4
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 5
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 184
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 185
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 186
+        },
+        {
+          "source_document": "who_icope_handbook.pdf",
+          "chunk_id": 145
+        }
+      ],
+      "supporting_span": "care pathway to manage cognitive decline, care pathway to improve mobility, care pathway to manage malnutrition",
+      "reference_answer": "The ICOPE care pathway includes pathways to manage cognitive decline, improve mobility, manage malnutrition, manage vision impairment, manage hearing loss, manage depressive symptoms, and care pathways for social support.",
+      "retrieved_source_documents": [
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf",
+        "who_icope_handbook.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        145,
+        72,
+        140
+      ],
+      "retrieved_evidence_texts": [
+        "person and any carers or relatives present. The ICOPE care pathway in primary care | Implement and monitor the personalized care plan Key points \u0007Successful implementation of the ICOPE care pathway in primary care requires the engagement of a range of different stakeholders across the health and social care sectors and the community. \u0007Older people\u2019s meaningful engagement and empowering carers are key enablers across all steps of the ICOPE care pathway. \u0007Community stakeholders should be meaningfully engaged and appropriately supported in the delivery of integrated care for older people. \u0007Where referral to specialized care is needed, coordination and collaboration among health workers is important. \u0007Cross-cutting services and support in response to losses across multiple domains of intrinsic capacity should be provided in a holistic and integrated way. Implementation of the ICOPE care pathway in primary care requires the engagement of a range of stakeholders and collaboration and coordination across sectors and services. A number of factors, focused on who should be involved, what services will be needed and how they could be delivered should be considered when planning to implement",
+        "and should be meaningfully engaged and appropriately supported to do so. The four-step pathway in primary care includes basic assessment and interventions in the community; in-depth assessment; developing a personalized care plan; and implementing and monitoring the plan. Primary care is a key process in the health system that supports first-contact care, often provided in primary care facilities (e.g. walk-in clinics, polyclinics), homes, community health centres, health posts, mobile clinics and through outreach services. Primary care enables the continued provision of person- centred integrated care within close proximity to people\u2019s daily lives. The steps of this ICOPE care pathway in primary care can be implemented in any of these settings, and can often be delivered with community stakeholders. Person-centred care takes the perspective that older people are individuals with unique needs and preferences within their specific social contexts. Their care goes beyond managing their diseases or health conditions to responding to their diverse needs, including their need for LTC, embracing their choices and experiences. It also addresses the impact older people\u2019s health conditions and care needs have on their family",
+        "to identify possible side-effects or unanticipated consequences of the intervention. \u2022 Repeating the basic and/or in-depth assessment and documenting any changes. \u2022 Summarizing outcomes, barriers and complications of implementing the interventions. \u2022 Identifying changes and new needs. \u2022 Adapting the care plan as required. The ICOPE care pathway in primary care | Implement and monitor the personalized care plan Monitoring the implementation of the care plan and regular reassessment with the older person are vital for achieving agreed goals. 3.5 Communication skills Across all steps of the ICOPE care pathway in primary care, effective communication by health workers and community stakeholders is key to ensuring the successful delivery of a person-centred continuum of integrated care. Health workers conducting an in-depth assessment and developing a care plan will need to take their time to properly engage with the older person in order to build trust. To enable this to happen, an appropriate environment is needed that is conducive to the older person feeling able to be open about any challenges they may have and their preferences, choices and goals. There are"
+      ],
+      "generated_answer": "Key steps of the ICOPE care pathway in primary care include: \n\n1. Basic assessment and interventions in the community \n2. In-depth assessment \n3. Developing a personalized care plan \n4. Implementing and monitoring the plan",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.9267,
+        "support": 1.0,
+        "coverage": 0.8,
+        "consistency": 1.0,
+        "overall_reliability": 0.958
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "The answer directly and completely addresses the question."
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "whoicopehandbook",
+        "retrieved_sources_normalized": [
+          "whoicopehandbook"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          4,
+          5,
+          145,
+          184,
+          185,
+          186
+        ],
+        "retrieved_chunk_ids": [
+          72,
+          140,
+          145
+        ],
+        "supporting_span_supported": false,
+        "supporting_span_exact": false,
+        "supporting_span_coverage": 0.4615,
+        "target_keys": [
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 4
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 5
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 184
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 185
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 186
+          },
+          {
+            "source_document": "who_icope_handbook.pdf",
+            "chunk_id": 145
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.677,
+        "judge_seconds": 0.799
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-015",
+      "question": "What is the overall message of the Dietary Guidelines for Americans 2020-2025?",
+      "topic": "dietary-guidelines",
+      "category": "nutrition",
+      "expected_source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+      "expected_chunk_ids": [
+        1,
+        3,
+        17,
+        27,
+        69,
+        70,
+        75,
+        171,
+        172,
+        383
+      ],
+      "target_keys": [
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 1
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 3
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 17
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 27
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 69
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 70
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 75
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 171
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 172
+        },
+        {
+          "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+          "chunk_id": 383
+        }
+      ],
+      "supporting_span": "make every bite count",
+      "reference_answer": "The Dietary Guidelines for Americans 2020-2025 message is 'Make Every Bite Count.'",
+      "retrieved_source_documents": [
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+        "Dietary_Guidelines_for_Americans_2020-2025.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        17,
+        35,
+        22
+      ],
+      "retrieved_evidence_texts": [
+        "the Dietary Guidelines, we hope Americans can find ways to \u201cStart Simple\u201d and incorporate modest changes each day that push Americans closer to meeting the recommendations. It\u2019s more important than ever to make healthy eating a priority in the United States. With the release of the Dietary Guidelines for Americans, 2020-2025, we have an important call to action for you as health professionals and policymakers. We are asking you to help the public \u201cmake every bite count with the Dietary Guidelines for Americans.\u201d Help people make food and beverage choices that are rich in nutrition\u2014individual choices that can become a healthy routine over time, choices they can enjoy in good health for many years to come. Thank you for all you do to help Americans make strides toward aligning closer to the Dietary Guidelines as we all work together to help the public lead healthier lives. /Sonny Perdue/ Sonny Perdue Secretary, U.S. Department of Agriculture /Alex M. Azar II/ Alex M. Azar II Secretary, U.S. Department of Health and Human Services Dietary Guidelines for Americans, 2020-2025 \u2014 Page vi Acknowledgments",
+        "for Americans, 2020-2025 | Introduction | Page 2 Introduction Dietary Guidelines for Americans, 2020-2025 | Introduction | Page 2 Page 3 Dietary Guidelines for Americans, 2020-2025 | Introduction Setting the Stage T he foods and beverages that people consume have a profound impact on their health. The scientific connection between food and health has been well documented for many decades, with substantial evidence showing that healthy dietary patterns can help people achieve and maintain good health and reduce the risk of chronic diseases throughout all stages of the lifespan. Yet, Federal data show that from the first edition of the Dietary Guidelines for Americans in 1980 through today, Americans have fallen far short of meeting its recommendations, and diet-related chronic disease rates have risen to pervasive levels and continue to be a major public health concern. The Dietary Guidelines is an important part of a complex, multifaceted approach to promote health and reduce chronic disease risk. The Dietary Guidelines provides science-based advice on what to eat and drink to promote health, help reduce risk of chronic disease, and meet nutrient",
+        "and guidelines for the general public. The statute (Public Law 101-445, 7 United States Code 5341 et seq.) requires that the Dietary Guidelines be based on the preponderance of current scientific and medical knowledge. The 2020-2025 edition of the Dietary Guidelines builds from the 2015 edition, with revisions grounded in the Scientific Report of the 2020 Dietary Guidelines Advisory Committee and consideration of Federal agency and public comments. The Dietary Guidelines is designed for policymakers and nutrition and health professionals to help all individuals and their families consume a healthy, nutritionally adequate diet. The information in the Dietary Guidelines is used to develop, implement, and evaluate Federal food, nutrition, and health policies Dietary Guidelines for Americans, 2020-2025 | Executive Summary | Page viii and programs. It also is the basis for Federal nutrition education materials designed for the public and for the nutrition education components of USDA and HHS nutrition programs. State and local governments, schools, the food industry, other businesses, community groups, and media also use Dietary Guidelines information to develop programs, policies, and communication for the general public."
+      ],
+      "generated_answer": "Make healthy eating a priority in the United States to promote health and reduce chronic disease risk.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.9158,
+        "support": 1.0,
+        "coverage": 0.6,
+        "consistency": 1.0,
+        "overall_reliability": 0.9347
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "short explanation"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "dietaryguidelinesforamericans20202025",
+        "retrieved_sources_normalized": [
+          "dietaryguidelinesforamericans20202025"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          1,
+          3,
+          17,
+          27,
+          69,
+          70,
+          75,
+          171,
+          172,
+          383
+        ],
+        "retrieved_chunk_ids": [
+          17,
+          22,
+          35
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 1
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 3
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 17
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 27
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 69
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 70
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 75
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 171
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 172
+          },
+          {
+            "source_document": "Dietary_Guidelines_for_Americans_2020-2025.pdf",
+            "chunk_id": 383
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.55,
+        "judge_seconds": 0.778
+      },
+      "error": null
+    },
+    {
+      "id": "GQ-016",
+      "question": "How can physical activity help older adults manage type 2 diabetes?",
+      "topic": "diabetes-exercise",
+      "category": "exercise",
+      "expected_source_document": "exercise-and-older-adults-nia.pdf",
+      "expected_chunk_ids": [
+        19
+      ],
+      "target_keys": [
+        {
+          "source_document": "exercise-and-older-adults-nia.pdf",
+          "chunk_id": 19
+        }
+      ],
+      "supporting_span": "physical activity can help older adults manage type 2 diabetes and stay healthy longer",
+      "reference_answer": "Physical activity can help older adults manage type 2 diabetes and stay healthy longer. It improves blood glucose levels, can prevent or slow risk factors that contribute to the disease getting worse, and helps protect against the leading cause of death related to the disease.",
+      "retrieved_source_documents": [
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf",
+        "exercise-and-older-adults-nia.pdf"
+      ],
+      "retrieved_chunk_ids": [
+        19,
+        4,
+        14
+      ],
+      "retrieved_evidence_texts": [
+        "prevent falls and fractures. Weight-bearing exercises, such as walking, climbing stairs, or dancing, produce a force on bones that makes them work harder. Including muscle-strengthening and balance exercises is beneficial, too. Type 2 Diabetes Physical activity can help older adults manage type 2 diabetes and stay healthy longer. It improves blood glucose levels, can prevent or slow risk factors that contribute to the disease getting worse, and helps protect against the leading cause of death in people with type 2 diabetes \u2014 cardiovascular diseases such as heart disease and stroke. Aim for at least 150 minutes a week of moderate-intensity aerobic activity, plus two days a week of muscle-strengthening activity. Set a goal to be active most days of the week and create a plan that fits into your life. Your health care team can help. People exercising with diabetes must be especially careful about monitoring their blood glucose, choosing appropriate footwear, and avoiding injury to their feet. Sidney\u2019s Story About five years ago, Sidney had triple bypass surgery. He didn\u2019t exercise much before his surgery, but knew he needed",
+        "and death caused by it \u2022 High blood pressure \u2022 Type 2 diabetes \u2022 High cholesterol \u2022 Obesity \u2022 Cancers of the bladder, breast, colon, endometrium, esophagus, kidney, lung, and stomach \u2022 Dementia (including Alzheimer\u2019s disease) \u2022 Depression Being active can also help to slow or manage chronic disease and to delay death. For older adults who are managing a diagnosis, exercising with chronic conditions can improve quality of life and reduce the risk of developing new health conditions. Mental and Emotional Health Physical activity supports emotional and mental health in addition to physical health. Physical activity can help reduce feelings of depression and anxiety, improve sleep, and benefit overall emotional well-being. It may also improve or maintain some aspects of cognitive function, such as memory, attention, and ability to shift quickly between tasks. Older adults who exercise with others get the added benefit of social connection as well. Marie and Carl\u2019s Story Marie joined a water aerobics class at the fitness center near her home. At age 66, she now has more energy than ever and can move more",
+        "at any age, can do some type of physical activity, even with a chronic condition. In fact, older adults with chronic conditions can benefit from physical activity. For most people, moderate-intensity activities (such as brisk walking, riding a bike, swimming, weightlifting, and gardening) are safe, especially if you build up slowly. Talk with a doctor about your health condition and create a physical activity plan that works for you. Below, you\u2019ll find physical activity guidance for people with certain chronic conditions. Alzheimer\u2019s Disease and Related Dementias Physical activity reduces the risk of health conditions that can contribute to age-related cognitive decline and may help delay or slow it. In people with Alzheimer\u2019s and related dementias, physical activity may improve some aspects of mental processing. It can also help them feel better, maintain a healthy weight, and have regular toilet and sleep habits. Older adults with mild cognitive impairment might be able to exercise the same way as someone without cognitive impairment, whereas people with dementia may need assistance from a caregiver. If you are a caregiver, try exercising together and"
+      ],
+      "generated_answer": "Physical activity can help older adults manage type 2 diabetes by improving blood glucose levels, preventing or slowing risk factors that contribute to the disease getting worse, and protecting against cardiovascular diseases such as heart disease and stroke.",
+      "reliability": {
+        "authority": 1.0,
+        "relevance": 0.8969,
+        "support": 1.0,
+        "coverage": 1.0,
+        "consistency": 1.0,
+        "overall_reliability": 0.9691
+      },
+      "adaptive_decision": "ACCEPT",
+      "answer_relevance": {
+        "score": 1.0,
+        "reason": "directly answers the question with a clear and complete explanation of how physical activity can help older adults manage type 2 diabetes"
+      },
+      "faithfulness": {
+        "score": 1.0,
+        "reason": "all information supported by retrieved evidence"
+      },
+      "grounding": {
+        "source_retrieval_correct": true,
+        "expected_source_normalized": "exerciseandolderadultsnia",
+        "retrieved_sources_normalized": [
+          "exerciseandolderadultsnia"
+        ],
+        "chunk_recall": true,
+        "expected_chunk_ids": [
+          19
+        ],
+        "retrieved_chunk_ids": [
+          4,
+          14,
+          19
+        ],
+        "supporting_span_supported": true,
+        "supporting_span_exact": true,
+        "supporting_span_coverage": 1.0,
+        "target_keys": [
+          {
+            "source_document": "exercise-and-older-adults-nia.pdf",
+            "chunk_id": 19
+          }
+        ]
+      },
+      "timings": {
+        "generation_seconds": 0.669,
+        "judge_seconds": 0.957
+      },
+      "error": null
+    }
+  ]
+}
